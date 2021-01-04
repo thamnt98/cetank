@@ -53,8 +53,6 @@ border-top: 2px solid <?php echo $color; ?>;}
 .blog-post blockquote,.single-service-content blockquote {
 border-left: 5px solid <?php echo $color; ?>;
 }
-#expert-loader {
-}
 .email-submit-btn .btn-white{
 background: #fff !important;
 }

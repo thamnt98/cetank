@@ -225,9 +225,7 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
     /* ---------------------------------------------
       jQuery Site Preloaded animation
      --------------------------------------------- */
-    $(window).on('load', function() {
-       $("#expert-loader").fadeOut(300);
-    });
+  
 
 })(jQuery);
 

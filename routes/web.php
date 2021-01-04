@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/', 'HomeController@getIndex')->name('home');
+Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login.post');
+Route::get('admin-dashboard', 'DashboardController@getDashboard')->name('dashboard');
+Auth::routes();
