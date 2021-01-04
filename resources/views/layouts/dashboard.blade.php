@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{{ $site_title }} | {{ $page_title }}</title>
+    <title>Dashboard</title>
     <!--[if lt IE 10]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -34,11 +34,11 @@
 </head>
 <body>
 
-<div class="theme-loader">
+{{-- <div class="theme-loader">
     <div class="loader-track">
         <div class="loader-bar"></div>
     </div>
-</div>
+</div> --}}
 
 <div id="pcoded" class="pcoded">
     <div class="pcoded-overlay-box"></div>
@@ -50,7 +50,7 @@
                         <i class="ti-menu"></i>
                     </a>
                     <a href="{{ route('home') }}">
-                        <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="{{ $site_title }}" style="width: 180px;" />
+                        <img class="img-fluid" src="{{ asset('images/logo.png') }}" style="width: 180px;" />
                     </a>
                     <a class="mobile-options">
                         <i class="ti-more"></i>
@@ -75,19 +75,18 @@
                                 <i class="ti-angle-down"></i>
                             </a>
                             <ul class="show-notification profile-notification">
-
                                 <li>
-                                    <a href="{{ route('edit-profile') }}">
+                                    <a href="">
                                         <i class="ti-user"></i> Profile
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin-change-password') }}">
+                                    <a href="">
                                         <i class="ti-pencil-alt"></i> Change Password
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.logout') }}">
+                                    <a href="">
                                         <i class="ti-share"></i> Logout
                                     </a>
                                 </li>
@@ -120,14 +119,14 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class="{{ Request::is('admin/signal-create') ? 'active' : '' }}">
-                                        <a href="{{ route('signal-create') }}">
+                                        <a href="">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">New Signal</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class="{{ Request::is('admin/signal-all') ? 'active' : '' }}">
-                                        <a href="{{ route('signal-all') }}">
+                                        <a href="">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">All Signal</span>
                                             <span class="pcoded-mcaret"></span>
@@ -136,23 +135,23 @@
                                 </ul>
                             </li>
 
-                            <li class="{{ Request::is('admin/manage-asset') ? 'active' : '' }}">
+                            {{-- <li class="{{ Request::is('admin/manage-asset') ? 'active' : '' }}">
                                 <a href="{{ route('manage-asset') }}">
                                     <span class="pcoded-micon"><i class="ti-layout-grid2"></i><b>D</b></span>
                                     <span class="pcoded-mtext">Manage Assets</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
-                            </li>
+                            </li> --}}
 
-                            <li class="{{ Request::is('admin/manage-symbol') ? 'active' : '' }}">
+                            {{-- <li class="{{ Request::is('admin/manage-symbol') ? 'active' : '' }}">
                                 <a href="{{ route('manage-symbol') }}">
                                     <span class="pcoded-micon"><i class="ti-layout-grid2"></i><b>D</b></span>
                                     <span class="pcoded-mtext">Manage Symbol</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
-                            </li>
+                            </li> --}}
 
-                            <li class="{{ Request::is('admin/manage-type') ? 'active' : '' }}">
+                            {{-- <li class="{{ Request::is('admin/manage-type') ? 'active' : '' }}">
                                 <a href="{{ route('manage-type') }}">
                                     <span class="pcoded-micon"><i class="ti-layout-grid2"></i><b>D</b></span>
                                     <span class="pcoded-mtext">Manage Type</span>
@@ -198,7 +197,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
 
                             <li class="pcoded-hasmenu @if(Request::is('admin/post-create') or Request::is('admin/post-all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
                                 <a href="javascript:void(0)">
@@ -208,14 +207,14 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class="{{ Request::is('admin/post-create') ? 'active' : '' }}">
-                                        <a href="{{ route('post-create') }}">
+                                        <a href="">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">New Blog</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class="{{ Request::is('admin/post-all') ? 'active' : '' }}">
-                                        <a href="{{ route('post-all') }}">
+                                        <a href="">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">All Blog</span>
                                             <span class="pcoded-mcaret"></span>
@@ -224,13 +223,13 @@
                                 </ul>
                             </li>
                             <li class="{{ Request::is('admin/manage-category') ? 'active' : '' }}">
-                                <a href="{{ route('manage-category') }}">
+                                <a href="">
                                     <span class="pcoded-micon"><i class="ti-layout-grid2"></i><b>D</b></span>
                                     <span class="pcoded-mtext">Blog Category</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('admin/speciality-control') ? 'active' : '' }}">
+                            {{-- <li class="{{ Request::is('admin/speciality-control') ? 'active' : '' }}">
                                 <a href="{{ route('speciality-control') }}">
                                     <span class="pcoded-micon"><i class="ti-package"></i><b>D</b></span>
                                     <span class="pcoded-mtext">Manage Speciality</span>
@@ -481,16 +480,16 @@
                                     <span class="pcoded-mtext">Manage Slider</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="{{ Request::is('admin/menu-control') ? 'active' : '' }}">
-                                <a href="{!! route('menu-control') !!}">
+                                <a href="">
                                     <span class="pcoded-micon"><i class="fa fa-rss"></i><b>MM</b></span>
                                     <span class="pcoded-mtext">Manage Menu</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                             </li>
 
-                            <li class="pcoded-hasmenu @if(Request::is('admin/member-create') or Request::is('admin/member-all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
+                            {{-- <li class="pcoded-hasmenu @if(Request::is('admin/member-create') or Request::is('admin/member-all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="fa fa-users"></i><b>IM</b></span>
                                     <span class="pcoded-mtext">Team Member</span>
@@ -512,9 +511,9 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
 
-                            <li class="pcoded-hasmenu @if(Request::is('admin/testimonial-create') or Request::is('admin/testimonial-all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
+                            {{-- <li class="pcoded-hasmenu @if(Request::is('admin/testimonial-create') or Request::is('admin/testimonial-all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="fa fa-desktop"></i><b>I</b></span>
                                     <span class="pcoded-mtext">Manage Testimonial</span>
@@ -536,9 +535,9 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
 
-                            <li class="{{ Request::is('admin/manage-terms') ? 'active' : '' }}">
+                            {{-- <li class="{{ Request::is('admin/manage-terms') ? 'active' : '' }}">
                                 <a href="{!! route('manage-terms') !!}">
                                     <span class="pcoded-micon"><i class="fa fa-quote-left"></i><b>TC</b></span>
                                     <span class="pcoded-mtext">Term & Condition</span>
@@ -551,9 +550,9 @@
                                     <span class="pcoded-mtext">Privacy & Policy</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
-                        <div class="pcoded-navigation-label">Manage Section</div>
+                        {{-- <div class="pcoded-navigation-label">Manage Section</div>
                         <ul class="pcoded-item pcoded-left-item">
                             <li class="pcoded-hasmenu
                             @if(Request::is('admin/speciality-section') or Request::is('admin/subscriber-section') or Request::is('admin/provider-section') or Request::is('admin/trading-section') or Request::is('admin/currency-section') or Request::is('admin/team-section') or Request::is('admin/blog-section') or Request::is('admin/testimonial-section') or Request::is('admin/plan-section') or Request::is('admin/counter-section') or Request::is('admin/about-section') or Request::is('admin/plan-section') ) active pcoded-trigger @endif" dropdown-icon="style3" subitem-icon="style7">
@@ -571,7 +570,7 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li class="{{ Request::is('admin/currency-section') ? 'active' : '' }}">
+                                    {{-- <li class="{{ Request::is('admin/currency-section') ? 'active' : '' }}">
                                         <a href="{{ route('currency-section') }}">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">Currency Section</span>
@@ -591,15 +590,15 @@
                                             <span class="pcoded-mtext">Plan Section</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                    </li>
-                                    <li class="{{ Request::is('admin/about-section') ? 'active' : '' }}">
-                                        <a href="{{ route('about-section') }}">
+                                    </li> --}}
+                                    {{-- <li class="{{ Request::is('admin/about-section') ? 'active' : '' }}">
+                                        <a href="">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">About Section</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                    </li>
-                                    <li class="{{ Request::is('admin/advertise-section') ? 'active' : '' }}">
+                                    </li> --}}
+                                    {{-- <li class="{{ Request::is('admin/advertise-section') ? 'active' : '' }}">
                                         <a href="{{ route('advertise-section') }}">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">Advertise Section</span>
@@ -640,9 +639,8 @@
                                             <span class="pcoded-mtext">Team Section</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                    </li>
-
-                                </ul>
+                                    </li> --}}
+                                {{-- </ul> --}}
                             </li>
                         </ul>
                     </div>
