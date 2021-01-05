@@ -69,7 +69,7 @@
                                                 </button>
                                             @endif
 
-                                            <a href="{{ route('post-edit' , $p->id) }}"
+                                            <a href="{{ route('post.edit' , $p->id) }}"
                                                class="btn btn-sm btn-primary bold uppercase" title="Edit"><i
                                                         class="fa fa-edit"></i> </a>
 
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <form method="post" class="form-inline" action="{{ route('post-delete') }}">
+                    <form method="post" class="form-inline" action="{{ route('post.delete') }}">
                         {!! csrf_field() !!}
                         <input type="hidden" name="id" class="abir_id" value="0">
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
@@ -141,7 +141,7 @@
                     <strong>Are you sure you want to Change Publication Status ?</strong>
                 </div>
                 <div class="modal-footer">
-                    <form method="post" action="" class="form-inline">
+                    <form method="post" action="{{ route('post.publish') }}"  class="form-inline">
                         {!! csrf_field() !!}
                         <input type="hidden" name="id" class="confirm_id" value="0">
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>

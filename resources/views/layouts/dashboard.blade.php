@@ -199,22 +199,22 @@
                                 </ul>
                             </li> --}}
 
-                            <li class="pcoded-hasmenu @if(Request::is('admin/post-create') or Request::is('admin/post-all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
+                            <li class="pcoded-hasmenu @if(Request::is('admin/post/create') or Request::is('admin/post/all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="fa fa-newspaper-o"></i><b>MB</b></span>
                                     <span class="pcoded-mtext">Manage Blog</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                                 <ul class="pcoded-submenu">
-                                    <li class="{{ Request::is('admin/post-create') ? 'active' : '' }}">
-                                        <a href="">
+                                    <li class="{{ Request::is('admin/post/create') ? 'active' : '' }}">
+                                        <a href="{{ route('post.create') }}">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">New Blog</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li class="{{ Request::is('admin/post-all') ? 'active' : '' }}">
-                                        <a href="{{ route('post-all') }}">
+                                    <li class="{{ Request::is('admin/post/all') ? 'active' : '' }}">
+                                        <a href="{{ route('post.all') }}">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">All Blog</span>
                                             <span class="pcoded-mcaret"></span>

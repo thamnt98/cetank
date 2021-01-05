@@ -75,11 +75,77 @@ class PostController extends Controller
             'id' => 'required'
         ]);
         $testimonial = Post::findOrFail($request->id);
-        File::delete(('images/post'). '/' .$testimonial->image);
+        File::delete(('images/post') . '/' . $testimonial->image);
         $testimonial->delete();
         session()->flash('message', 'Post Deleted Successfully.');
         Session::flash('type', 'success');
-        Session::flash('title', 'Success'); 
+        Session::flash('title', 'Success');
+        return redirect()->back();
+    }
+
+
+    public function publish(Request $request)
+    {
+        $request->validate([
+            'id' => 'required'
+        ]);
+        $data = Post::findOrFail($request->id);
+        if ($data->status == 1) {
+            $data->status = 0;
+            $data->save();
+
+            session()->flash('message', 'Post Unpublish Successfully.');
+            Session::flash('type', 'success');
+            Session::flash('title', 'Success');
+        } else {
+            $data->status = 1;
+            $data->save();
+
+            session()->flash('message', 'Post Publish Successfully.');
+            Session::flash('type', 'success');
+            Session::flash('title', 'Success');
+        }
+        return redirect()->back();
+    }
+
+    public function create()
+    {
+        $data['category'] = Category::whereStatus(1)->get();
+        $data['page_title'] = "Create New Post";
+        $data['basic'] = Section::first();
+        return view('post.create', $data);
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|max:60|unique:posts,title',
+            'category' => 'required',
+            'image' => 'required|mimes:png,jpeg,jpg',
+            'tags' => 'required',
+            'description' => 'required',
+        ]);
+
+        $data['user_id'] = $request->userId;
+        $data['category_id'] = $request->category;
+        $data['title'] = $request->title;
+        $data['slug'] = Str::slug($request->title);
+        $data['tags'] = $request->tags;
+        $data['description'] = $request->description;
+        $data['fetured'] =  $request->fetured == 'on' ? '1' : '0';
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = Str::random(20);
+            $ext = strtolower($image->getClientOriginalExtension());
+            $image_full_name = $image_name . '.' . $ext;
+            $location = ('images/post') . '/' . $image_full_name;
+            Image::make($image)->resize(800, 540)->save($location);
+            $data['image'] = $image_full_name;
+        }
+
+        Post::create($data);
+        session()->flash('message', 'Post Created Successfully.');
+        Session::flash('type', 'success');
+        Session::flash('title', 'Success');
         return redirect()->back();
     }
 }

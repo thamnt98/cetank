@@ -20,8 +20,13 @@ Route::get('admin-dashboard', 'DashboardController@getDashboard')->name('dashboa
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('post-all', 'PostController@index')->name('post-all');
-    Route::get('post-edit/{id}', ['as' => 'post-edit', 'uses' => 'PostController@edit']);
-    Route::post('post-update', ['as' => 'post-update', 'uses' => 'PostController@update']);
-    Route::post('post-delete', 'PostController@destroy')->name('post-delete');
+    Route::group(['prefix' => 'post'], function () {
+        Route::get('all', 'PostController@index')->name('post.all');
+        Route::get('edit/{id}', 'PostController@edit')->name('post.edit');
+        Route::post('update', 'PostController@update')->name('post.update');
+        Route::post('delete', 'PostController@destroy')->name('post.delete');
+        Route::post('publish', 'PostController@publish')->name('post.publish');
+        Route::get('create', 'PostController@create')->name('post.create');
+        Route::post('store', 'PostController@store')->name('post.store');
+    });
 });

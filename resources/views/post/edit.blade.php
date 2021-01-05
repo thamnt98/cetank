@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="card-block">
-                    <form action="{{route('post-update')}}" method="post" role="form" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{route('post.update')}}" method="post" role="form" class="form-horizontal" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-body">
                         <div class="row">
