@@ -22,7 +22,6 @@ class HomeController extends Controller
     public function getIndex()
     {
         $data['page_title'] = "Home Page";
-        $data['slider'] = Slider::all();
         $data['category'] = Category::whereStatus(1)->get();
         $data['testimonial'] = Testimonial::all();
         $data['member'] = Member::all();

@@ -118,7 +118,6 @@
             </div>
         </div>
     </header>
-    @yield('slider')
     <section class="content">
 
         @yield('content')

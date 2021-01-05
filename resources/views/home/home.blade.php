@@ -1,27 +1,4 @@
 @extends('layouts.frontEnd')
-@section('slider')
-    <div class="slider-area clearfix">
-        <div id="expert-slider">
-            @foreach($slider as $s)
-                <div class="expert-single-slide" style="background-image: url('{{ asset('images/slider') }}/{{$s->image}}');">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="slide-content-wrapper">
-                                    <div class="slide-content text-left">
-                                        <h3 class="slide-subtitle colored-text" data-animation="fadeInLeft" data-delay="0.5s">{{ $s->main_title }}</h3>
-                                        <h2 class="slide-title colored-text" data-animation="fadeInUp" data-delay="1s">{{ $s->sub_title }}</h2>
-                                        <p class="slide-description colored-text" data-animation="fadeInDown" data-delay="1.5s">{{ $s->slider_text }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-@endsection
 @section('content')
     <div class="expert-section">
         <div class="container">
