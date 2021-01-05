@@ -214,7 +214,7 @@
                                         </a>
                                     </li>
                                     <li class="{{ Request::is('admin/post-all') ? 'active' : '' }}">
-                                        <a href="">
+                                        <a href="{{ route('post-all') }}">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext">All Blog</span>
                                             <span class="pcoded-mcaret"></span>
