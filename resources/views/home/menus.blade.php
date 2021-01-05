@@ -1,7 +1,7 @@
 @extends('layouts.frontEnd')
 @section('content')
 
-    <div class="expert-section gray-bg breadcrumb-area" style="background: url('{{ asset('assets/images') }}/{{ $basic->breadcrumb }}');">
+    <div class="expert-section gray-bg breadcrumb-area" style="background: url('{{ asset('images') }}/{{ $basic->breadcrumb }}');">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
@@ -36,8 +36,4 @@
             </div>
         </div>
     </div>
-
-
-
-
 @endsection

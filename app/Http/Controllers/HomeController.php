@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BasicSetting;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Category;
@@ -40,5 +41,18 @@ class HomeController extends Controller
         $data['section'] = Section::first();
         $data['basic'] = Section::first();
         return view('home.home', $data);
+    }
+
+    public function getMenu($id, $slug)
+    {
+        $data['men'] = Menu::whereId($id)->first();
+        $data['page_title'] = $data['men']->name;
+        $data['menus'] = Menu::all();
+        $data['social'] = Social::all();
+        $data['basic'] = BasicSetting::first();
+        $data['category'] = Category::whereStatus(1)->get();
+        $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
+        $data['footer_blog'] = Post::orderBy('views', 'desc')->take(7)->get();
+        return view('home.menus', $data);
     }
 }
