@@ -58,16 +58,10 @@
 
 @endsection
 @section('scripts')
-<script src="{{ asset('assets/admin/js/nicEdit.js') }}"></script>
+<script src="{{ asset('admin/js/nicEdit.js') }}"></script>
 <script type="text/javascript">
-    bkLib.onDomLoaded(function () {
-        new nicEditor({
-            fullPanel: true,
-            iconsPath: '{{ asset('
-            assets / admin / js / nicEditorIcons.gif ') }}'
-        }).panelInstance('area1');
-    });
-
-</script>
-
+        bkLib.onDomLoaded(function() {
+            new nicEditor({fullPanel : true,iconsPath : '{{ asset('admin/js/nicEditorIcons.gif') }}'}).panelInstance('area1');
+        });
+    </script>
 @endsection
