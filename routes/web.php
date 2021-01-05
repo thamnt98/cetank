@@ -20,6 +20,7 @@ Route::get('admin-dashboard', 'DashboardController@getDashboard')->name('dashboa
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
+
     Route::group(['prefix' => 'post'], function () {
         Route::get('all', 'PostController@index')->name('post.all');
         Route::get('edit/{id}', 'PostController@edit')->name('post.edit');
@@ -28,5 +29,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('publish', 'PostController@publish')->name('post.publish');
         Route::get('create', 'PostController@create')->name('post.create');
         Route::post('store', 'PostController@store')->name('post.store');
+    });
+
+    Route::group(['prefix' => 'menu'], function () {
+        Route::get('create', 'WebSettingController@createMenu')->name('menu.create');
+        Route::post('create', 'WebSettingController@storeMenu')->name('menu.store');
+        Route::get('control', 'WebSettingController@manageMenu')->name('menu.control');
+        Route::get('edit/{id}', 'WebSettingController@editMenu')->name('menu.edit');
+        Route::post('update/{id}', 'WebSettingController@updateMenu')->name('menu.update');
+        Route::post('delete', 'WebSettingController@deleteMenu')->name('menu.delete');
     });
 });

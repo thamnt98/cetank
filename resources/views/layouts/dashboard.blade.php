@@ -482,7 +482,7 @@
                                 </a>
                             </li> --}}
                             <li class="{{ Request::is('admin/menu-control') ? 'active' : '' }}">
-                                <a href="">
+                                <a href="{{ route('menu.control') }}">
                                     <span class="pcoded-micon"><i class="fa fa-rss"></i><b>MM</b></span>
                                     <span class="pcoded-mtext">Manage Menu</span>
                                     <span class="pcoded-mcaret"></span>

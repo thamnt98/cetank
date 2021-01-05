@@ -77,46 +77,40 @@
                             <a class="logo" href=""><img src="{{ asset('images/logo.png') }}" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-8 hidden-xs hidden-sm">
+                    <div class="col-lg-9 col-md-10 hidden-xs hidden-sm">
                         <nav class="expert-menu">
                             <ul class="main-menu">
                                 <li><a href="">Home</a></li>
                                 <li><a href="">About Us</a></li>
-                                @foreach($menus as $m)
-                                    <li><a href="{{ url('menu') }}/{{ $m->id }}/{{ urldecode(strtolower(Str::slug($m->name))) }}">{{ $m->name }}</a></li>
-                                @endforeach
-                                <li><a href="">blog<i class="fa fa-caret-down"></i></a>
+                                <li><a href="">News<i class="fa fa-caret-down"></i></a>
                                     <ul>
                                         @foreach($category as $cat)
                                             <li><a href=""><i class="fa fa-caret-right"></i> {{ $cat->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
+                                @foreach($menus as $m)
+                                    <li><a href="{{ url('menu') }}/{{ $m->id }}/{{ urldecode(strtolower(Str::slug($m->name))) }}">{{ $m->name }}</a></li>
+                                @endforeach
                             </ul>
                         </nav>
-                    </div>
-                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
-                        <div class="header-btn">
-                            <a href="" class="button">Contact Us</a>
-                        </div>
                     </div>
                     <!-- Mobile menu area start -->
                     <div class="mobile-menu-area clearfix hidden-md">
                         <nav class="mobile-menu">
                             <ul class="mobile-menu-nav">
                                 <li><a href="">Home</a></li>
-                                <li><a href="">About Us</a></li>
-                                @foreach($menus as $m)
-                                    <li><a href="{{ url('menu') }}/{{ $m->id }}/{{ urldecode(strtolower(Str::slug($m->name))) }}">{{ $m->name }}</a></li>
-                                @endforeach
-                                <li><a href="">Blog</a>
+                                <li><a href="">About us</a></li>
+                                <li><a href="">News</a>
                                     <ul>
                                         @foreach($category as $cat)
                                             <li><a href="">{{ $cat->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="">contact</a></li>
+                                @foreach($menus as $m)
+                                    <li><a href="{{ url('menu') }}/{{ $m->id }}/{{ urldecode(strtolower(Str::slug($m->name))) }}">{{ $m->name }}</a></li>
+                                @endforeach
                             </ul>
                         </nav>
                     </div>
