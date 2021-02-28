@@ -38,7 +38,7 @@
 
 @media (min-width:1200px) {
     .container {
-        width: 70%;
+        width: 90%;
     }
     .mobile-menu-area {
         display: none;
@@ -52,7 +52,7 @@
 
 @media (min-width: 992px) and (max-width: 1169px) {
     .container {
-        width: 970px
+        width: 90%
     }
 
     .expert-menu ul > li > + li {

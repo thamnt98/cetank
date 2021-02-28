@@ -2500,3 +2500,16 @@ div.g-recaptcha {
 div#sticky-wrapper{
     background-color: #535a61;
 }
+li.col-sm-5.ng-scope{
+    margin-right: 15px;
+}
+div#fxml-sig-wdgt-2, div#fxml-sig-wdgt-3, div#fxml-sig-wdgt-4{
+    width: max-content;
+}
+.content {
+    background-color: #e4e4e4;
+}
+article {
+    background-color: white;
+    border: 1px white solid;
+}
