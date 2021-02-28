@@ -375,7 +375,7 @@ label {
   background: #343d47;
 }
 .header-top-2.header-top-area {
-  border-bottom: 2px solid #EE9209;
+  /*border-bottom: 2px solid #EE9209;*/
 }
 .email-phone li {
     margin-top:10px;
@@ -489,7 +489,7 @@ label {
 }
 
 .expert-menu ul li a {
-  color: #3e3e3e;
+  color: white;
   display: block;
   font-size: 15px;
   font-weight: 600;
@@ -642,7 +642,7 @@ label {
   opacity: 1;
 }
 .is-sticky .main-header-area {
-  background: #fff;
+  background: #535a61;
   box-shadow: 0 13px 35px rgba(0, 0, 0, 0.05);
 }
 
@@ -2496,4 +2496,7 @@ div.g-recaptcha {
 }
 .currency-calculator h2 {
     color: #fff;
+}
+div#sticky-wrapper{
+    background-color: #535a61;
 }

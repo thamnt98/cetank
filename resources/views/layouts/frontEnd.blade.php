@@ -43,7 +43,7 @@
     <!-- Header area start -->
     <header class="header-area">
         <div class="header-top-area header-top-2">
-            <div class="container" style="width:100%">
+            <div class="container" style="width:90%">
                 <div class="row">
                     <div class="col-lg-8 col-sm-8 col-md-8">
                         <div class="header-top-left">

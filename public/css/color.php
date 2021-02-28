@@ -46,7 +46,7 @@ if( !$color OR !checkhexcolor( $color ) ) {
     box-shadow: 10px 0px 0px 0px <?php echo $color; ?>;
 }
 .header-top-2,.header-top-area {
-border-bottom: 2px solid <?php echo $color; ?>;
+<!--border-bottom: 2px solid --><?php //echo $color; ?><!--;-->
 }
 .expert-menu li ul {
 border-top: 2px solid <?php echo $color; ?>;}

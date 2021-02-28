@@ -2,7 +2,7 @@
 @section('css')
 @endsection
 @section('content')
-    <div class="expert-section blog-section">
+    <div class="expert-section blog-section" style="padding:50px 0;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8">
