@@ -4,4 +4,7 @@ deployment:
     - export DEPLOYPATH=/home/keynesac/cetank.net/
     - /bin/cp -R * $DEPLOYPATH
   script:
-
+    - composer require laravel/ui
+    - php artisan ui bootstrap --auth
+    - npm install
+    - npm run dev
