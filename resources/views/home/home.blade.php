@@ -13,8 +13,7 @@
                         <b>Hot topics</b>
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-1"></div>
-                <div class="col-lg-3 col-md-3" style="margin-top:-50px">
+                <div class="col-lg-4 col-md-4" style="margin-top:-50px">
                     <div id="fxml-nav-sig" class="fxml-nav-rc-o">
                         <div class="fxml-nav-rc-i">
                             <div class="fxl-row font-13 text-blue m-t-sm">
