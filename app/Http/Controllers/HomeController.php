@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\BasicSetting;
-use Illuminate\Http\Request;
-use App\Models\Slider;
 use App\Models\Category;
 use App\Models\Testimonial;
 use App\Models\Member;
@@ -17,7 +15,7 @@ use App\Models\Social;
 use App\Models\Partner;
 use App\Models\Menu;
 use App\Models\Section;
-
+use Illuminate\Support\Facades\Http;
 class HomeController extends Controller
 {
     public function getIndex()
@@ -40,6 +38,8 @@ class HomeController extends Controller
         $data['footer_blog'] = Post::orderBy('views', 'desc')->take(7)->get();
         $data['section'] = Section::first();
         $data['basic'] = Section::first();
+        $request = Http::get('https://fxsignals.fxleaders.de/api/FXL/5');
+        $data['trades'] = $request->json();
         return view('home.home', $data);
     }
 

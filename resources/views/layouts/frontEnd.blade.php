@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/color.php') }}?color={{ $basic->color }}">
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
+    @yield('css')
 </head>
 
 <body>
@@ -241,6 +242,7 @@
 <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
+@yield('javascript')
 {!! $basic->chat !!}
 {!! $basic->google_analytic !!}
 </body>
