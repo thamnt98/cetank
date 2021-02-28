@@ -42,7 +42,7 @@
     <!-- Header area start -->
     <header class="header-area">
         <div class="header-top-area header-top-2">
-            <div class="container">
+            <div class="container" style="width:100%">
                 <div class="row">
                     <div class="col-lg-8 col-sm-8 col-md-8">
                         <div class="header-top-left">
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-4 col-md-4">
-                        <div class="header-top-right">
+                        <div class="header-top-right" style="margin-top:10px">
                             <ul class="user-area">
                                 <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
                                 <li style="border-left: none"><a  target="_blank" href="https://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="main-header-area sticky-header">
-            <div class="container">
+            <div class="container" style="width:90%">
                 <div class="row">
                     <div class="col-lg-3 col-md-2 col-sm-6 col-xs-7">
                         <div class="logo-wrapper">

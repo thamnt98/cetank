@@ -1,7 +1,7 @@
 @extends('layouts.frontEnd')
 @section('content')
     <div class="expert-section">
-        <div class="container">
+        <div class="container" style="width:70%">
             <div class="row">
                 <div class="col-md-12">
                     <div class="area-heading text-center">
@@ -206,9 +206,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    
+
                     {!! $section->trading_script !!}
-                    
+
                 </div>
             </div>
         </div>
