@@ -37,9 +37,9 @@
 ---------------------------------------------------*/
 
 @media (min-width:1200px) {
-    /*.container {*/
-    /*    width: 70%*/
-    /*}*/
+    .container {
+        width: 100%;
+    }
     .mobile-menu-area {
         display: none;
     }

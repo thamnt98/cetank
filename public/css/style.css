@@ -149,11 +149,6 @@ label {
   background: #4fc1f0 none repeat scroll 0 0;
   color: #ffffff;
 }
-@media (min-width: 1200px) {
-    .container {
-        width: 100%;
-    }
-}
 
 .expert-section {
   padding: 100px 0;
