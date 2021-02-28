@@ -49,7 +49,7 @@
                             <ul class="email-phone">
                                 <li style="border-left: none"><a href="#"><i class="fa fa-envelope"></i> Email: <span class="text-bold">cetank@gmail.com</span></a></li>
                                 <li><a href="#"><i class="fa fa-phone"></i> Call us: <span class="text-bold">0345678902</span></a></li>
-                                <li style="width: 50%; border-left: none">
+                                <li style="width: 40%; border-left: none">
                                     <form>
                                         <input style="height: 40px;margin-bottom: 10px" class="form-control" type="text" placeholder="Search" >
                                     </form>
