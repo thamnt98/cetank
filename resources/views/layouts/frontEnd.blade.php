@@ -60,13 +60,13 @@
                     <div class="col-lg-4 col-sm-4 col-md-4">
                         <div class="header-top-right">
                             <ul class="user-area">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li style="border-left: none"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li style="border-left: none"><a  target="_blank" href="https://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
                             @if(Auth::check())
                                     <li><a href=""><i class="fa fa-user user-icon" style="margin-right: 5px;!important;"></i>Hi. {{ Auth::user()->name }}</a></li>
                             @else
-                                    <li><a href=""><i class="fa fa-sign-in user-icon"></i>Login</a></li>
-                                    <li style="border-right: none"><a href=""><i class="fa fa-user-plus user-icon"></i>Sign Up</a></li>
+                                    <li><a href="{{ route('login') }}"><i class="fa fa-sign-in user-icon"></i>Login</a></li>
+                                    <li style="border-right: none"><a href="{{ route('register') }}"><i class="fa fa-user-plus user-icon"></i>Sign Up</a></li>
                             @endif
                             </ul>
                         </div>
