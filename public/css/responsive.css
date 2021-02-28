@@ -1,5 +1,5 @@
 /* -------------------------------------------------
-  Large Screen. 
+  Large Screen.
 ---------------------------------------------------*/
 
 @media (min-width: 1366px) and (max-width: 1920px) {
@@ -11,17 +11,17 @@
     }
     .slider-wrapper .slick-next {
         right: 20px;
-    }  
+    }
 }
 /* -------------------------------------------------
-  Large Screen. 
+  Large Screen.
 ---------------------------------------------------*/
 
 @media (min-width: 1260px) and (max-width: 1366px) {
     .ex-bg {
         background-position: 130% bottom;
         background-size: 63%;
-    }    
+    }
     .footer-top-area::before {
     }
     .expert-single-slide {
@@ -33,13 +33,13 @@
 
 
 /* -------------------------------------------------
-  Laptop Screen 
+  Laptop Screen
 ---------------------------------------------------*/
 
 @media (min-width:1200px) {
-    .container {
-        width: 70%
-    }
+    /*.container {*/
+    /*    width: 70%*/
+    /*}*/
     .mobile-menu-area {
         display: none;
     }
@@ -60,7 +60,7 @@
     }
     .header-btn .button {
         padding: 0 15px;
-    }    
+    }
     .mobile-menu-area {
         display: none;
     }
@@ -180,7 +180,7 @@
 
 
 /* -------------------------------------------------
-  Tablet Screen 
+  Tablet Screen
 ---------------------------------------------------*/
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -395,7 +395,7 @@
         font-size: 24px;
     }
     .footer-top-area::before {
-    }    
+    }
     .footer-top-content {
         min-height: 280px;
     }
@@ -452,7 +452,7 @@
     .expert-section {
         padding: 80px 0;
         overflow: hidden;
-    }   
+    }
     .logo-wrapper img {
         width: 100%;
     }
@@ -873,7 +873,7 @@
     }
     .single-contact-option {
         padding: 20px;
-    }    
+    }
     .single-service-title {
         font-size: 20px;
     }
@@ -881,10 +881,10 @@
         letter-spacing: 1px;
         margin-bottom: 20px;
         font-size: 18px;
-    } 
+    }
     .single-service-content blockquote {
         padding: 30px;
-    }   
+    }
 }
 
 
@@ -892,7 +892,7 @@
 
 
 /* -------------------------------------------------
-  Large Mobile :480px. 
+  Large Mobile :480px.
 ---------------------------------------------------*/
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {

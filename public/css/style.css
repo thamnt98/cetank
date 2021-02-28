@@ -151,7 +151,7 @@ label {
 }
 
 .container {
-  width: 1200px;
+  width: 100%;
 }
 
 .expert-section {
@@ -175,8 +175,8 @@ label {
   font-size: 35px;
   margin-bottom: 10px;
 }
-/* ------------------------------ 
-2. Button style 
+/* ------------------------------
+2. Button style
 ---------------------------------*/
 
 .button {
@@ -234,7 +234,7 @@ label {
 }
 
 
-/* ------------------------------ 
+/* ------------------------------
   3. Background utility classes
 ---------------------------------*/
 
@@ -268,7 +268,7 @@ label {
     background-position: center center;
 }
 
-/* ------------------------------ 
+/* ------------------------------
   4. Gradient utility classes
 ---------------------------------*/
 .gradient-1 {
@@ -303,7 +303,7 @@ label {
   top: 0;
 }
 
-/* ------------------------------ 
+/* ------------------------------
   5. Area heading style
 ---------------------------------*/
 
@@ -371,8 +371,8 @@ label {
   box-shadow: 10px 0px 0px 0px #fff;
 }
 
-/* ----------------------------- 
-6. Header area style 
+/* -----------------------------
+6. Header area style
 -------------------------------- */
 
 .header-top-area {
@@ -382,6 +382,7 @@ label {
   border-bottom: 2px solid #EE9209;
 }
 .email-phone li {
+    margin-top:10px;
   border-left: 1px solid #565656;
   float: left;
 }
@@ -464,7 +465,7 @@ label {
     margin-right: 10px;
     color: #EE9209;
 }
-/* ------------------------------ 
+/* ------------------------------
   7. Menu style
 ---------------------------------*/
 .logo-wrapper {
@@ -571,7 +572,7 @@ label {
 }
 
 
-/* ----------------------------- 
+/* -----------------------------
 8. Mobile menu area style
  -------------------------------- */
 .mobile-menu-area {
@@ -649,8 +650,8 @@ label {
   box-shadow: 0 13px 35px rgba(0, 0, 0, 0.05);
 }
 
-/* ----------------------------- 
-9. Slider area style 
+/* -----------------------------
+9. Slider area style
 -------------------------------- */
 .expert-single-slide {
     background-size: cover;
@@ -705,7 +706,7 @@ label {
   margin: auto;
 }
 
-/* ----------------------------- 
+/* -----------------------------
   10. Feature area style
 -------------------------------- */
 
@@ -838,7 +839,7 @@ label {
 .desc-list li {
   margin-bottom: 8px;
 }
-/* ------------------------------ 
+/* ------------------------------
   11. video section style
 ---------------------------------*/
 
@@ -945,7 +946,7 @@ label {
 }
 
 
-/* ----------------------------- 
+/* -----------------------------
   12. Feature area style
 -------------------------------- */
 
@@ -994,8 +995,8 @@ label {
 }
 
 
-/* ----------------------------- 
-13. Portfolio area style 
+/* -----------------------------
+13. Portfolio area style
 -------------------------------- */
 .portfolio-filter {
   margin-bottom: 50px;
@@ -1093,7 +1094,7 @@ label {
 .portfolio-item:hover .project-zoom {
     opacity: 1;
     transform: translateX(-20px);
-    visibility: visible; 
+    visibility: visible;
 }
 
 .description-discription {
@@ -1134,8 +1135,8 @@ label {
     text-transform: capitalize;
 }
 
-/* ----------------------------- 
-14. Call to action area style 
+/* -----------------------------
+14. Call to action area style
 -------------------------------- */
 
 .call-to-action-area {
@@ -1170,8 +1171,8 @@ label {
   margin-bottom: 20px;
 }
 
-/* ----------------------------- 
-15. Testimonial area style 
+/* -----------------------------
+15. Testimonial area style
 -------------------------------- */
 .testimonial-section {
   position: relative;
@@ -1280,7 +1281,7 @@ label {
     right: -20px;
 }
 
-/* ----------------------------- 
+/* -----------------------------
 16. Client logo area style
  -------------------------------- */
 
@@ -1327,7 +1328,7 @@ label {
 .single-brand-logo:hover img {
   opacity: .9;
 }
-/* ------------------------------ 
+/* ------------------------------
   17. Brand logo style
 ---------------------------------*/
 .clients-logo.pt-0 {
@@ -1348,8 +1349,8 @@ label {
 .single-brand-inner:hover img {
   opacity: .7;
 }
-/* ----------------------------- 
-18. Team area style 
+/* -----------------------------
+18. Team area style
 -------------------------------- */
 
 .single-team-member {
@@ -1464,8 +1465,8 @@ label {
 .team-style-2:hover .member-thumbnail img {
   transform: scale3d(1.1, 1.1,1.1 );
 }
-/* ----------------------------- 
-19. Process style 
+/* -----------------------------
+19. Process style
 -------------------------------- */
 
 .process-box {
@@ -1544,8 +1545,8 @@ label {
 }
 
 
-/* ----------------------------- 
-20. Subscribe area style 
+/* -----------------------------
+20. Subscribe area style
 -------------------------------- */
 
 .subscribe-section {
@@ -1603,8 +1604,8 @@ label {
   margin-left: 15px;
 }
 
-/* ----------------------------- 
-21. Contact area style 
+/* -----------------------------
+21. Contact area style
 -------------------------------- */
 
 .single-contact-option {
@@ -1702,8 +1703,8 @@ div.g-recaptcha {
 .form-send-message {
   margin: 10px 0 0;
 }
-/* ----------------------------- 
-22. Map area style 
+/* -----------------------------
+22. Map area style
 -------------------------------- */
 
 #contact-map {
@@ -1712,8 +1713,8 @@ div.g-recaptcha {
 }
 
 
-/* ----------------------------- 
-23. Breadcrumb area style 
+/* -----------------------------
+23. Breadcrumb area style
 -------------------------------- */
 .breadcrumb-area {
     background-position: center center;
@@ -1756,8 +1757,8 @@ div.g-recaptcha {
 .breadcrumb-list>li:first-child::after {
   content: "";
 }
-/* ----------------------------- 
-24. Blog area style 
+/* -----------------------------
+24. Blog area style
 -------------------------------- */
 .post-thumbnail {
   position: relative;
@@ -1828,8 +1829,8 @@ div.g-recaptcha {
     font-weight: 500;
     color: #6b6767;
 }
-/* ----------------------------- 
-25. Single Project area style 
+/* -----------------------------
+25. Single Project area style
 -------------------------------- */
 
 .service-thumbnail {
@@ -1874,8 +1875,8 @@ div.g-recaptcha {
 .service-image {
   margin-bottom: 20px;
 }
-/* ---------------------------- 
-26. Widget area 
+/* ----------------------------
+26. Widget area
 -------------------------------*/
 
 .search-form input {
@@ -1975,7 +1976,7 @@ div.g-recaptcha {
   color: #777;
   border: 1px solid #eee;
 }
-/* ------------------------------ 
+/* ------------------------------
   27. Single post style
 ---------------------------------*/
 .single-post-widget {
@@ -2115,7 +2116,7 @@ div.g-recaptcha {
   position: relative;
   top: 2px;
 }
-/* ----------------------------- 
+/* -----------------------------
 28. Pricing table area style
  -------------------------------- */
 
@@ -2187,7 +2188,7 @@ div.g-recaptcha {
   background: #ffffff;
   padding: 25px 0;
 }
-/* ------------------------------ 
+/* ------------------------------
   29. Counter Section
 ---------------------------------*/
 .single-counter {
@@ -2243,8 +2244,8 @@ div.g-recaptcha {
   color: #a773ea;
 }
 
-/* ----------------------------- 
-30. Footer area style 
+/* -----------------------------
+30. Footer area style
 -------------------------------- */
 
 .footer-top-area {

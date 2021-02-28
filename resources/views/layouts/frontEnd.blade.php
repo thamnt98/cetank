@@ -44,26 +44,31 @@
         <div class="header-top-area header-top-2">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-8 col-md-8">
+                    <div class="col-lg-8 col-sm-8 col-md-8">
                         <div class="header-top-left">
                             <ul class="email-phone">
-                                <li><a href="#"><i class="fa fa-envelope"></i> Email: <span class="text-bold">{{ $basic->email }}</span></a></li>
-                                <li><a href="#"><i class="fa fa-phone"></i> Call us: <span class="text-bold">{{ $basic->phone }}</span></a></li>
+                                <li style="border-left: none"><a href="#"><i class="fa fa-envelope"></i> Email: <span class="text-bold">cetank@gmail.com</span></a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i> Call us: <span class="text-bold">0345678902</span></a></li>
+                                <li style="width: 50%; border-left: none">
+                                    <form>
+                                        <input style="height: 40px;margin-bottom: 10px" class="form-control" type="text" placeholder="Search" >
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-md-4">
+                    <div class="col-lg-4 col-sm-4 col-md-4">
                         <div class="header-top-right">
+                            <ul class="user-area">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li style="border-left: none"><a href="#"><i class="fa fa-twitter"></i></a></li>
                             @if(Auth::check())
-                                <ul class="user-area">
                                     <li><a href=""><i class="fa fa-user user-icon" style="margin-right: 5px;!important;"></i>Hi. {{ Auth::user()->name }}</a></li>
-                                </ul>
                             @else
-                                <ul class="user-area">
                                     <li><a href=""><i class="fa fa-sign-in user-icon"></i>Login</a></li>
-                                    <li><a href=""><i class="fa fa-user-plus user-icon"></i>Sign Up</a></li>
-                                </ul>
+                                    <li style="border-right: none"><a href=""><i class="fa fa-user-plus user-icon"></i>Sign Up</a></li>
                             @endif
+                            </ul>
                         </div>
                     </div>
                 </div>
