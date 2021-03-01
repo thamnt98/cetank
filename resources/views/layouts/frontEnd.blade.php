@@ -43,7 +43,7 @@
     <!-- Header area start -->
     <header class="header-area">
         <div class="header-top-area header-top-2">
-            <div class="container" style="width:90%">
+            <div class="container" style="width:95%">
                 <div class="row">
                     <div class="col-lg-8 col-sm-8 col-md-8">
                         <div class="header-top-left">
@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="main-header-area sticky-header">
-            <div class="container" style="width:90%">
+            <div class="container" style="width:95%">
                 <div class="row">
                     <div class="col-lg-3 col-md-2 col-sm-6 col-xs-7">
                         <div class="logo-wrapper">

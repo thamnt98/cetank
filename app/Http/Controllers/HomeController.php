@@ -40,6 +40,8 @@ class HomeController extends Controller
         $data['basic'] = Section::first();
         $request = Http::get('https://fxsignals.fxleaders.de/api/FXL/5');
         $data['trades'] = $request->json();
+        $data['left_blog']  =  Post::where('category_id', 1)->take(10)->orderBy('created_at', 'desc')->get();
+        $data['right_blog']  =  Post::where('category_id', '!=',1)->take(10)->orderBy('created_at', 'desc')->get();
         return view('home.home', $data);
     }
 

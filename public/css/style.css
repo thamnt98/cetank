@@ -1,6 +1,6 @@
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Muli', Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -2507,9 +2507,42 @@ div#fxml-sig-wdgt-2, div#fxml-sig-wdgt-3, div#fxml-sig-wdgt-4{
     width: max-content;
 }
 .content {
-    background-color: #e4e4e4;
+    background-color: white;
 }
 article {
     background-color: white;
     border: 1px white solid;
+}
+post {
+    display: flex;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+@media (min-width: 768px){
+    post {
+        margin-bottom: 0;
+    }
+}
+.blog-post .detail-wrap {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.blog-post .detail-wrap {
+    padding-top: 0;
+}
+.blog-post .detail__header{
+    text-align: left;
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.blog-post .detail__footer {
+    width: 100%;
+}
+time {
+    color:#827777;
+}
+.detail__footer .detail__meta a{
+    float:right;
 }
