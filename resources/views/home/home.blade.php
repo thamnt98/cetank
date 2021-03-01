@@ -41,27 +41,29 @@
                     @endforeach
                 </div>
                 <div class="col-lg-5 col-md-5">
-                    @foreach($right_blog as $b)
-                        <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom: 20px;">
-                            <article class="blog-post">
-                                <div class="post-thumbnail">
-                                    <a href="#"><img src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
-                                </div>
-                                <div class="post-content">
-                                    <h5 class="post-title"><a
-                                            href="">{{ substr($b->title,0,30) }}{{ strlen($b->title) > 33 ? '...' : '' }}</a>
-                                    </h5>
-                                    <ul class="post-date list-inline">
-                                        <li><a href="#"><i
-                                                    class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}
-                                            </a></li>
-                                        <li><a href="#"><i class="fa fa-flag"></i>{{ $b->category->name }}</a></li>
-                                    </ul>
-                                    <p>{{ substr(strip_tags($b->description),0,120) }}..</p>
-                                </div>
-                            </article>
-                        </div>
-                    @endforeach
+                    <div class="row">
+                        @foreach($right_blog as $b)
+                            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom: 20px;">
+                                <article class="blog-post">
+                                    <div class="post-thumbnail">
+                                        <a href="#"><img src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
+                                    </div>
+                                    <div class="post-content">
+                                        <h5 class="post-title"><a
+                                                href="">{{ substr($b->title,0,30) }}{{ strlen($b->title) > 33 ? '...' : '' }}</a>
+                                        </h5>
+                                        <ul class="post-date list-inline">
+                                            <li><a href="#"><i
+                                                        class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}
+                                                </a></li>
+                                            <li><a href="#"><i class="fa fa-flag"></i>{{ $b->category->name }}</a></li>
+                                        </ul>
+                                        <p>{{ substr(strip_tags($b->description),0,120) }}..</p>
+                                    </div>
+                                </article>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
