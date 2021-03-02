@@ -26,6 +26,9 @@
                                 </header>
                                 <div class="detail__content_{{ $b->id }} hidden">
                                     {!! html_entity_decode($b->description, ENT_QUOTES, 'UTF-8') !!}
+                                    <div class="post-thumbnail">
+                                        <a href="#"><img style="max-height: 300px; margin-bottom: 30px;" src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
+                                    </div>
                                 </div>
                                 <div class="detail__footer">
                                     <div class="detail__meta">

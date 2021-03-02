@@ -2,8 +2,6 @@
 @section('style')
 @endsection
 @section('content')
-
-
     <div class="page-body">
         <div class="row">
             <div class="col-sm-12">
@@ -26,9 +24,10 @@
                                 <thead>
                                 <tr>
                                     <th width="5%">SL#</th>
+                                    <th width="10%">Category</th>
                                     <th width="25%">Title</th>
                                     <th width="15%"> Image</th>
-                                    <th width="35%">Details</th>
+                                    <th width="25%">Details</th>
                                     <th width="10%">Status</th>
                                     <th width="10%">Action</th>
                                 </tr>
@@ -38,12 +37,18 @@
                                 @foreach($testimonial as $k => $p)
                                     <tr>
                                         <td>{{ $k + $testimonial->firstItem()  }}</td>
-                                        <td style="width: 25%"><b>{{ $p->title }}</b></td>
+                                        <td><b>{{ $p->category->name  }}</b></td>
+                                        <td style="width: 25%"><b>{!! Str::limit(strip_tags($p->title),40) !!}</b></td>
                                         <td>
-                                            <img style="width:100%;" class="img-responsive"
-                                                 src="{{ asset('images/post') }}/{{ $p->image }}">
+                                            @if(is_null($p->image))
+                                                <img style="width:100%;" class="img-responsive"
+                                                     src="{{ asset('images/no-image.png') }}">
+                                            @else
+                                                <img style="width:100%;" class="img-responsive"
+                                                     src="{{ asset('images/post') }}/{{ $p->image }}">
+                                            @endif
                                         </td>
-                                        <td style="width: 20%">{!! Str::limit(strip_tags($p->description),90) !!}</td>
+                                        <td style="width: 20%">{!! Str::limit(strip_tags($p->description),40) !!}</td>
                                         <td>
                                             @if($p->status == 1)
                                                 <label class="label label-success">Active</label>

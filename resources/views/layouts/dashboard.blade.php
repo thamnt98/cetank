@@ -665,18 +665,13 @@
 
                                 @if($errors->any())
                                     @foreach ($errors->all() as $error)
-                                        <div class="alert alert-warning icons-alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <i class="icofont icofont-close-line-circled"></i>
-                                            </button>
-                                            <p>{!!  $error !!}</p>
+                                        <div class="alert alert-danger alert-block" style="margin: 0px 15px 20px 15px">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong>{{ $error }}</strong>
                                         </div>
                                     @endforeach
                                 @endif
-
                                 @yield('content')
-
-
                             </div>
                         </div>
                     </div>

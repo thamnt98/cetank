@@ -40,8 +40,11 @@ class PostController extends Controller
     {
         $r = Post::find($request->id);
         $request->validate([
-            'title' => 'required|max:60|unique:posts,title,' . $r->id,
-            'image' => 'mimes:png,jpeg,jpg',
+            'title' => 'required|unique:posts,title,' . $r->id,
+            'category' => 'required',
+            'image' => 'nullable|mimes:png,jpeg,jpg',
+            'tags' => 'required',
+            'description' => 'required',
         ]);
 
         $data['user_id'] = $request->userId;
@@ -117,10 +120,10 @@ class PostController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:60|unique:posts,title',
+       $request->validate([
+            'title' => 'required|unique:posts,title',
             'category' => 'required',
-            'image' => 'required|mimes:png,jpeg,jpg',
+            'image' => 'nullable|mimes:png,jpeg,jpg',
             'tags' => 'required',
             'description' => 'required',
         ]);

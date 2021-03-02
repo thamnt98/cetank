@@ -33,7 +33,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12"><strong style="text-transform: uppercase;">title </strong></label>
                                     <div class="col-md-12">
-                                        <input name="title" class="form-control input-lg" placeholder=" Title" required value="{{ $testimonial->title }}" />
+                                        <input name="title" class="form-control input-lg" placeholder=" Title" required value="{{ old('title', $testimonial->title) }}" />
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -42,7 +42,7 @@
                                     <select name="category" id="category" class="form-control" required>
                                         <option value="">Select Category</option>
                                         @foreach($category as $cat)
-                                            @if($cat->id == $testimonial->category_id)
+                                            @if(old('category', $testimonial->category_id) == $cat->id)
                                                 <option value="{{$cat->id}}" selected>{{$cat->name}}</option>
                                             @else
                                                 <option value="{{$cat->id}}">{{$cat->name}}</option>
@@ -56,9 +56,15 @@
                                     <label class="col-md-12"><strong style="text-transform: uppercase;"> Image</strong></label>
                                     <div class="col-md-12">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="fileinput-new thumbnail" style="width: 400px; height: 220px;" data-trigger="fileinput">
-                                                <img style="width: 400px" src="{{ asset('images/post') }}/{{ $testimonial->image }}" alt="...">
-                                            </div>
+                                            @if($testimonial->image)
+                                                <div class="fileinput-new thumbnail" style="width: 400px; height: 220px;" data-trigger="fileinput">
+                                                    <img style="width: 400px" src="{{ asset('images/post') }}/{{ $testimonial->image }}" alt="...">
+                                                </div>
+                                            @else
+                                                <div class="fileinput-new thumbnail" style="width: 400px; height: 220px;" data-trigger="fileinput">
+                                                    <img style="width: 400px" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text= Image" alt="...">
+                                                </div>
+                                            @endif
                                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 400px; max-height: 220px"></div>
                                             <div>
                                                 <span class="btn btn-info btn-file">
@@ -71,22 +77,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-
                                 <div class="form-group">
                                     <label class="col-md-12"><strong style="text-transform: uppercase;">Description</strong></label>
                                     <div class="col-md-12">
-                                        <textarea name="description" id="area1" rows="10" class="form-control" required placeholder="Description">{!! $testimonial->description !!}</textarea>
+                                        <textarea name="description" id="area1" rows="10" class="form-control" required placeholder="Description">{!! old('description', $testimonial->description) !!}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-12"><strong style="text-transform: uppercase;"> tags</strong></label>
                                     <div class="col-md-12">
-                                        <input name="tags" data-role="tagsinput" class="form-control input-lg" required value="{!! $testimonial->tags !!}" />
+                                        <input name="tags" data-role="tagsinput" class="form-control input-lg" value="{!! old('tags', $testimonial->tags) !!}" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-12"><strong style="text-transform: uppercase;"> Featured Status</strong> </label>
                                     <div class="col-md-12">

@@ -7,8 +7,6 @@
 
 @endsection
 @section('content')
-
-
     <div class="page-body">
         <div class="row">
             <div class="col-sm-12">
@@ -34,22 +32,26 @@
                                         <div class="form-group">
                                             <label class="col-md-12"><strong style="text-transform: uppercase;">title </strong></label>
                                             <div class="col-md-12">
-                                                <input name="title" class="form-control input-lg" placeholder=" Title" required/>
+                                                <input name="title" class="form-control input-lg" placeholder=" Title" value="{{ old('title') }}" required/>
+{{--                                                @if($errors->has('title'))--}}
+{{--                                                    <span class="text-danger text-md-left">{{ $errors->first('title') }}</span>--}}
+{{--                                                @endif--}}
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><strong style="text-transform: uppercase;"> Category</strong></label>
                                             <div class="col-md-12">
-                                            <select name="category" id="category" class="form-control" required>
+                                            <select name="category" id="category" class="form-control" >
                                                 <option value="">Select Category</option>
                                                 @foreach($category as $cat)
-                                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                <option value="{{$cat->id}}" @if(old('category') == $cat->id) selected @endif>{{$cat->name}}</option>
                                                 @endforeach
                                             </select>
+{{--                                                @if($errors->has('category'))--}}
+{{--                                                    <span class="text-danger text-md-left">{{ $errors->first('category') }}</span>--}}
+{{--                                                @endif--}}
                                             </div>
                                         </div>
-
-
                                         <div class="form-group">
                                             <label class="col-md-12"><strong style="text-transform: uppercase;"> Image</strong></label>
                                             <div class="col-md-12">
@@ -64,6 +66,9 @@
                                                             <span class="fileinput-exists bold uppercase"><i class="fa fa-edit"></i> Change</span>
                                                             <input type="file" name="image" accept="image/*">
                                                         </span>
+{{--                                                        @if($errors->has('image'))--}}
+{{--                                                            <span class="text-danger text-md-left">{{ $errors->first('image') }}</span>--}}
+{{--                                                        @endif--}}
                                                         <a href="#" class="btn btn-danger fileinput-exists bold uppercase" data-dismiss="fileinput"><i class="fa fa-trash"></i> Remove</a>
                                                     </div>
                                                 </div>
@@ -72,14 +77,20 @@
                                         <div class="form-group">
                                             <label class="col-md-12"><strong style="text-transform: uppercase;">Description</strong></label>
                                             <div class="col-md-12">
-                                                <textarea name="description" id="area1" cols="50" rows="10" style="width:100%; height:100%;" class="form-control" required placeholder="Description"></textarea>
+                                                <textarea name="description" id="area1" cols="50" rows="10" style="width:100%; height:100%;" class="form-control"  placeholder="Description">{{ old('description') }}</textarea>
+{{--                                                @if($errors->has('description'))--}}
+{{--                                                    <span class="text-danger text-md-left">{{ $errors->first('description') }}</span>--}}
+{{--                                                @endif--}}
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-12"><strong style="text-transform: uppercase;"> tags</strong></label>
                                             <div class="col-md-12">
-                                                <input name="tags" data-role="tagsinput" class="form-control input-lg"required/>
+                                                <input name="tags" data-role="tagsinput" class="form-control input-lg" value="{{ old('tags') }}"/>
+{{--                                                @if($errors->has('tags'))--}}
+{{--                                                    <span class="text-danger text-md-left">{{ $errors->first('tags') }}</span>--}}
+{{--                                                @endif--}}
                                             </div>
                                         </div>
 
