@@ -8,7 +8,7 @@
                 <div class="col-lg-7 col-md-7">
                     <div class="text-uppercase pull-left"
                          style="background-color: #d3dad2;padding: 8px 20px; color: red; margin-bottom: 20px; font-size: 18px; width: 100%">
-                        <b>Tiêu điểm thị trường</b>
+                        <b>Tiêu điểm chứng khoán</b>
                         <a title="Tiêu điểm thị trường" href="" style="float: right; font-size: 14px" class="zone__title-sub text-primary">Xem tất cả
                             <i class="fa fa-angle-double-right ml-1"></i></a>
                     </div>
@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-7 col-md-7">
-                    @foreach($left_blog as $b)
+                    @foreach($stock_blog as $b)
                         <post class="blog-post">
                             <div class="detail-wrap">
                                 <header class="detail__header">
@@ -44,29 +44,71 @@
                     @endforeach
                 </div>
                 <div class="col-lg-5 col-md-5">
-                    <div class="row">
-                        @foreach($right_blog as $b)
-                            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom: 20px;">
-                                <article class="blog-post">
-                                    <div class="post-thumbnail">
-                                        <a href="#"><img src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
-                                    </div>
-                                    <div class="post-content">
-                                        <h5 class="post-title"><a
-                                                href="">{{ substr($b->title,0,30) }}{{ strlen($b->title) > 33 ? '...' : '' }}</a>
-                                        </h5>
-                                        <ul class="post-date list-inline">
-                                            <li><a href="#"><i
-                                                        class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}
-                                                </a></li>
-                                            <li><a href="#"><i class="fa fa-flag"></i>{{ $b->category->name }}</a></li>
-                                        </ul>
-                                        <p>{{ substr(strip_tags($b->description),0,120) }}..</p>
-                                    </div>
-                                </article>
-                            </div>
-                        @endforeach
+{{--                    <div class="row">--}}
+{{--                        @foreach($right_blog as $b)--}}
+{{--                            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom: 20px;">--}}
+{{--                                <article class="blog-post">--}}
+{{--                                    <div class="post-thumbnail">--}}
+{{--                                        <a href="#"><img src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="post-content">--}}
+{{--                                        <h5 class="post-title"><a--}}
+{{--                                                href="">{{ substr($b->title,0,30) }}{{ strlen($b->title) > 33 ? '...' : '' }}</a>--}}
+{{--                                        </h5>--}}
+{{--                                        <ul class="post-date list-inline">--}}
+{{--                                            <li><a href="#"><i--}}
+{{--                                                        class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}--}}
+{{--                                                </a></li>--}}
+{{--                                            <li><a href="#"><i class="fa fa-flag"></i>{{ $b->category->name }}</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <p>{{ substr(strip_tags($b->description),0,120) }}..</p>--}}
+{{--                                    </div>--}}
+{{--                                </article>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                    </div>--}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 col-md-7">
+                    <div class="text-uppercase pull-left"
+                         style="background-color: #d3dad2;padding: 8px 20px; color: red; margin-top:40px;margin-bottom: 20px; font-size: 18px; width: 100%">
+                        <b>Tiêu điểm tiền tệ, hàng hóa, vàng </b>
+                        <a title="Tiêu điểm thị trường" href="" style="float: right; font-size: 14px" class="zone__title-sub text-primary">Xem tất cả
+                            <i class="fa fa-angle-double-right ml-1"></i></a>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 col-md-7">
+                    @foreach($other_blog as $b)
+                        <post class="blog-post">
+                            <div class="detail-wrap">
+                                <header class="detail__header">
+                                    <h5 class="detail__title">
+                                        <a href="#" class="aDisable" title="{{ $b->title }}">{{ $b->title }}</a>
+                                    </h5>
+                                </header>
+                                <div class="detail__content_{{ $b->id }} hidden">
+                                    {!! html_entity_decode($b->description, ENT_QUOTES, 'UTF-8') !!}
+                                    <div class="post-thumbnail">
+                                        <a href="#"><img style="max-height: 300px; margin-bottom: 30px;" src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="detail__footer">
+                                    <div class="detail__meta">
+                                        <time>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}</time>
+                                        <a class="btn btn-link text-primary see_more_{{ $b->id }} see-more" data-id="{{ $b->id }}">Xem chi tiết <i
+                                                class="fa fa-angle-double-down ml-1"></i></a>
+                                        <a class="btn btn-link text-primary btn-alt collapse_{{ $b->id }} hidden content-collapse" data-id="{{ $b->id }}">Thu gọn <i
+                                                class="fa fa-angle-double-up ml-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </post>
+                    @endforeach
+                </div>
+                <div class="col-lg-5 col-md-5">
                 </div>
             </div>
         </div>
