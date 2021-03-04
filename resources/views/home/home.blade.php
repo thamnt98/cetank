@@ -30,6 +30,9 @@
                                         <a href="#"><img style="max-height: 300px; margin-bottom: 30px;" src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
                                     </div>
                                 </div>
+                                <div class="tag-post" style="color: #827777">
+                                    <i class="fa fa-tags"> {{ str_replace(',', ', ' , $b->tags) }}</i>
+                                </div>
                                 <div class="detail__footer">
                                     <div class="detail__meta">
                                         <time>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}</time>
