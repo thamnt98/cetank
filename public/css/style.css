@@ -2510,7 +2510,7 @@ div#fxml-sig-wdgt-2, div#fxml-sig-wdgt-3, div#fxml-sig-wdgt-4{
     width: max-content;
 }
 .content {
-    background-color: white;
+    background-color: #524c4c2b;
 }
 article {
     background-color: white;
@@ -2548,4 +2548,13 @@ time {
 }
 .detail__footer .detail__meta a{
     float:right;
+}
+a.zone__title-sub.text-primary:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+post
+{
+    background-color: white;
+    padding: 20px;
 }

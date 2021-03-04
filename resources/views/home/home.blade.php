@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col-lg-7 col-md-7">
                     <div class="text-uppercase pull-left"
-                         style="background-color: #d3dad2;padding: 8px 20px; color: red; margin-bottom: 20px; font-size: 18px; width: 100%">
+                         style="background-color: #2b901df5;padding: 8px 20px; color: white; margin-bottom: 20px; font-size: 18px; width: 100%">
                         <b>Tiêu điểm chứng khoán</b>
-                        <a title="Tiêu điểm thị trường" href="" style="float: right; font-size: 14px" class="zone__title-sub text-primary">Xem tất cả
+                        <a title="Tiêu điểm thị trường" href="" style="float: right; font-size: 14px; color: white" class="zone__title-sub text-primary">Xem tất cả
                             <i class="fa fa-angle-double-right ml-1"></i></a>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                                         <a href="#" class="aDisable" title="{{ $b->title }}">{{ $b->title }}</a>
                                     </h5>
                                 </header>
-                                <div class="detail__content_{{ $b->id }} hidden">
+                                <div class="detail__content_{{ $b->id }} hidden detail-content">
                                     {!! html_entity_decode($b->description, ENT_QUOTES, 'UTF-8') !!}
                                     <div class="post-thumbnail">
                                         <a href="#"><img style="max-height: 300px; margin-bottom: 30px;" src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
@@ -72,9 +72,9 @@
             <div class="row">
                 <div class="col-lg-7 col-md-7">
                     <div class="text-uppercase pull-left"
-                         style="background-color: #d3dad2;padding: 8px 20px; color: red; margin-top:40px;margin-bottom: 20px; font-size: 18px; width: 100%">
+                         style="background-color: #2b901df5;padding: 8px 20px; color: white; margin-top:40px;margin-bottom: 20px; font-size: 18px; width: 100%">
                         <b>Tiêu điểm tiền tệ, hàng hóa, vàng </b>
-                        <a title="Tiêu điểm thị trường" href="" style="float: right; font-size: 14px" class="zone__title-sub text-primary">Xem tất cả
+                        <a title="Tiêu điểm thị trường" href="" style="float: right; font-size: 14px;color: white" class="zone__title-sub text-primary">Xem tất cả
                             <i class="fa fa-angle-double-right ml-1"></i></a>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                                         <a href="#" class="aDisable" title="{{ $b->title }}">{{ $b->title }}</a>
                                     </h5>
                                 </header>
-                                <div class="detail__content_{{ $b->id }} hidden">
+                                <div class="detail__content_{{ $b->id }} hidden detail-content">
                                     {!! html_entity_decode($b->description, ENT_QUOTES, 'UTF-8') !!}
                                     <div class="post-thumbnail">
                                         <a href="#"><img style="max-height: 300px; margin-bottom: 30px;" src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
@@ -467,17 +467,18 @@
         $(document).ready(function () {
             $('.see-more').on('click', function () {
                 let id = $(this).attr('data-id');
-                console.log(id);
+                $('.content-collapse').addClass('hidden');
                 $('.collapse_' + id).removeClass('hidden');
-                $('.detail__content_' + id).removeClass('hidden');
+                $('.detail-content').addClass('hidden');
+                $('.see-more').removeClass('hidden');
                 $('.see_more_' + id).addClass('hidden');
+                $('.detail__content_' + id).removeClass('hidden');
             })
             $('.content-collapse').on('click', function () {
                 let id = $(this).attr('data-id');
-                console.log(id)
-                $('.collapse_' + id).addClass('hidden');
-                $('.detail__content_' + id).addClass('hidden');
-                $('.see_more_' + id).removeClass('hidden');
+                $('.content-collapse').addClass('hidden');
+                $('.detail-content').addClass('hidden');
+                $('.see-more').removeClass('hidden');
             })
         })
     </script>
