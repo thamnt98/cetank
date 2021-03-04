@@ -42,6 +42,7 @@ class HomeController extends Controller
         $data['trades'] = $request->json();
         $data['stock_blog'] = Post::where('category_id', 1)->take(10)->orderBy('created_at', 'desc')->get();
         $data['other_blog']  =  Post::where('category_id', '!=',1)->take(10)->orderBy('created_at', 'desc')->get();
+        $data['right_blog'] = Menu::where('id', 1)->first();
         return view('home.home', $data);
     }
 
