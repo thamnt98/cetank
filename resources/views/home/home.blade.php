@@ -54,14 +54,14 @@
                             </div>
                             <div class="post-content" style="padding-left: 30px;">
                                 <h5 class="post-title"><a
-                                        href="">{{ substr($right_blog->title,0,30) }}{{ strlen($right_blog->title) > 33 ? '...' : '' }}</a>
+                                        href="">{{ $b->title }}</a>
                                 </h5>
                                 <ul class="post-date list-inline">
                                     <li><a href="#"><i
                                                 class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($right_blog->created_at)->format('h:i d/m/Y') }}
                                         </a></li>
                                 </ul>
-                                <p>{{ substr(strip_tags($right_blog->description),0,120) }}..</p>
+                                <p>{{ substr(strip_tags($right_blog->description),0,150) }}..</p>
                             </div>
                         </article>
                     </div>
