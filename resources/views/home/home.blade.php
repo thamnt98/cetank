@@ -54,7 +54,7 @@
                             </div>
                             <div class="post-content" style="padding-left: 30px;">
                                 <h5 class="post-title"><a
-                                        href="">{{ $b->title }}</a>
+                                        href="">{{ $right_blog->title }}</a>
                                 </h5>
                                 <ul class="post-date list-inline">
                                     <li><a href="#"><i
