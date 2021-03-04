@@ -46,8 +46,9 @@ h4,
 h5,
 h6 {
   color: #3b3b42;
+  font-family:  "Open Sans", sans-serif;
   font-style: normal;
-  font-weight: 600;
+  /*font-weight: 600;*/
   margin-top: 0;
   text-transform: capitalize;
 }
