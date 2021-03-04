@@ -49,10 +49,10 @@
                 <div class="col-lg-5 col-md-5">
                     <div class="" style="margin-bottom: 20px;">
                         <article class="blog-post">
-                            <div class="post-thumbnail" style="padding-left:30px">
-                                    <a href="#"><img src="{{ asset('images/no-image.png') }}" alt=""></a>
+                            <div class="post-thumbnail" style="padding-left: 30px">
+                                <a href="#"><img src="{{ asset('images/post') }}/{{ $right_blog->image }}" alt=""></a>
                             </div>
-                            <div class="post-content" style="padding-left:30px">
+                            <div class="post-content" style="padding-left: 30px;">
                                 <h5 class="post-title"><a
                                         href="">{{ substr($right_blog->title,0,30) }}{{ strlen($right_blog->title) > 33 ? '...' : '' }}</a>
                                 </h5>
