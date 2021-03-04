@@ -20,7 +20,7 @@
                         <post class="blog-post">
                             <div class="detail-wrap">
                                 <header class="detail__header">
-                                    <h5 class="detail__title">
+                                    <h5 class="detail__title" style="line-height: 1.8">
                                         <a href="#" class="aDisable" title="{{ $b->title }}">{{ $b->title }}</a>
                                     </h5>
                                 </header>
