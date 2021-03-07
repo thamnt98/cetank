@@ -53,8 +53,7 @@
                                 <a href="#"><img src="{{ asset('images/post') }}/{{ $right_blog->image }}" alt=""></a>
                             </div>
                             <div class="post-content" style="padding-left: 30px;">
-                                <h5 class="post-title"><a
-                                        href="">{{ $right_blog->title }}</a>
+                                <h5 class="post-title"><a href="{{ route('blog.detail',$right_blog->slug) }}">{{ $right_blog->title }}</a>
                                 </h5>
                                 <ul class="post-date list-inline">
                                     <li><a href="#"><i

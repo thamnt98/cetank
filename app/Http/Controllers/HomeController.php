@@ -58,4 +58,22 @@ class HomeController extends Controller
         $data['footer_blog'] = Post::orderBy('views', 'desc')->take(7)->get();
         return view('home.menus', $data);
     }
+
+   
+    public function detailsBlog($slug)
+    {
+        $data['page_title'] = 'Blog Details';
+        $data['blog'] = Menu::whereSlug($slug)->first();
+        $data['basic'] = BasicSetting::first();
+        // $data['blog']->views = $data['blog']->views +1;
+        $data['category'] = Category::whereStatus(1)->get();
+        $data['social'] = Social::all();
+        $data['popular'] = Post::orderBy('views','desc')->take(10)->get();
+        $data['menus'] = Menu::all();
+        $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
+        $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
+        $data['meta'] = 2;
+        return view('home.blog-details',$data);
+    }
+
 }

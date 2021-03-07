@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('publish', 'PostController@publish')->name('post.publish');
         Route::get('create', 'PostController@create')->name('post.create');
         Route::post('store', 'PostController@store')->name('post.store');
+        Route::get('blog-details/{slug}','HomeController@detailsBlog')->name('blog.detail');
     });
 
     Route::group(['prefix' => 'menu'], function () {
