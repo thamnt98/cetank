@@ -41,7 +41,10 @@ class HomeController extends Controller
         $request = Http::get('https://fxsignals.fxleaders.de/api/FXL/5');
         $data['trades'] = $request->json();
         $data['stock_blog'] = Post::where('category_id', 1)->take(5)->orderBy('created_at', 'desc')->get();
+        $data['stock_blog_slug'] = Category::where('id', 1)->first()->slug;
         $data['other_blog']  =  Post::where('category_id', '!=',1)->take(5)->orderBy('created_at', 'desc')->get();
+        $data['other_blog_slug']  =  Category::where('id', '!=',1)->pluck('slug')->toArray();
+        $data['other_blog_slug'] = implode("+", $data['other_blog_slug']);
         $data['right_blog'] = Menu::where('id', 1)->first();
         return view('home.home', $data);
     }
@@ -76,4 +79,18 @@ class HomeController extends Controller
         return view('home.blog-details',$data);
     }
 
+    
+    public function getList($categorySlugs)
+    {
+        $categorySlugs = explode('+', $categorySlugs);
+        $categoryIds = Category::whereIn('slug', $categorySlugs)->pluck('id');
+        $data['category'] = Category::whereStatus(1)->get();
+        $data['social'] = Social::all();
+        $data['menus'] = Menu::all();
+        $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
+        $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
+        $data['blog'] = Post::whereIn('category_id', $categoryIds)->get();
+        $data['basic'] = BasicSetting::first();
+        return view('home.blog-list', $data);
+    }
 }
