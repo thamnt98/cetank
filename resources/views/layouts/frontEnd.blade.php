@@ -83,7 +83,7 @@
                             <a class="logo" href=""><img src="{{ asset('images/logo.png') }}" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-10 hidden-xs hidden-sm">
+                    <div class="col-lg-10 col-md-10 hidden-xs hidden-sm">
                         <nav class="expert-menu">
                             <ul class="main-menu">
                                 <li><a href="">Home</a></li>
