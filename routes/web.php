@@ -24,12 +24,14 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'post'], function () {
         Route::get('all', 'PostController@index')->name('post.all');
+        Route::get('/{slug}', 'HomeController@getList')->name('post.list');
         Route::get('edit/{id}', 'PostController@edit')->name('post.edit');
         Route::post('update', 'PostController@update')->name('post.update');
         Route::post('delete', 'PostController@destroy')->name('post.delete');
         Route::post('publish', 'PostController@publish')->name('post.publish');
         Route::get('create', 'PostController@create')->name('post.create');
         Route::post('store', 'PostController@store')->name('post.store');
+        Route::get('blog-details/{slug}','HomeController@detailsBlog')->name('blog.detail');
     });
 
     Route::group(['prefix' => 'menu'], function () {
