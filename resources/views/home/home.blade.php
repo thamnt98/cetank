@@ -8,7 +8,7 @@
                 <div class="col-lg-7 col-md-7">
                     <div class="text-uppercase pull-left"
                          style="background-color: #2b901df5;padding: 8px 20px; color: white; margin-bottom: 20px; font-size: 18px; width: 100%">
-                        <b>New feeds</b>
+                        <b>Cổ phiếu Việt Nam</b>
                         <a title="Tiêu điểm thị trường" href="" style="float: right; font-size: 14px; color: white" class="zone__title-sub text-primary">Xem tất cả
                             <i class="fa fa-angle-double-right ml-1"></i></a>
                     </div>

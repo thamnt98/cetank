@@ -78,7 +78,7 @@
         <div class="main-header-area sticky-header">
             <div class="container" style="width:95%">
                 <div class="row">
-                    <div class="col-lg-3 col-md-2 col-sm-6 col-xs-7">
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-7">
                         <div class="logo-wrapper">
                             <a class="logo" href=""><img src="{{ asset('images/logo.png') }}" alt=""></a>
                         </div>
