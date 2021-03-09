@@ -222,7 +222,7 @@
                                 </ul>
                             </li>
                             <li class="{{ Request::is('admin/manage-category') ? 'active' : '' }}">
-                                <a href="">
+                                <a href="{{ route('category.list') }}">
                                     <span class="pcoded-micon"><i class="ti-layout-grid2"></i><b>D</b></span>
                                     <span class="pcoded-mtext">Blog Category</span>
                                     <span class="pcoded-mcaret"></span>

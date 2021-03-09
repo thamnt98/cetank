@@ -19,7 +19,7 @@ Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login.pos
 Route::get('admin-dashboard', 'DashboardController@getDashboard')->name('dashboard');
 Route::get('/menu/{id}/{name}', 'HomeController@getMenu');
 Route::get('category/{slug}', 'HomeController@getList')->name('post.list');
-Route::get('menu/{slug}','HomeController@detailsBlog')->name('menu.detail');
+Route::get('post/{slug}','HomeController@detailsBlog')->name('post.detail');
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
@@ -41,4 +41,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('update/{id}', 'WebSettingController@updateMenu')->name('menu.update');
         Route::post('delete', 'WebSettingController@deleteMenu')->name('menu.delete');
     });
+
+    Route::get('manage-category','Admin\CategoryController@manageCategory')->name('category.list');
+    Route::post('manage-category', 'Admin\CategoryController@storeCategory')->name('category.store');
+    Route::get('manage-category/{product_id?}','Admin\CategoryController@editCategory')->name('category.edit');
+    Route::put('manage-category/{product_id?}','Admin\CategoryController@updateCategory')->name('category.update');
+    Route::delete('/manage-category/{product_id?}','Admin\CategoryController@deleteItem')->name('category.delete');
 });

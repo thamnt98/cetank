@@ -80,24 +80,39 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-7">
                         <div class="logo-wrapper">
-                            <a class="logo" href=""><img src="{{ asset('images/logo.png') }}" alt=""></a>
+                            <a class="logo" href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-10 col-md-10 hidden-xs hidden-sm">
                         <nav class="expert-menu">
                             <ul class="main-menu">
-                                <li><a href="">Home</a></li>
-                                <li><a href="">About Us</a></li>
-                                <li><a href="">News<i class="fa fa-caret-down"></i></a>
-                                    <ul>
-                                        @foreach($category as $cat)
-                                            <li><a href=""><i class="fa fa-caret-right"></i> {{ $cat->name }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                @foreach($menus as $m)
-                                    <li><a href="{{ route('menu.detail', $m->slug)  }}">{{ $m->name }}</a></li>
+                                @foreach($category as $c)
+                                    @if(!$c->parent_id)
+                                        @if(count($c->child) == 0)
+                                            <li><a href="{{ route('post.list', $c->slug) }}">{{ $c->name }}</a> </li>
+                                        @else
+                                            <li><a href="#">{{ $c->name }}<i class="fa fa-caret-down"></i></a>
+                                                <ul>
+                                                    @foreach($c->child as $child)
+                                                        <li><a href="{{ route('post.list', $c->slug) }}"><i class="fa fa-caret-right"></i> {{ $child->name }}</a></li>
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                        @endif
+                                    @endif
                                 @endforeach
+{{--                                <li><a href="">Home</a></li>--}}
+{{--                                <li><a href="">About Us</a></li>--}}
+{{--                                <li><a href="">News<i class="fa fa-caret-down"></i></a>--}}
+{{--                                    <ul>--}}
+{{--                                        @foreach($category as $cat)--}}
+{{--                                            <li><a href=""><i class="fa fa-caret-right"></i> {{ $cat->name }}</a></li>--}}
+{{--                                        @endforeach--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+{{--                                @foreach($menus as $m)--}}
+{{--                                    <li><a href="{{ route('menu.detail', $m->slug)  }}">{{ $m->name }}</a></li>--}}
+{{--                                @endforeach--}}
                             </ul>
                         </nav>
                     </div>
