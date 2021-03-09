@@ -96,7 +96,7 @@
                                     </ul>
                                 </li>
                                 @foreach($menus as $m)
-                                    <li><a href="{{ url('menu') }}/{{ $m->id }}/{{ urldecode(strtolower(Str::slug($m->name))) }}">{{ $m->name }}</a></li>
+                                    <li><a href="{{ route('menu.detail', $m->slug)  }}">{{ $m->name }}</a></li>
                                 @endforeach
                             </ul>
                         </nav>
