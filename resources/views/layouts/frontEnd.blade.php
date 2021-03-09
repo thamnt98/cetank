@@ -94,7 +94,7 @@
                                             <li><a href="#">{{ $c->name }}<i class="fa fa-caret-down"></i></a>
                                                 <ul>
                                                     @foreach($c->child as $child)
-                                                        <li><a href="{{ route('post.list', $c->slug) }}"><i class="fa fa-caret-right"></i> {{ $child->name }}</a></li>
+                                                        <li><a href="{{ route('post.list', $c->child->slug) }}"><i class="fa fa-caret-right"></i> {{ $child->name }}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </li>
