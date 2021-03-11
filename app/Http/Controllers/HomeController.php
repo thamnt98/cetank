@@ -44,6 +44,9 @@ class HomeController extends Controller
         $request = Http::get('https://fxsignals.fxleaders.de/api/FXL/5');
         $data['trades'] = $request->json();
         $data['stock_blog'] = Post::where('category_id', 4)->take(5)->orderBy('created_at', 'desc')->get();
+        foreach($data['stock_blog'] as $key => $blog){
+            $data['stock_blog'][$key]['tags'] = explode(',', $blog->tags);
+        }
         $data['stock_blog_slug'] = Category::where('id', 4)->first()->slug;
         $data['other_blog']  =  Post::whereIn('category_id', [5,6,7])->take(5)->orderBy('created_at', 'desc')->get();
         $data['other_blog_slug']  =  Category::whereIn('id', [5,6,7])->pluck('slug')->toArray();
@@ -88,12 +91,29 @@ class HomeController extends Controller
         return view('home.blog-details',$data);
     }
 
-
+    public function getPostByTag($tag){
+        $data['page_title'] = 'Blog Details';
+        $data['blog'] = Post::where('tags', 'like', '%'. $tag . '%')->get();
+        foreach($data['blog'] as $key => $blog){
+            $data['blog'][$key]['tags'] = explode(',', $blog->tags);
+        }
+        $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
+        foreach($data['category'] as $key =>  $c){
+            $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
+        }
+        $data['basic'] = BasicSetting::first();
+        $data['social'] = Social::all();
+        $data['menus'] = Category::all();
+        $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
+        $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
+        $data['basic'] = BasicSetting::first();
+        return view('home.blog-list', $data);
+    }
     public function getList($categorySlugs)
     {
         $categorySlugs = explode('+', $categorySlugs);
         $categoryIds = Category::whereIn('slug', $categorySlugs)->pluck('id');
-            $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
+        $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
         foreach($data['category'] as $key =>  $c){
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
@@ -102,6 +122,9 @@ class HomeController extends Controller
         $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
         $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
         $data['blog'] = Post::whereIn('category_id', $categoryIds)->get();
+        foreach($data['blog'] as $key => $blog){
+            $data['blog'][$key]['tags'] = explode(',', $blog->tags);
+        }
         $data['basic'] = BasicSetting::first();
         return view('home.blog-list', $data);
     }
