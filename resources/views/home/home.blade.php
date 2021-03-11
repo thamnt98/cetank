@@ -50,9 +50,9 @@
                     <div class="" style="margin-bottom: 20px; margin-top:-60px">
                         <article class="blog-post">
                             <div class="post-thumbnail" style="padding: 30px">
-                                <a href="#"><img src="{{ asset('images/post') }}/{{ $top_right_blog->image }}" alt="" style="max-width: 100%; border-radius: 0.25rem"></a>
+                                <a href="#"><img class="shadow-sm bg-white rounded" src="{{ asset('images/post') }}/{{ $top_right_blog->image }}" alt="" style="max-width: 100%;"></a>
                             </div>
-                            <div class="post-content" style="padding-left: 30px;">
+                            <div class="post-content" style="padding: 0px 30px;">
                                 <h5 class="post-title"><a href="{{ route('post.detail',$top_right_blog->slug) }}">{{ $top_right_blog->title }}</a>
                                 </h5>
                                 <ul class="post-date list-inline">
@@ -63,34 +63,52 @@
                                 <p>{{ substr(strip_tags($top_right_blog->description),0,150) }}...</p>
                             </div>
                         </article>
-                        @foreach($right_blog as $b)
-                            <article class="blog-post">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="post-thumbnail" style="padding:30px 0 0;">
-                                            <a href="{{ route('post.detail', $b->slug) }}"><img src="{{ asset('images/post') }}/{{ $b->image }}"
-                                                             alt=""></a>
+                        <div class="row" style="background-color: white; margin:0px">
+                            @foreach($right_blog as $b)
+                                <div class="col-md-6 mb-md-3">
+                                    <article class="blog-post">
+                                        <div class="post-thumbnail">
+                                            <a href="#"><img src="{{ asset('images/post') }}/{{ $b->image }}" alt="" style="max-width: 100%;" class="shadow-sm bg-white rounded"></a>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-8">
                                         <div class="post-content">
-                                            <h5 class="post-title"><a
-                                                    href="{{ route('post.detail', $b->slug) }}">{{ $b->title }}</a>
+                                            <h5 class="post-title"><a href="{{ route('post.detail',$b->slug) }}">{{ $b->title }}</a>
                                             </h5>
                                             <ul class="post-date list-inline">
                                                 <li><a href="#"><i
-                                                            class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('dS M, Y') }}
+                                                            class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}
                                                     </a></li>
-                                                <li><a href="#"><i class="fa fa-flag"></i>{{ $b->category->name }}</a>
-                                                </li>
-                                                <li><a href="#"><i class="fa fa-user"></i>{{ $b->user->name }}</a></li>
                                             </ul>
-                                            <p>{{ substr(strip_tags($b->description),0,120) }}..</p>
                                         </div>
-                                    </div>
+                                    </article>
                                 </div>
-                            </article>
-                        @endforeach
+                                {{--                            <article class="blog-post">--}}
+                                {{--                                <div class="row">--}}
+                                {{--                                    <div class="col-lg-4">--}}
+                                {{--                                        <div class="post-thumbnail" style="padding:30px 0 0;">--}}
+                                {{--                                            <a href="{{ route('post.detail', $b->slug) }}"><img src="{{ asset('images/post') }}/{{ $b->image }}"--}}
+                                {{--                                                             alt=""></a>--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </div>--}}
+                                {{--                                    <div class="col-lg-8">--}}
+                                {{--                                        <div class="post-content">--}}
+                                {{--                                            <h5 class="post-title"><a--}}
+                                {{--                                                    href="{{ route('post.detail', $b->slug) }}">{{ $b->title }}</a>--}}
+                                {{--                                            </h5>--}}
+                                {{--                                            <ul class="post-date list-inline">--}}
+                                {{--                                                <li><a href="#"><i--}}
+                                {{--                                                            class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('dS M, Y') }}--}}
+                                {{--                                                    </a></li>--}}
+                                {{--                                                <li><a href="#"><i class="fa fa-flag"></i>{{ $b->category->name }}</a>--}}
+                                {{--                                                </li>--}}
+                                {{--                                                <li><a href="#"><i class="fa fa-user"></i>{{ $b->user->name }}</a></li>--}}
+                                {{--                                            </ul>--}}
+                                {{--                                            <p>{{ substr(strip_tags($b->description),0,120) }}..</p>--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </div>--}}
+                                {{--                                </div>--}}
+                                {{--                            </article>--}}
+                            @endforeach
+                            </div>
                     </div>
                 </div>
             </div>
