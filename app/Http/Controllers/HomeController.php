@@ -21,7 +21,7 @@ class HomeController extends Controller
     public function getIndex()
     {
         $data['page_title'] = "Home Page";
-        $data['category'] = Category::whereStatus(1)->get();
+        $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
         foreach($data['category'] as $key =>  $c){
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
@@ -49,6 +49,10 @@ class HomeController extends Controller
         $data['other_blog_slug']  =  Category::whereIn('id', [5,6,7])->pluck('slug')->toArray();
         $data['other_blog_slug'] = implode("+", $data['other_blog_slug']);
         $data['right_blog'] = Post::where('category_id', 8)->get();
+        if(count($data['right_blog'])){
+            $data['top_right_blog'] = $data['right_blog'][0];
+            unset($data['right_blog'][0]);
+        }
         return view('home.home', $data);
     }
 
@@ -71,7 +75,7 @@ class HomeController extends Controller
         $data['blog'] = Post::whereSlug($slug)->first();
         $data['basic'] = BasicSetting::first();
         // $data['blog']->views = $data['blog']->views +1;
-        $data['category'] = Category::whereStatus(1)->get();
+        $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
         foreach($data['category'] as $key =>  $c){
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
@@ -89,7 +93,7 @@ class HomeController extends Controller
     {
         $categorySlugs = explode('+', $categorySlugs);
         $categoryIds = Category::whereIn('slug', $categorySlugs)->pluck('id');
-        $data['category'] = Category::whereStatus(1)->get();
+            $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
         foreach($data['category'] as $key =>  $c){
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }

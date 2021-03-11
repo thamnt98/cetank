@@ -86,12 +86,13 @@
                     <div class="col-lg-10 col-md-10 hidden-xs hidden-sm">
                         <nav class="expert-menu">
                             <ul class="main-menu">
-                                @foreach($category as $c)
+                                <li><a href="{{ route('home') }}">Home</a> </li>
+                            @foreach($category as $c)
                                     @if(!$c->parent_id)
                                         @if(count($c->child) == 0)
                                             <li><a href="{{ route('post.list', $c->slug) }}">{{ $c->name }}</a> </li>
                                         @else
-                                            <li><a href="#">{{ $c->name }}<i class="fa fa-caret-down"></i></a>
+                                            <li><a href="{{ route('post.list', $c->slug) }}">{{ $c->name }}<i class="fa fa-caret-down"></i></a>
                                                 <ul>
                                                     @foreach($c->child as $child)
                                                         <li><a href="{{ route('post.list', $child->slug) }}"><i class="fa fa-caret-right"></i> {{ $child->name }}</a></li>

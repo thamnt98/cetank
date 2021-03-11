@@ -47,22 +47,22 @@
                     @endforeach
                 </div>
                 <div class="col-lg-5 col-md-5">
-                    <div class="" style="margin-bottom: 20px;">
-{{--                        <article class="blog-post">--}}
-{{--                            <div class="post-thumbnail" style="padding-left: 30px">--}}
-{{--                                <a href="#"><img src="{{ asset('images/post') }}/{{ $right_blog->image }}" alt=""></a>--}}
-{{--                            </div>--}}
-{{--                            <div class="post-content" style="padding-left: 30px;">--}}
-{{--                                <h5 class="post-title"><a href="{{ route('menu.detail',$right_blog->slug) }}">{{ $right_blog->title }}</a>--}}
-{{--                                </h5>--}}
-{{--                                <ul class="post-date list-inline">--}}
-{{--                                    <li><a href="#"><i--}}
-{{--                                                class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($right_blog->created_at)->format('h:i d/m/Y') }}--}}
-{{--                                        </a></li>--}}
-{{--                                </ul>--}}
-{{--                                <p>{{ substr(strip_tags($right_blog->description),0,150) }}...</p>--}}
-{{--                            </div>--}}
-{{--                        </article>--}}
+                    <div class="" style="margin-bottom: 20px; margin-top:-60px">
+                        <article class="blog-post">
+                            <div class="post-thumbnail" style="padding: 30px">
+                                <a href="#"><img src="{{ asset('images/post') }}/{{ $top_right_blog->image }}" alt="" style="max-width: 100%; border-radius: 0.25rem"></a>
+                            </div>
+                            <div class="post-content" style="padding-left: 30px;">
+                                <h5 class="post-title"><a href="{{ route('post.detail',$top_right_blog->slug) }}">{{ $top_right_blog->title }}</a>
+                                </h5>
+                                <ul class="post-date list-inline">
+                                    <li><a href="#"><i
+                                                class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($top_right_blog->created_at)->format('h:i d/m/Y') }}
+                                        </a></li>
+                                </ul>
+                                <p>{{ substr(strip_tags($top_right_blog->description),0,150) }}...</p>
+                            </div>
+                        </article>
                         @foreach($right_blog as $b)
                             <article class="blog-post">
                                 <div class="row">
