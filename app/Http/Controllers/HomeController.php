@@ -101,6 +101,9 @@ class HomeController extends Controller
         $data['blog'] = Post::where('tags', 'like', '%'. $tag . '%')->orderBy('created_at', 'desc')->get();
         foreach($data['blog'] as $key => $blog){
             $data['blog'][$key]['tags'] = explode(',', $blog->tags);
+            $description = strip_tags(html_entity_decode($blog->description));
+            $pos = strpos($description, '.');
+            $data['blog'][$key]['description'] =  substr($description, 0, $pos+1);
         }
         $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
         foreach($data['category'] as $key =>  $c){
