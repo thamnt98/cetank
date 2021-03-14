@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{asset('admin/css/bootstrap-tagsinput.css')}}">
     <link href="{{ asset('admin/css/bootstrap-toggle.min.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 @endsection
 @section('content')
     <div class="page-body">
@@ -123,7 +123,7 @@
     <script src="{{ asset('admin/js/bootstrap-fileinput.js') }}"></script>
     <script src="{{asset('admin/js/bootstrap-tagsinput.min.js')}}"></script>
     <script src="{{ asset('admin/js/bootstrap-toggle.min.js') }}"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#description').summernote({
@@ -148,7 +148,6 @@
                     $('#description').val(text);
                 },
             })
-            $('#description').summernote('fontSize', 14);
         })
     </script>
 @endsection
