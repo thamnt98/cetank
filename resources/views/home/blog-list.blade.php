@@ -3,11 +3,11 @@
 <div class="expert-section expert-blog-section" style="padding:50px 0">
     <div class="container" style="width: 70%;">
         <div class="row">
-            <div class="text-uppercase pull-left"
-                 style="padding: 8px 20px;font-size: 18px; width: 100%; margin-top: 10px;">
-                <b>{{ $slug }}</b>
-            </div>
             @if($blog)
+                <div class="text-uppercase pull-left"
+                     style="padding: 8px 20px;font-size: 18px; width: 100%; margin-top: 10px;">
+                    <b>{{ $slug }}</b>
+                </div>
                 @foreach($blog as $b)
                     <article class="row">
                         <div class="col-md-3 col-lg-3">

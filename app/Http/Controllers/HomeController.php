@@ -16,6 +16,8 @@ use App\Models\Partner;
 use App\Models\Menu;
 use App\Models\Section;
 use Illuminate\Support\Facades\Http;
+use function GuzzleHttp\Psr7\str;
+
 class HomeController extends Controller
 {
     public function getIndex()
@@ -52,7 +54,7 @@ class HomeController extends Controller
         foreach($data['other_blog'] as $key => $blog){
             $data['other_blog'][$key]['tags'] = explode(',', $blog->tags);
         }
-        $data['other_blog_slug']  =  Category::whereIn('id', [5,6,7])->pluck('slug')->toArray();
+        $data['other_blog_slug']  = Category::whereIn('id', [5,6,7])->pluck('slug')->toArray();
         $data['other_blog_slug'] = implode("+", $data['other_blog_slug']);
         $data['right_blog'] = Post::where('category_id', 8)->take(9)->orderBy('created_at', 'desc')->get();
         if(count($data['right_blog'])){
@@ -122,7 +124,7 @@ class HomeController extends Controller
     }
     public function getList($categorySlugs)
     {
-        $data['slug'] = Category::where('slug', $categorySlugs)->first();
+        $data['slug'] = Category::where('slug', $categorySlugs)->get();
         $data['social'] = Social::all();
         $data['menus'] = Category::all();
         $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
@@ -132,20 +134,24 @@ class HomeController extends Controller
         foreach($data['category'] as $key =>  $c){
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
+        $data['blog'] = null;
+        $slugs = [];
         if($data['slug']){
-            $data['slug'] = $data['slug']->name;
-            $categorySlugs = explode('+', $categorySlugs);
-            $categoryIds = Category::whereIn('slug', $categorySlugs)->pluck('id');
-            $data['blog'] = Post::whereIn('category_id', $categoryIds)->orderBy('created_at', 'desc')->get();
+            $slugs = [$categorySlugs];
+        }
+        if(strpos($categorySlugs, '+')){
+            $slugs = explode('+', $categorySlugs);
+        }
+        if(!empty($slugs)){
+            $categories = Category::whereIn('slug', $slugs)->pluck('name', 'id')->toArray();
+            $data['slug'] = implode(", ", $categories);
+            $data['blog'] = Post::whereIn('category_id', array_keys($categories))->orderBy('created_at', 'desc')->get();
             foreach($data['blog'] as $key => $blog){
                 $data['blog'][$key]['tags'] = explode(',', $blog->tags);
                 $description = strip_tags(html_entity_decode($blog->description));
                 $pos = strpos($description, '.');
                 $data['blog'][$key]['description'] =  substr($description, 0, $pos+1);
             }
-        }
-        else{
-            $data['blog'] = null;
         }
         return view('home.blog-list', $data);
     }
