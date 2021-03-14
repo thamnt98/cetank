@@ -51,7 +51,7 @@ class HomeController extends Controller
         $data['other_blog']  =  Post::whereIn('category_id', [5,6,7])->take(5)->orderBy('created_at', 'desc')->get();
         $data['other_blog_slug']  =  Category::whereIn('id', [5,6,7])->pluck('slug')->toArray();
         $data['other_blog_slug'] = implode("+", $data['other_blog_slug']);
-        $data['right_blog'] = Post::where('category_id', 8)->get();
+        $data['right_blog'] = Post::where('category_id', 8)->orderBy('created_at', 'desc')->get();
         if(count($data['right_blog'])){
             $data['top_right_blog'] = $data['right_blog'][0];
             unset($data['right_blog'][0]);
