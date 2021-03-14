@@ -21,7 +21,7 @@ class PostController extends Controller
     public function index()
     {
         $page_title = "All Post";
-        $testimonial = Post::orderBy('id', 'desc')->paginate(20);
+        $testimonial = Post::orderBy('id', 'desc')->get();
         $basic = Section::first();
         return view('post.index', compact(['page_title', 'testimonial', 'basic']));
     }

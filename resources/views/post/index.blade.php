@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 @section('style')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" />
+
 @endsection
 @section('content')
     <div class="page-body">
@@ -19,8 +21,7 @@
                     </div>
                     <div class="card-block">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="sample_1">
-
+                            <table id="table" class="table table-striped" style="width:100%">
                                 <thead>
                                 <tr>
                                     <th width="5%">SL#</th>
@@ -36,7 +37,7 @@
                                 <tbody>
                                 @foreach($testimonial as $k => $p)
                                     <tr>
-                                        <td>{{ $k + $testimonial->firstItem()  }}</td>
+                                        <td>{{ $k + 1 }}</td>
                                         <td><b>{{ $p->category->name  }}</b></td>
                                         <td style="width: 25%"><b>{!! Str::limit(strip_tags($p->title),40) !!}</b></td>
                                         <td>
@@ -91,9 +92,9 @@
                                 </tbody>
                             </table>
                         </div>
-                         <div class="text-right">
-                            {{$testimonial->links()}}
-                        </div>
+{{--                         <div class="text-right">--}}
+{{--                            {{$testimonial->links()}}--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -161,7 +162,8 @@
 
 @endsection
 @section('scripts')
-
+    <script type="text/javascript" src=" https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src=" https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function () {
 
@@ -171,15 +173,22 @@
             });
 
         });
-    </script>
-
-    <script>
-        $(document).ready(function (e) {
-            $(document).on("click", '.publish_button', function (e) {
-                var id = $(this).data('id');
-                $(".confirm_id").val(id);
+        $(document).ready(function() {
+            $('#table').DataTable(
+                {
+                    searching:true,
+                    columnDefs : [
+                        { targets: 0, sortable: false},
+                    ],
+                    order: [[ 1, "asc" ]]
+                }
+            );
+            $(document).ready(function (e) {
+                $(document).on("click", '.publish_button', function (e) {
+                    var id = $(this).data('id');
+                    $(".confirm_id").val(id);
+                });
             });
-        });
+        } );
     </script>
-
 @endsection
