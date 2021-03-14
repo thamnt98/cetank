@@ -357,7 +357,7 @@ var nicEditorConfig = bkClass.extend({
         }
     },
     iconsPath: '../nicEditorIcons.gif',
-    buttonList: ['save', 'bold', 'italic', 'underline', 'left', 'center', 'right', 'justify', 'ol', 'ul', 'fontFormat', 'indent', 'outdent', 'image', 'upload', 'link', 'unlink', 'forecolor', 'bgcolor'],
+    buttonList: ['save', 'bold', 'italic', 'underline', 'left', 'center', 'right', 'justify', 'ol', 'ul', 'fontSize', 'fontFamily', 'fontFormat', 'indent', 'outdent', 'image', 'upload', 'link', 'unlink', 'forecolor', 'bgcolor'],
     iconList: {
         "xhtml": 1,
         "bgcolor": 2,
@@ -1207,16 +1207,16 @@ nicEditors.registerPlugin(nicButtonTips);
 
 var nicSelectOptions = {
     buttons: {
-        // 'fontSize': {
-        //     name: __('Select Font Size'),
-        //     type: 'nicEditorFontSizeSelect',
-        //     command: 'fontsize'
-        // },
-        // 'fontFamily': {
-        //     name: __('Select Font Family'),
-        //     type: 'nicEditorFontFamilySelect',
-        //     command: 'fontname'
-        // },
+        'fontSize': {
+            name: __('Select Font Size'),
+            type: 'nicEditorFontSizeSelect',
+            command: 'fontsize'
+        },
+        'fontFamily': {
+            name: __('Select Font Family'),
+            type: 'nicEditorFontFamilySelect',
+            command: 'fontname'
+        },
         'fontFormat': {
             name: __('Select Font Format'),
             type: 'nicEditorFontFormatSelect',
@@ -1364,44 +1364,44 @@ var nicEditorFontSizeSelect = nicEditorSelect.extend({
         }
     }
 });
-// var nicEditorFontFamilySelect = nicEditorSelect.extend({
-//     sel: {
-//         arial: "Arial",
-//         "comic sans ms": "Comic Sans",
-//         "courier new": "Courier New",
-//         georgia: "Georgia",
-//         helvetica: "Helvetica",
-//         impact: "Impact",
-//         "times new roman": "Times",
-//         "trebuchet ms": "Trebuchet",
-//         verdana: "Verdana"
-//     },
-//     init: function() {
-//         this.setDisplay("Font&nbsp;Family...");
-//         for (itm in this.sel) {
-//             this.add(itm, '<font face="' + itm + '">' + this.sel[itm] + "</font>")
-//         }
-//     }
-// });
-// var nicEditorFontFormatSelect = nicEditorSelect.extend({
-//     sel: {
-//         p: "Paragraph",
-//         pre: "Pre",
-//         h6: "Heading&nbsp;6",
-//         h5: "Heading&nbsp;5",
-//         h4: "Heading&nbsp;4",
-//         h3: "Heading&nbsp;3",
-//         h2: "Heading&nbsp;2",
-//         h1: "Heading&nbsp;1"
-//     },
-//     init: function() {
-//         this.setDisplay("Font&nbsp;Format...");
-//         for (itm in this.sel) {
-//             var A = itm.toUpperCase();
-//             this.add("<" + A + ">", "<" + itm + ' style="padding: 0px; margin: 0px;">' + this.sel[itm] + "</" + A + ">")
-//         }
-//     }
-// });
+var nicEditorFontFamilySelect = nicEditorSelect.extend({
+    sel: {
+        arial: "Arial",
+        "comic sans ms": "Comic Sans",
+        "courier new": "Courier New",
+        georgia: "Georgia",
+        helvetica: "Helvetica",
+        impact: "Impact",
+        "times new roman": "Times",
+        "trebuchet ms": "Trebuchet",
+        verdana: "Verdana"
+    },
+    init: function() {
+        this.setDisplay("Font&nbsp;Family...");
+        for (itm in this.sel) {
+            this.add(itm, '<font face="' + itm + '">' + this.sel[itm] + "</font>")
+        }
+    }
+});
+var nicEditorFontFormatSelect = nicEditorSelect.extend({
+    sel: {
+        p: "Paragraph",
+        pre: "Pre",
+        h6: "Heading&nbsp;6",
+        h5: "Heading&nbsp;5",
+        h4: "Heading&nbsp;4",
+        h3: "Heading&nbsp;3",
+        h2: "Heading&nbsp;2",
+        h1: "Heading&nbsp;1"
+    },
+    init: function() {
+        this.setDisplay("Font&nbsp;Format...");
+        for (itm in this.sel) {
+            var A = itm.toUpperCase();
+            this.add("<" + A + ">", "<" + itm + ' style="padding: 0px; margin: 0px;">' + this.sel[itm] + "</" + A + ">")
+        }
+    }
+});
 nicEditors.registerPlugin(nicPlugin, nicSelectOptions);
 
 var nicLinkOptions = {

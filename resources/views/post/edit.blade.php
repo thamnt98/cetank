@@ -4,6 +4,8 @@
     <link href="{{ asset('admin/css/bootstrap-fileinput.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('admin/css/bootstrap-tagsinput.css')}}">
     <link href="{{ asset('admin/css/bootstrap-toggle.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -80,7 +82,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12"><strong style="text-transform: uppercase;">Description</strong></label>
                                     <div class="col-md-12">
-                                        <textarea name="description" id="area1" rows="10" class="form-control" required placeholder="Description">{!! old('description', $testimonial->description) !!}</textarea>
+                                        <textarea name="description" id="description" class="form-control" required placeholder="Description">{!! old('description', $testimonial->description) !!}</textarea>
                                     </div>
                                 </div>
 
@@ -118,11 +120,33 @@
     <script src="{{ asset('admin/js/bootstrap-fileinput.js') }}"></script>
     <script src="{{asset('admin/js/bootstrap-tagsinput.min.js')}}"></script>
     <script src="{{ asset('admin/js/bootstrap-toggle.min.js') }}"></script>
-
-    <script src="{{ asset('admin/js/nicEdit.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
     <script type="text/javascript">
-        bkLib.onDomLoaded(function() {
-            new nicEditor({fullPanel : true,iconsPath : '{{ asset('admin/js/nicEditorIcons.gif') }}'}).panelInstance('area1');
-        });
+        $(document).ready(function() {
+            $('#description').summernote({
+                fontSizes: ['8', '9', '10', '11', '12', '13', '14', '15', '16', '18', '20', '22' , '24', '28', '32', '36', '40', '48'],
+                fontNames: ['Arial', 'Calibri','Helvetica', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto'],
+                placeholder: 'Description',
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                    ['style', ['style']],
+                    ['text', ['bold', 'italic', 'underline', 'color', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['size', ['fontsize']],
+                    ['font', ['fontname']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ],
+                onblur: function() {
+                    var text = $('#editor').code();
+                    text = text.replace("<br>", " ");
+                    $('#description').val(text);
+                },
+            })
+            $('#description').summernote('fontSize', 14);
+        })
     </script>
 @endsection

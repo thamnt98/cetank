@@ -1,6 +1,6 @@
 
 body {
-    font-family:  "Open Sans", sans-serif;
+    font-family:  'Segoe UI';
     font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -46,7 +46,7 @@ h4,
 h5,
 h6 {
   color: #3b3b42;
-  font-family:  "Open Sans", sans-serif;
+  /*font-family:  "Open Sans", sans-serif;*/
   font-style: normal;
   font-weight: 700;
   margin-top: 0;
@@ -180,7 +180,7 @@ label {
   border-radius: 2px;
   color: #fff;
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  /*font-family: 'Montserrat', sans-serif;*/
   font-size: 14px;
   font-weight: 600;
   height: 45px;
@@ -1003,7 +1003,7 @@ label {
     border-radius: 3px;
     color: #717171;
     display: inline-block;
-    font-family: 'Montserrat', sans-serif;
+    /*font-family: 'Montserrat', sans-serif;*/
     font-size: 14px;
     font-weight: 600;
     height: 40px;
@@ -2206,7 +2206,7 @@ div.g-recaptcha {
 
 .counter-text p {
   display: inline-block;
-  font-family: "Montserrat", sans-serif;
+  /*font-family: "Montserrat", sans-serif;*/
   font-size: 36px;
   font-weight: 600;
   line-height: 30px;
@@ -2558,4 +2558,7 @@ post
 }
 .rounded {
     border-radius: 1rem!important;
+}
+span {
+    line-height: 24px;
 }
