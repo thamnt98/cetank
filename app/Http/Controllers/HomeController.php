@@ -113,25 +113,31 @@ class HomeController extends Controller
     }
     public function getList($categorySlugs)
     {
-        $data['slug'] = Category::where('slug', $categorySlugs)->first()->name;
-        $categorySlugs = explode('+', $categorySlugs);
-        $categoryIds = Category::whereIn('slug', $categorySlugs)->pluck('id');
-        $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
-        foreach($data['category'] as $key =>  $c){
-            $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
-        }
+        $data['slug'] = Category::where('slug', $categorySlugs)->first();
         $data['social'] = Social::all();
         $data['menus'] = Category::all();
         $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
         $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
-        $data['blog'] = Post::whereIn('category_id', $categoryIds)->orderBy('created_at', 'desc')->get();
-        foreach($data['blog'] as $key => $blog){
-            $data['blog'][$key]['tags'] = explode(',', $blog->tags);
-            $description = strip_tags(html_entity_decode($blog->description));
-            $pos = strpos($description, '.');
-            $data['blog'][$key]['description'] =  substr($description, 0, $pos+1);
-        }
         $data['basic'] = BasicSetting::first();
+        $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
+        foreach($data['category'] as $key =>  $c){
+            $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
+        }
+        if($data['slug']){
+            $data['slug'] = $data['slug']->name;
+            $categorySlugs = explode('+', $categorySlugs);
+            $categoryIds = Category::whereIn('slug', $categorySlugs)->pluck('id');
+            $data['blog'] = Post::whereIn('category_id', $categoryIds)->orderBy('created_at', 'desc')->get();
+            foreach($data['blog'] as $key => $blog){
+                $data['blog'][$key]['tags'] = explode(',', $blog->tags);
+                $description = strip_tags(html_entity_decode($blog->description));
+                $pos = strpos($description, '.');
+                $data['blog'][$key]['description'] =  substr($description, 0, $pos+1);
+            }
+        }
+        else{
+            $data['blog'] = null;
+        }
         return view('home.blog-list', $data);
     }
 }
