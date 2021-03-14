@@ -127,6 +127,9 @@ class HomeController extends Controller
         $data['blog'] = Post::whereIn('category_id', $categoryIds)->orderBy('created_at', 'desc')->get();
         foreach($data['blog'] as $key => $blog){
             $data['blog'][$key]['tags'] = explode(',', $blog->tags);
+            $description = strip_tags($blog->description);
+            $pos = strpos($description, '.');
+            $data['blog'][$key]['description'] =  substr($description, 0, $pos+1);
         }
         $data['basic'] = BasicSetting::first();
         return view('home.blog-list', $data);
