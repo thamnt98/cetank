@@ -26,7 +26,7 @@
                                             class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}
                                     </a></li>
                             </ul>
-                            <p>{{ substr(strip_tags($b->description),0,150) }}...</p>
+                            <p>{{ substr(strip_tags($b->description),0,270) }}...</p>
                         </div>
                     </div>
                 </article>
