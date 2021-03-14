@@ -49,6 +49,9 @@ class HomeController extends Controller
         }
         $data['stock_blog_slug'] = Category::where('id', 4)->first()->slug;
         $data['other_blog']  =  Post::whereIn('category_id', [5,6,7])->take(5)->orderBy('created_at', 'desc')->get();
+        foreach($data['other_blog'] as $key => $blog){
+            $data['other_blog'][$key]['tags'] = explode(',', $blog->tags);
+        }
         $data['other_blog_slug']  =  Category::whereIn('id', [5,6,7])->pluck('slug')->toArray();
         $data['other_blog_slug'] = implode("+", $data['other_blog_slug']);
         $data['right_blog'] = Post::where('category_id', 8)->take(9)->orderBy('created_at', 'desc')->get();

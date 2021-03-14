@@ -74,7 +74,11 @@
                                     </div>
                                 </div>
                                 <div class="tag-post" style="color: #827777">
-                                    <i class="fa fa-tags"> {{ str_replace(',', ', ' , $b->tags) }}</i>
+                                    <i class="fa fa-tags">
+                                        @foreach($b->tags as $key => $tag)
+                                            <a href="{{ route('tag.list', $tag) }}"> {{ $tag }} @if($key != array_key_last($b->tags)),@endif</a>
+                                        @endforeach
+                                    </i>
                                 </div>
                                 <div class="detail__footer">
                                     <div class="detail__meta">
