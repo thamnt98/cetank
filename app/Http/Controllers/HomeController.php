@@ -56,6 +56,9 @@ class HomeController extends Controller
             $data['top_right_blog'] = $data['right_blog'][0];
             unset($data['right_blog'][0]);
         }
+        $data['footer_blog_1'] = Post::where('category_id', 9)->orderBy('created_at', 'desc')->take(9)->get();
+        $data['footer_blog_2'] = Post::where('category_id', 11)->orderBy('created_at', 'desc')->take(9)->get();
+        $data['footer_blog_3'] = Post::where('category_id', 12)->orderBy('created_at', 'desc')->take(9)->get();
         return view('home.home', $data);
     }
 

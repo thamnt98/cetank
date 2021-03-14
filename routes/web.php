@@ -33,16 +33,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('create', 'PostController@create')->name('post.create');
         Route::post('store', 'PostController@store')->name('post.store');
     });
-
-    Route::group(['prefix' => 'menu'], function () {
-        Route::get('create', 'WebSettingController@createMenu')->name('menu.create');
-        Route::post('create', 'WebSettingController@storeMenu')->name('menu.store');
-        Route::get('control', 'WebSettingController@manageMenu')->name('menu.control');
-        Route::get('edit/{id}', 'WebSettingController@editMenu')->name('menu.edit');
-        Route::post('update/{id}', 'WebSettingController@updateMenu')->name('menu.update');
-        Route::post('delete', 'WebSettingController@deleteMenu')->name('menu.delete');
-    });
-
     Route::get('manage-category','Admin\CategoryController@manageCategory')->name('category.list');
     Route::post('manage-category', 'Admin\CategoryController@storeCategory')->name('category.store');
     Route::get('manage-category/{product_id?}','Admin\CategoryController@editCategory')->name('category.edit');

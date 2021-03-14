@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-7 col-md-7">
                     <div class="text-uppercase pull-left"
-                         style="background-color: #2b901df5;padding: 8px 20px; color: white; margin-bottom: 20px; font-size: 18px; width: 100%">
+                         style="background-color: #343d47;padding: 8px 20px; color: white; margin-bottom: 20px; font-size: 18px; width: 100%">
                         <b>Cổ phiếu Việt Nam</b>
                         <a title="Tiêu điểm thị trường" href="{{ route('post.list', $stock_blog_slug)}}"
                            style="float: right; font-size: 14px; color: white" class="zone__title-sub text-primary">Xem
@@ -51,7 +51,7 @@
                         </post>
                     @endforeach
                     <div class="text-uppercase pull-left"
-                         style="background-color: #2b901df5;padding: 8px 20px; color: white; margin-top:40px;margin-bottom: 20px; font-size: 18px; width: 100%">
+                         style="background-color: #343d47;padding: 8px 20px; color: white; margin-top:40px;margin-bottom: 20px; font-size: 18px; width: 100%">
                         <b>Tiêu điểm tiền tệ, hàng hóa, vàng </b>
                         <a title="Tiêu điểm thị trường" href="{{ route('post.list', $other_blog_slug)}}"
                            style="float: right; font-size: 14px;color: white" class="zone__title-sub text-primary">Xem
@@ -143,137 +143,249 @@
             </div>
         </div>
     </div>
-    <div class="expert-section colored-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="area-heading text-center title-white ">
-                        <h2 class="area-title">{{ $section->currency_title }}</h2>
-                        <p>{{ $section->currency_description }}</p>
-                    </div>
+{{--    <div class="expert-section colored-bg">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-12">--}}
+{{--                    <div class="area-heading text-center title-white ">--}}
+{{--                        <h2 class="area-title">{{ $section->currency_title }}</h2>--}}
+{{--                        <p>{{ $section->currency_description }}</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="text-center">--}}
+{{--                        {!! $section->currency_live !!}--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="text-center">--}}
+{{--                        {!! $section->currency_cal !!}--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+    @if(count($footer_blog_1))
+        <div class="expert-section" style="padding:0px">
+            <div class="container">
+                <div class="text-uppercase pull-left"
+                     style=" color: white; margin-bottom: 20px; font-size: 18px; width: 100%; border-bottom:1px solid #343d47 ">
+                    <b style="background-color: #343d47; padding: 8px; display: inline-block ">Định giá doanh nghiệp</b>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="text-center">
-                        {!! $section->currency_live !!}
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center">
-                        {!! $section->currency_cal !!}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="expert-section" style="background: url('{{ asset('images') }}/{{ $section->counter_image }}')">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-counter wow fadeIn" data-wow-delay="0.2s">
-                        <div class="counter-icon">
-                            <i class="bi bi-spark"></i>
-                        </div>
-                        <div class="counter-text">
-                            <p class="fact-number">{{ $total_signal }}</p>
-                            <h4>Total Signal</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-counter wow fadeIn" data-wow-delay="0.3s">
-                        <div class="counter-icon">
-                            <i class="bi bi-link"></i>
-                        </div>
-                        <div class="counter-text">
-                            <p class="fact-number">{{ $total_category }}</p>
-                            <h4>Blog Category</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-counter wow fadeIn" data-wow-delay="0.4s">
-                        <div class="counter-icon">
-                            <i class="bi bi-article"></i>
-                        </div>
-                        <div class="counter-text">
-                            <p class="fact-number">{{ $total_blog }}</p>
-                            <h4>Total Blog</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-counter wow fadeIn" data-wow-delay="0.5s">
-                        <div class="counter-icon">
-                            <i class="bi bi-group"></i>
-                        </div>
-                        <div class="counter-text">
-                            <p class="fact-number">{{$total_user}}</p>
-                            <h4>Happy User</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="expert-section gray-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-                    {!! $section->trading_script !!}
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="subscribe-section colored-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <div class="subscribe-content">
-                        <h3>{{ $section->subscriber_title }}</h3>
-                        <p>{{ $section->subscriber_description }}</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <div class="subscription-box">
-                        @if (session()->has('message'))
-                            <div class="alert alert-warning alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
-                                </button>
-                                {{ session()->get('message') }}
-                            </div>
-                        @endif
-                        @if($errors->any())
-                            @foreach ($errors->all() as $error)
-                                <div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                                        &times;
-                                    </button>
-                                    {!!  $error !!}
+                <div class="row" style="margin-left: 0px; margin-top: 65px; background-color: white; padding-bottom: 30px;">
+                    @foreach($footer_blog_1 as $b)
+                        <div class="col-lg-4 col-md-4">
+                            <article class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="post-thumbnail" style="margin-top:30px">
+                                        <a href="#"><img class="shadow-sm bg-white rounded"
+                                                         src="{{ asset('images/post') }}/{{ $b->image }}" alt=""
+                                                         style="max-width: 100%;"></a>
+                                    </div>
                                 </div>
-                            @endforeach
-                        @endif
-                        <form class="subscription-form" method="POST" action="">
-                            {!! csrf_field() !!}
-                            <div class="subscribe-input">
-                                <input type="email" class="subscribe-control" required name="email"
-                                       placeholder="Enter Your Email">
-                            </div>
-                            <div class="subscribe-input">
-                                <button class="button email-submit-btn btn-white" type="submit"
-                                        style="background: #ffffff;"><i class="fa fa-paper-plane"></i> Subscribe Now
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                                <div class="col-lg-8">
+                                    <div class="post-content">
+                                        <h5 class="post-title"><a
+                                                href="{{ route('post.detail',$b->slug) }}">{{ $b->title }}</a>
+                                        </h5>
+                                        <ul class="post-date list-inline">
+                                            <li><a href="#"><i
+                                                        class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}
+                                                </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+    @if(count($footer_blog_2))
+        <div class="expert-section" style="padding:0px; margin-top: 30px">
+            <div class="container">
+                <div class="text-uppercase pull-left"
+                     style=" color: white; margin-bottom: 20px; font-size: 18px; width: 100%; border-bottom:1px solid #343d47 ">
+                    <b style="background-color: #343d47; padding: 8px; display: inline-block ">Robot Signal</b>
+                </div>
+                <div class="row" style="margin-left: 0px; margin-top: 65px; background-color: white; padding-bottom: 30px;">
+                    @foreach($footer_blog_2 as $b)
+                        <div class="col-lg-4 col-md-4">
+                            <article class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="post-thumbnail" style="margin-top:30px">
+                                        <a href="#"><img class="shadow-sm bg-white rounded"
+                                                         src="{{ asset('images/post') }}/{{ $b->image }}" alt=""
+                                                         style="max-width: 100%;"></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="post-content">
+                                        <h5 class="post-title"><a
+                                                href="{{ route('post.detail',$b->slug) }}">{{ $b->title }}</a>
+                                        </h5>
+                                        <ul class="post-date list-inline">
+                                            <li><a href="#"><i
+                                                        class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}
+                                                </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+    @if(count($footer_blog_3))
+        <div class="expert-section" style="padding:0px; margin-top: 30px">
+            <div class="container">
+                <div class="text-uppercase pull-left"
+                     style=" color: white; margin-bottom: 20px; font-size: 18px; width: 100%; border-bottom:1px solid #343d47 ">
+                    <b style="background-color: #343d47; padding: 8px; display: inline-block ">Tiền điện tử</b>
+                </div>
+                <div class="row" style="margin-left: 0px; margin-top: 65px; background-color: white; padding-bottom: 30px;">
+                    @foreach($footer_blog_2 as $b)
+                        <div class="col-lg-4 col-md-4">
+                            <article class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="post-thumbnail" style="margin-top:30px">
+                                        <a href="#"><img class="shadow-sm bg-white rounded"
+                                                         src="{{ asset('images/post') }}/{{ $b->image }}" alt=""
+                                                         style="max-width: 100%;"></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="post-content">
+                                        <h5 class="post-title"><a
+                                                href="{{ route('post.detail',$b->slug) }}">{{ $b->title }}</a>
+                                        </h5>
+                                        <ul class="post-date list-inline">
+                                            <li><a href="#"><i
+                                                        class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($b->created_at)->format('h:i d/m/Y') }}
+                                                </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+
+{{--    <div class="expert-section" style="background: url('{{ asset('images') }}/{{ $section->counter_image }}')">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-3 col-sm-6">--}}
+{{--                    <div class="single-counter wow fadeIn" data-wow-delay="0.2s">--}}
+{{--                        <div class="counter-icon">--}}
+{{--                            <i class="bi bi-spark"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="counter-text">--}}
+{{--                            <p class="fact-number">{{ $total_signal }}</p>--}}
+{{--                            <h4>Total Signal</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3 col-sm-6">--}}
+{{--                    <div class="single-counter wow fadeIn" data-wow-delay="0.3s">--}}
+{{--                        <div class="counter-icon">--}}
+{{--                            <i class="bi bi-link"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="counter-text">--}}
+{{--                            <p class="fact-number">{{ $total_category }}</p>--}}
+{{--                            <h4>Blog Category</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3 col-sm-6">--}}
+{{--                    <div class="single-counter wow fadeIn" data-wow-delay="0.4s">--}}
+{{--                        <div class="counter-icon">--}}
+{{--                            <i class="bi bi-article"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="counter-text">--}}
+{{--                            <p class="fact-number">{{ $total_blog }}</p>--}}
+{{--                            <h4>Total Blog</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3 col-sm-6">--}}
+{{--                    <div class="single-counter wow fadeIn" data-wow-delay="0.5s">--}}
+{{--                        <div class="counter-icon">--}}
+{{--                            <i class="bi bi-group"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="counter-text">--}}
+{{--                            <p class="fact-number">{{$total_user}}</p>--}}
+{{--                            <h4>Happy User</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+{{--    <div class="expert-section gray-bg">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-12">--}}
+
+{{--                    {!! $section->trading_script !!}--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="subscribe-section colored-bg">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                    <div class="subscribe-content">--}}
+{{--                        <h3>{{ $section->subscriber_title }}</h3>--}}
+{{--                        <p>{{ $section->subscriber_description }}</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                    <div class="subscription-box">--}}
+{{--                        @if (session()->has('message'))--}}
+{{--                            <div class="alert alert-warning alert-dismissable">--}}
+{{--                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;--}}
+{{--                                </button>--}}
+{{--                                {{ session()->get('message') }}--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+{{--                        @if($errors->any())--}}
+{{--                            @foreach ($errors->all() as $error)--}}
+{{--                                <div class="alert alert-danger alert-dismissable">--}}
+{{--                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">--}}
+{{--                                        &times;--}}
+{{--                                    </button>--}}
+{{--                                    {!!  $error !!}--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+{{--                        @endif--}}
+{{--                        <form class="subscription-form" method="POST" action="">--}}
+{{--                            {!! csrf_field() !!}--}}
+{{--                            <div class="subscribe-input">--}}
+{{--                                <input type="email" class="subscribe-control" required name="email"--}}
+{{--                                       placeholder="Enter Your Email">--}}
+{{--                            </div>--}}
+{{--                            <div class="subscribe-input">--}}
+{{--                                <button class="button email-submit-btn btn-white" type="submit"--}}
+{{--                                        style="background: #ffffff;"><i class="fa fa-paper-plane"></i> Subscribe Now--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 @endsection
 @section('javascript')
     <script>
