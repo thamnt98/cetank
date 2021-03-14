@@ -480,29 +480,6 @@
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                             </li> --}}
-                            <li class="pcoded-hasmenu @if(Request::is('admin/menu/create') or Request::is('admin/menu/control') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
-                                <a href="javascript:void(0)">
-                                    <span class="pcoded-micon"><i class="fa fa-rss"></i><b>MM</b></span>
-                                    <span class="pcoded-mtext">Manage Menu</span>
-                                    <span class="pcoded-mcaret"></span>
-                                </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="{{ Request::is('admin/menu/create') ? 'active' : '' }}">
-                                        <a href="{{ route('menu.create') }}">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext">New Menu</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                    <li class="{{ Request::is('admin/menu/control') ? 'active' : '' }}">
-                                        <a href="{{ route('menu.control') }}">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext">All menu</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
                             {{-- <li class="pcoded-hasmenu @if(Request::is('admin/member-create') or Request::is('admin/member-all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="fa fa-users"></i><b>IM</b></span>
