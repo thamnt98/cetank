@@ -17,10 +17,9 @@ Route::get('/', 'HomeController@getIndex')->name('home');
 Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login.post');
 Route::get('admin-dashboard', 'DashboardController@getDashboard')->name('dashboard');
-Route::get('/menu/{id}/{name}', 'HomeController@getMenu');
-Route::get('/{slug}', 'HomeController@getList')->name('post.list');
-Route::get('tags/{tag}', 'HomeController@getPostByTag')->name('tag.list');
-Route::get('post/{slug}','HomeController@detailsBlog')->name('post.detail');
+Route::get('/{slug}', 'HomeController@getList')->name('post.list')->where('slug', '(.*)');
+Route::get('tags/{tag}', 'HomeController@getPostByTag')->name('tag.list')->where('tag', '(.*)');
+Route::get('post/{slug}','HomeController@detailsBlog')->name('post.detail')->where('slug', '(.*)');
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
