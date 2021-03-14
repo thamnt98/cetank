@@ -1360,7 +1360,7 @@ var nicEditorFontSizeSelect = nicEditorSelect.extend({
     init: function() {
         this.setDisplay("Font&nbsp;Size...");
         for (itm in this.sel) {
-            this.add(itm,  this.sel[itm])
+            this.add(itm, '<font size="' + itm + '">' + this.sel[itm] + "</font>")
         }
     }
 });

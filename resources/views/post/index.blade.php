@@ -88,13 +88,12 @@
                                         </td>
                                     </tr>
                                 @endforeach
-
                                 </tbody>
                             </table>
                         </div>
-                        {{-- <div class="text-right">
-                            {{$testimonial->links('basic.pagination')}}
-                        </div> --}}
+                         <div class="text-right">
+                            {{$testimonial->links()}}
+                        </div>
                     </div>
                 </div>
             </div>
