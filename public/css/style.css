@@ -2031,7 +2031,6 @@ div.g-recaptcha {
 }
 
 .comment-title {
-  border-bottom: 1px solid #e5e5e5;
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 25px;
@@ -2561,4 +2560,12 @@ post
 }
 span {
     line-height: 24px;
+}
+.post-footer .tag-item{
+    color: #777;
+    display: inline-block;
+    font-weight: normal;
+    font-size: 12px;
+    padding: 0.25rem 0.5rem;
+    background-color: #f0f0f0;
 }

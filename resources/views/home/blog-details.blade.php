@@ -10,7 +10,7 @@
                     <ul class="post-date list-inline">
                         <li><a href="#"><i class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($blog->created_at)->format('dS M, Y h:i A') }}</a></li>
                     </ul>
-                    <div class="blog-comment-section" style="margin-top:0px">
+                    <div class="blog-comment-section" style="margin-top:-20px">
                         <h4 class="comment-title"></h4>
                         <ul class="media-list">
                             <div class="sharethis-inline-share-buttons st-inline-share-buttons  st-left st-has-labels st-animated" id="st-1">
@@ -18,9 +18,7 @@
                             </div>
                         </ul>
                     </div>
-                    <div class="post-thumbnail" style="max-height: 400px;max-width: 70%; margin-top:40px">
-                        <a href="#"><img class="img-responsive" src="{{ asset('images/post')}}/{{ $blog->image }}" alt=""></a>
-                    </div>
+                    <hr style="margin-top: 40px;">
                     <div class="post-content">
                         <div class="post-content-inner">
                             <p>{!! $blog->description !!}</p>
@@ -28,7 +26,12 @@
                     </div>
                     <div class="post-footer">
                         <ul class="post-date list-inline">
-                            <li><b><i class="fa fa-tags"></i>Xem thêm các chủ đề:</b></li>
+                            <li><b><i class="fa fa-tags"></i>Xem thêm các chủ đề: </b></li>
+                            @foreach($blog->tags as $key => $tag)
+                                <li class="tag-item">
+                                    <a href="{{ route('tag.list', $tag) }}">{{ $tag }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
             </article>

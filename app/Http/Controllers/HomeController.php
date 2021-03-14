@@ -76,6 +76,7 @@ class HomeController extends Controller
     {
         $data['page_title'] = 'Blog Details';
         $data['blog'] = Post::whereSlug($slug)->first();
+        $data['blog']['tags'] = explode(',', $data['blog']->tags);
         $data['basic'] = BasicSetting::first();
         // $data['blog']->views = $data['blog']->views +1;
         $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
@@ -93,7 +94,8 @@ class HomeController extends Controller
 
     public function getPostByTag($tag){
         $data['page_title'] = 'Blog Details';
-        $data['blog'] = Post::where('tags', 'like', '%'. $tag . '%')->get();
+        $data['slug'] = str_replace('-', ' ',  $tag);
+        $data['blog'] = Post::where('tags', 'like', '%'. $tag . '%')->orderBy('created_at', 'desc')->get();
         foreach($data['blog'] as $key => $blog){
             $data['blog'][$key]['tags'] = explode(',', $blog->tags);
         }
@@ -111,6 +113,7 @@ class HomeController extends Controller
     }
     public function getList($categorySlugs)
     {
+        $data['slug'] = Category::where('slug', $categorySlugs)->first()->name;
         $categorySlugs = explode('+', $categorySlugs);
         $categoryIds = Category::whereIn('slug', $categorySlugs)->pluck('id');
         $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
@@ -121,7 +124,7 @@ class HomeController extends Controller
         $data['menus'] = Category::all();
         $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
         $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
-        $data['blog'] = Post::whereIn('category_id', $categoryIds)->get();
+        $data['blog'] = Post::whereIn('category_id', $categoryIds)->orderBy('created_at', 'desc')->get();
         foreach($data['blog'] as $key => $blog){
             $data['blog'][$key]['tags'] = explode(',', $blog->tags);
         }
