@@ -18,8 +18,8 @@
                         <post class="blog-post">
                             <div class="detail-wrap">
                                 <header class="detail__header">
-                                    <h5 class="detail__title" style="line-height: 1.8">
-                                        <a href="#" class="aDisable" title="{{ $b->title }}">{{ $b->title }}</a>
+                                    <h5 class="post-title" style="line-height: 1.8">
+                                        <a href="{{ route('post.detail', $b->slug) }}" class="aDisable" title="{{ $b->title }}">{{ $b->title }}</a>
                                     </h5>
                                 </header>
                                 <div class="detail__content_{{ $b->id }} hidden detail-content">
@@ -62,8 +62,8 @@
                         <post class="blog-post">
                             <div class="detail-wrap">
                                 <header class="detail__header">
-                                    <h5 class="detail__title" style="line-height: 1.8">
-                                        <a href="#" class="aDisable" title="{{ $b->title }}">{{ $b->title }}</a>
+                                    <h5 class="detail__title post-title" style="line-height: 1.8">
+                                        <a href="{{ route('post.detail', $b->slug) }}" class="aDisable" title="{{ $b->title }}">{{ $b->title }}</a>
                                     </h5>
                                 </header>
                                 <div class="detail__content_{{ $b->id }} hidden detail-content">
@@ -108,7 +108,7 @@
                                                  style="max-width: 100%;"></a>
                             </div>
                             <div class="post-content" style="padding: 0px 30px;">
-                                <h5><a
+                                <h5 class="post-title"><a
                                         href="{{ route('post.detail',$top_right_blog->slug) }}">{{ $top_right_blog->title }}</a>
                                 </h5>
                                 <ul class="post-date list-inline">
@@ -129,7 +129,7 @@
                                                              class="shadow-sm bg-white rounded"></a>
                                         </div>
                                         <div class="post-content" style="margin-top: -10px">
-                                            <h5><a
+                                            <h5 class="post-title"><a
                                                     href="{{ route('post.detail',$b->slug) }}">{{ $b->title }}</a>
                                             </h5>
                                             <ul class="post-date list-inline">
