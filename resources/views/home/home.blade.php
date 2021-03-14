@@ -253,7 +253,7 @@
                     <b style="background-color: #343d47; padding: 8px; display: inline-block ">Tiền điện tử</b>
                 </div>
                 <div class="row" style="margin-left: 0px; margin-top: 65px; background-color: white; padding-bottom: 30px;">
-                    @foreach($footer_blog_2 as $b)
+                    @foreach($footer_blog_3 as $b)
                         <div class="col-lg-4 col-md-4">
                             <article class="row">
                                 <div class="col-md-4 col-lg-4">
