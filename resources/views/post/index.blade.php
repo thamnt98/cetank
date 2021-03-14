@@ -180,7 +180,6 @@
                     columnDefs : [
                         { targets: 0, sortable: false},
                     ],
-                    order: [[ 1, "asc" ]]
                 }
             );
             $(document).ready(function (e) {
