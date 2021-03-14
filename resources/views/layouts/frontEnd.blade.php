@@ -90,7 +90,11 @@
                             @foreach($category as $c)
                                     @if(!$c->parent_id)
                                         @if(count($c->child) == 0)
-                                            <li><a href="{{ route('post.list', $c->slug) }}">{{ $c->name }}</a> </li>
+                                            @if($c->id == 10)
+                                                <li><a href="https://keynesacademy.com/" target="_blank">{{ $c->name }}</a> </li>
+                                            @else
+                                                <li><a href="{{ route('post.list', $c->slug) }}">{{ $c->name }}</a> </li>
+                                            @endif
                                         @else
                                             <li><a href="{{ route('post.list', $c->slug) }}">{{ $c->name }}<i class="fa fa-caret-down"></i></a>
                                                 <ul>
