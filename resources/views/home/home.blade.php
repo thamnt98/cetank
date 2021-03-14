@@ -95,7 +95,7 @@
                     <div class="" style="margin-bottom: 20px">
                         <div class="text-uppercase pull-left"
                              style="padding: 8px 20px;font-size: 18px; width: 100%; margin-top: 10px;">
-                            <h4>Phân tích - Nhận định</h4>
+                            <b>Phân tích - Nhận định</b>
                         </div>
                         <article class="blog-post">
                             <div class="post-thumbnail" style="padding: 30px">
@@ -104,7 +104,7 @@
                                                  style="max-width: 100%;"></a>
                             </div>
                             <div class="post-content" style="padding: 0px 30px;">
-                                <h5 class="post-title"><a
+                                <h5><a
                                         href="{{ route('post.detail',$top_right_blog->slug) }}">{{ $top_right_blog->title }}</a>
                                 </h5>
                                 <ul class="post-date list-inline">
