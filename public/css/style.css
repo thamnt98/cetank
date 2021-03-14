@@ -181,7 +181,7 @@ label {
   color: #fff;
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   height: 45px;
   letter-spacing: 1px;
@@ -359,7 +359,7 @@ label {
 }
 .area-heading p {
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
 }
 .title-white.area-heading:after {
   background: #fff;
