@@ -125,7 +125,6 @@
         $(document).ready(function() {
             $('#description').summernote({
                 fontSizes: ['8', '9', '10', '11', '12', '13', '14', '15', '16', '18', '20', '22' , '24', '28', '32', '36', '40', '48'],
-                fontNames: ['Arial', 'Calibri','Helvetica', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto'],
                 placeholder: 'Description',
                 tabsize: 2,
                 height: 120,
@@ -146,7 +145,6 @@
                     $('#description').val(text);
                 },
             })
-            $('#description').summernote('fontSize', 14);
         })
     </script>
 @endsection
