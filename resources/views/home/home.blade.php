@@ -93,6 +93,10 @@
                 </div>
                 <div class="col-lg-5 col-md-5">
                     <div class="" style="margin-bottom: 20px">
+                        <div class="text-uppercase pull-left"
+                             style="padding: 8px 20px;font-size: 18px; width: 100%; margin-top: 10px;">
+                            <h4>Phân tích - Nhận định</h4>
+                        </div>
                         <article class="blog-post">
                             <div class="post-thumbnail" style="padding: 30px">
                                 <a href="#"><img class="shadow-sm bg-white rounded"
@@ -114,14 +118,14 @@
                         <div class="row" style="background-color: white; margin:0px">
                             @foreach($right_blog as $b)
                                 <div class="col-md-6 mb-md-3" style="padding-left: 30px">
-                                    <article class="blog-post">
+                                    <article class="blog-post" style="margin-top:15px">
                                         <div class="post-thumbnail">
                                             <a href="#"><img src="{{ asset('images/post') }}/{{ $b->image }}" alt=""
                                                              style="max-width: 100%;"
                                                              class="shadow-sm bg-white rounded"></a>
                                         </div>
-                                        <div class="post-content">
-                                            <h5 class="post-title"><a
+                                        <div class="post-content" style="margin-top: -10px">
+                                            <h5><a
                                                     href="{{ route('post.detail',$b->slug) }}">{{ $b->title }}</a>
                                             </h5>
                                             <ul class="post-date list-inline">
