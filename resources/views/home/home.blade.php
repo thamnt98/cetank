@@ -117,7 +117,7 @@
                         </article>
                         <div class="row" style="background-color: white; margin:0px">
                             @foreach($right_blog as $b)
-                                <div class="col-md-6 mb-md-3" style="padding-left: 30px">
+                                <div class="col-lg-6 col-md-6 mb-md-3" style="padding-left: 30px">
                                     <article class="blog-post" style="margin-top:15px">
                                         <div class="post-thumbnail">
                                             <a href="#"><img src="{{ asset('images/post') }}/{{ $b->image }}" alt=""
