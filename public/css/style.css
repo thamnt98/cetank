@@ -466,7 +466,7 @@ label {
 .logo-wrapper {
   position: relative;
   z-index: 9999;
-  line-height: 60px;
+  /*line-height: 60px;*/
 }
 .expert-menu ul {
   float: right;
@@ -475,7 +475,7 @@ label {
 .expert-menu ul>li {
   float: left;
   padding: 0;
-  line-height: 60px;
+  line-height: 57px;
   transition: .3s;
   position: relative;
 }
@@ -584,13 +584,13 @@ label {
   position: absolute;
   z-index: 999;
   right: 0;
-  top: 25%;
+  top: 15px;
 }
 .mean-container .mean-nav {
   margin-top: 50px;
 }
 .mean-container a.meanmenu-reveal span {
-  background: #333;
+  background: white;
 }
 
 .mean-container a.meanmenu-reveal {
@@ -2566,4 +2566,8 @@ span {
     font-size: 12px;
     padding: 0.25rem 0.5rem;
     background-color: #f0f0f0;
+}
+.email-phone .search {
+    max-width: 40%;
+    border-left: none
 }

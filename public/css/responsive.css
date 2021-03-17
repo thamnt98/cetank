@@ -54,6 +54,9 @@
     .container {
         width: 90%
     }
+    .email-phone .search {
+        max-width: 30%;;
+    }
 
     .expert-menu ul > li > + li {
       margin-left: 25px;
@@ -184,6 +187,15 @@
 ---------------------------------------------------*/
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .header-top-right .social-area{
+        display: none;
+    }
+    .logo-wrapper{
+        line-height: unset;
+    }
+    .mean-container .mean-bar{
+        top: 10px;
+    }
     .container {
         width: 750px
     }
@@ -194,7 +206,8 @@
         width: 80%;
     }
     .email-phone li:last-child {
-        display: none;
+        max-width: 30%;
+        /*display: none;*/
     }
     .header-social-menu li a {
         padding: 0 12px;
@@ -454,7 +467,7 @@
         /* overflow: hidden; */
     }
     .logo-wrapper img {
-        width: 100%;
+        width: 60%;
     }
     .email-phone li a {
         display: inline-block;
@@ -462,11 +475,10 @@
     }
     .email-phone li {
         border-left: none;
-        text-align: center;
-        float: none;
     }
     .email-phone li:last-child {
-        display: none;
+        float: right;
+        /*display: none;*/
     }
     .header-top-right {
         text-align: center;
@@ -821,7 +833,7 @@
         margin-right: 22px;
     }
     .post-content h3 {
-        font-size: 20px;
+        font-sizefont-size: 20px;
     }
     .meta-info a {
         line-height: 20px;
@@ -855,11 +867,7 @@
         margin-top: 30px;
     }
     .user-area {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 20px;
-        margin-bottom: 10px;
+        display: none;
     }
     .form-style-2 .subscription-form {
         margin-top: 0;
@@ -899,7 +907,16 @@
     .container {
         width: 450px
     }
+    .header-top-2.header-top-area{
+        display: none;
+    }
     .banner-subscribe-form input {
         width: 260px;
+    }
+    div#sticky-wrapper {
+        height: 66px;
+    }
+    .mean-container a.meanmenu-reveal{
+        top:0px;
     }
 }

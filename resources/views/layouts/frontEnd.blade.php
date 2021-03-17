@@ -45,12 +45,12 @@
         <div class="header-top-area header-top-2">
             <div class="container" style="width:95%">
                 <div class="row">
-                    <div class="col-lg-8 col-sm-8 col-md-8">
+                    <div class="col-lg-8 col-sm-12 col-md-8">
                         <div class="header-top-left">
                             <ul class="email-phone">
                                 <li style="border-left: none"><a href="#"><i class="fa fa-envelope"></i> Email: <span class="text-bold">cetank@gmail.com</span></a></li>
                                 <li><a href="#"><i class="fa fa-phone"></i> Call us: <span class="text-bold">0345678902</span></a></li>
-                                <li style="width: 40%; border-left: none">
+                                <li  class="search">
                                     <form>
                                         <input style="height: 40px;margin-bottom: 10px" class="form-control" type="text" placeholder="Search" >
                                     </form>
@@ -58,9 +58,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-4 col-md-4">
+                    <div class="col-lg-4 col-sm-0 col-md-4">
                         <div class="header-top-right" style="margin-top:10px">
-                            <ul class="user-area">
+                            <ul class="user-area social-area">
                                 <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
                                 <li style="border-left: none"><a  target="_blank" href="https://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
                             @if(Auth::check())
@@ -78,12 +78,12 @@
         <div class="main-header-area sticky-header">
             <div class="container" style="width:95%">
                 <div class="row">
-                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-7">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-7">
                         <div class="logo-wrapper">
-                            <a class="logo" href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt=""></a>
+                            <a class="logo" href="{{ route('home') }}"><img style="max-width: -webkit-fill-available;" src="{{ asset('images/logo.png') }}" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-10 col-md-10 hidden-xs hidden-sm">
+                    <div class="col-lg-10 col-md-8 hidden-xs hidden-sm">
                         <nav class="expert-menu">
                             <ul class="main-menu">
                                 <li><a href="{{ route('home') }}">Home</a> </li>

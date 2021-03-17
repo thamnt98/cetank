@@ -8,8 +8,8 @@
 
 
 /**
- * bicon v1.0.0 
- * @link 
+ * bicon v1.0.0
+ * @link
  * @copyright 2016-2017 ThemeBucket
  * @license MIT
  */
@@ -173,7 +173,7 @@
 }
 /* Arrows */
 /* Arrows */
-.slick-prev, 
+.slick-prev,
 .slick-next {
   background: #EE9209 none repeat scroll 0 0;
   border: medium none;
@@ -193,9 +193,9 @@
   width: 50px;
   z-index: 9;
 }
-.slick-prev:hover, 
-.slick-prev:focus, 
-.slick-next:hover, 
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
 .slick-next:focus {
   background: #EE9209 none repeat scroll 0 0;
   color: #fff;
@@ -214,7 +214,7 @@
     opacity: .25;
 }
 
-.slick-prev::before, 
+.slick-prev::before,
 .slick-next::before {
   color: #fff;
   font-family: fontawesome;
@@ -815,7 +815,7 @@ a.meanmenu-reveal {
 	z-index: 999999;
 }
 .mean-container a.meanmenu-reveal {
-  border: 1px solid #252525;
+    border: 1px solid white;
   color: #232323;
   cursor: pointer;
   display: block;
