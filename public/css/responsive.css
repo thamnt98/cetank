@@ -464,7 +464,11 @@
         padding:0px;
     }
     .content .expert-blog-section .container{
-        width: 100%;
+        width: 98%;
+    }
+    .content .expert-blog-section .container article{
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .expert-section {
         padding: 80px 0;
