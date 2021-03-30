@@ -1,6 +1,6 @@
 @extends('layouts.frontEnd')
 @section('content')
-<div class="expert-section expert-blog-section" style="padding:50px 0">
+<div class="expert-section expert-blog-section">
     <div class="container">
         <div class="row">
             @if($blog)

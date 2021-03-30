@@ -2577,3 +2577,6 @@ span {
 .content .expert-blog-section .container {
     width: 70%;
 }
+.content .expert-blog-section {
+    padding: 50px 0;
+}
