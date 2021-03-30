@@ -5,7 +5,7 @@
         <div class="row">
             <!-- <div class="col-lg- col-lg-push-3 col-md-8 col-md-push-4 col-sm-12"> -->
             <article class="blog-post">
-                <div class="" style="padding:30px 50px 50px 50px">
+                <div class="blog-detail">
                     <h3><a href="#" style="margin-bottom: 30px;">{{ $blog->title }}</a></h3>
                     <ul class="post-date list-inline">
                         <li><a href="#"><i class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($blog->created_at)->format('dS M, Y h:i A') }}</a></li>

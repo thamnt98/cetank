@@ -2580,3 +2580,7 @@ span {
 .content .expert-blog-section {
     padding: 50px 0;
 }
+
+article .blog-detail {
+    padding: 30px 50px;
+}

@@ -460,15 +460,21 @@
 ---------------------------------------------------*/
 
 @media (max-width: 767px) {
+    ul.post-date.list-inline{
+        margin-bottom: 25px;
+    }
     .content .expert-blog-section {
         padding:0px;
+    }
+    article .blog-detail {
+        padding: 20px;
     }
     .content .expert-blog-section .container{
         width: 98%;
     }
     .content .expert-blog-section .container article{
-        /*padding-left: 15px;*/
-        /*padding-right: 15px;*/
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .expert-section {
         padding: 80px 0;
