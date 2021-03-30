@@ -48,8 +48,8 @@
                     <div class="col-lg-8 col-sm-12 col-md-8">
                         <div class="header-top-left">
                             <ul class="email-phone">
-                                <li style="border-left: none"><a href="#"><i class="fa fa-envelope"></i> Email: <span class="text-bold">cetank@gmail.com</span></a></li>
-                                <li><a href="#"><i class="fa fa-phone"></i> Call us: <span class="text-bold">0345678902</span></a></li>
+                                <li style="border-left: none"><a href="#"><i class="fa fa-envelope"></i> Email: <span class="text-bold">robot@cetank.net</span></a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i> Call us: <span class="text-bold">0972.845.880</span></a></li>
                                 <li  class="search">
                                     <form>
                                         <input style="height: 40px;margin-bottom: 10px" class="form-control" type="text" placeholder="Search" >
@@ -125,17 +125,25 @@
                     <div class="mobile-menu-area clearfix hidden-md">
                         <nav class="mobile-menu">
                             <ul class="mobile-menu-nav">
-                                <li><a href="">Home</a></li>
-                                <li><a href="">About us</a></li>
-                                <li><a href="">News</a>
-                                    <ul>
-                                        @foreach($category as $cat)
-                                            <li><a href="">{{ $cat->name }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                @foreach($menus as $m)
-                                    <li><a href="{{ url('menu') }}/{{ $m->id }}/{{ urldecode(strtolower(Str::slug($m->name))) }}">{{ $m->name }}</a></li>
+                                <li><a href="{{ route('home') }}">Home</a> </li>
+                                @foreach($category as $c)
+                                    @if(!$c->parent_id)
+                                        @if(count($c->child) == 0)
+                                            @if($c->id == 10)
+                                                <li><a href="https://keynesacademy.com/" target="_blank">{{ $c->name }}</a> </li>
+                                            @else
+                                                <li><a href="{{ route('post.list', $c->slug) }}">{{ $c->name }}</a> </li>
+                                            @endif
+                                        @else
+                                            <li><a href="{{ route('post.list', $c->slug) }}">{{ $c->name }}<i class="fa fa-caret-down"></i></a>
+                                                <ul>
+                                                    @foreach($c->child as $child)
+                                                        <li><a href="{{ route('post.list', $child->slug) }}"><i class="fa fa-caret-right"></i> {{ $child->name }}</a></li>
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                        @endif
+                                    @endif
                                 @endforeach
                             </ul>
                         </nav>

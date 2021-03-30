@@ -459,15 +459,15 @@
 ---------------------------------------------------*/
 
 @media (max-width: 767px) {
-    .container {
-        width: 300px
+    .content .expert-blog-section .container{
+        width: 80%;
     }
     .expert-section {
         padding: 80px 0;
         /* overflow: hidden; */
     }
     .logo-wrapper img {
-        width: 60%;
+        width: fit-content;
     }
     .email-phone li a {
         display: inline-block;
@@ -905,10 +905,7 @@
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     .container {
-        width: 450px
-    }
-    .header-top-2.header-top-area{
-        display: none;
+        width: 95%;
     }
     .banner-subscribe-form input {
         width: 260px;
@@ -920,3 +917,15 @@
         top:0px;
     }
 }
+
+@media only screen and (max-width: 991px) {
+    a.meanmenu-reveal {
+        right: 30px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .header-top-2.header-top-area{
+        display: none;
+    }
+}
+

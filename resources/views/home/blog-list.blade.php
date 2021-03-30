@@ -1,7 +1,7 @@
 @extends('layouts.frontEnd')
 @section('content')
 <div class="expert-section expert-blog-section" style="padding:50px 0">
-    <div class="container" style="width: 70%;">
+    <div class="container">
         <div class="row">
             @if($blog)
                 <div class="text-uppercase pull-left"
@@ -10,14 +10,14 @@
                 </div>
                 @foreach($blog as $b)
                     <article class="row">
-                        <div class="col-md-3 col-lg-3">
+                        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                             <div class="post-thumbnail" style="padding: 30px">
                                 <a href="#"><img class="shadow-sm bg-white rounded"
                                                  src="{{ asset('images/post') }}/{{ $b->image }}" alt=""
                                                  style="max-width: 100%;"></a>
                             </div>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-9 col-md-9 col-xs-12 col-sm-12">
                             <div class="post-content">
                                 <h5 class="post-title"><a
                                         href="{{ route('post.detail',$b->slug) }}">{{ $b->title }}</a>

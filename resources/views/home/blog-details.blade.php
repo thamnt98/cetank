@@ -1,7 +1,7 @@
 @extends('layouts.frontEnd')
 @section('content')
 <div class="expert-section expert-blog-section" style="padding:50px 0">
-    <div class="container" style="width: 70%;">
+    <div class="container">
         <div class="row">
             <!-- <div class="col-lg- col-lg-push-3 col-md-8 col-md-push-4 col-sm-12"> -->
             <article class="blog-post">

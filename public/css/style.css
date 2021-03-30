@@ -2571,3 +2571,9 @@ span {
     max-width: 40%;
     border-left: none
 }
+.main-header-area.sticky-header{
+    height: 60px;
+}
+.content .expert-blog-section .container {
+    width: 70%;
+}

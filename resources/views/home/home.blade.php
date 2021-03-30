@@ -5,7 +5,7 @@
     <div class="expert-section blog-section" style="padding:30px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7 col-md-7">
+                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                     <div class="text-uppercase pull-left"
                          style="background-color: #343d47;padding: 8px 20px; color: white; margin-bottom: 20px; font-size: 18px; width: 100%">
                         <b>Cổ phiếu Việt Nam</b>
@@ -95,7 +95,7 @@
                         </post>
                     @endforeach
                 </div>
-                <div class="col-lg-5 col-md-5">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                     <div class="" style="margin-bottom: 20px">
                         <div class="text-uppercase pull-left"
                              style="padding: 8px 20px;font-size: 18px; width: 100%; margin-top: 10px;">
@@ -178,7 +178,7 @@
                      style=" color: white; margin-bottom: 20px; font-size: 18px; width: 100%; border-bottom:1px solid #343d47 ">
                     <b style="background-color: #343d47; padding: 8px; display: inline-block ">Định giá doanh nghiệp</b>
                 </div>
-                <div class="row" style="margin-left: 0px; margin-top: 65px; background-color: white; padding-bottom: 30px;">
+                <div class="row" style="margin-left: 0px; margin-right:0px; margin-top: 65px; background-color: white; padding-bottom: 30px;">
                     @foreach($footer_blog_1 as $b)
                         <div class="col-lg-4 col-md-4">
                             <article class="row">
