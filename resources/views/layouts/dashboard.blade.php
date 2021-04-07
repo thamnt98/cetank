@@ -70,7 +70,7 @@
                     <ul class="nav-right">
                         <li class="user-profile header-notification">
                             <a href="#">
-                                <img src="{{ asset('images') }}/{{ Auth::user()->image }}" class="img-radius" alt="{{ Auth::user()->name }}">
+                                <img src="{{ asset('images/admin') }}/{{ Auth::user()->image }}" class="img-radius" alt="{{ Auth::user()->name }}">
                                 <span>{{ Auth::user()->name }}</span>
                                 <i class="ti-angle-down"></i>
                             </a>
@@ -86,7 +86,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{{ route('admin.logout') }}">
                                         <i class="ti-share"></i> Logout
                                     </a>
                                 </li>
@@ -103,6 +103,7 @@
                     <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                     <div class="pcoded-inner-navbar main-menu">
                         <ul class="pcoded-item pcoded-left-item">
+                            @if(\Illuminate\Support\Facades\Auth::guard('admin')->user()->role_id == 1)
                             <li class="{{ Request::is('admin-dashboard') ? 'active' : '' }}">
                                 <a href="{{ route('dashboard') }}">
                                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
@@ -197,7 +198,30 @@
                                     </li>
                                 </ul>
                             </li> --}}
-
+                            <li class="pcoded-hasmenu @if(Request::is('admin/create') or Request::is('admin/all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
+                                <a href="javascript:void(0)">
+                                    <span class="pcoded-micon"><i class="fa fa-newspaper-o"></i><b>MB</b></span>
+                                    <span class="pcoded-mtext">Manage Staff</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class="{{ Request::is('admin/create') ? 'active' : '' }}">
+                                        <a href="{{ route('staff.create') }}">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext">Create Staff</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class="{{ Request::is('admin/all') ? 'active' : '' }}">
+                                        <a href="{{ route('staff.all') }}">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext">All Staff</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @endif
                             <li class="pcoded-hasmenu @if(Request::is('admin/post/create') or Request::is('admin/post/all') ) active pcoded-trigger @endif " dropdown-icon="style3" subitem-icon="style7">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="fa fa-newspaper-o"></i><b>MB</b></span>
@@ -221,6 +245,7 @@
                                     </li>
                                 </ul>
                             </li>
+                                @if(\Illuminate\Support\Facades\Auth::guard('admin')->user()->role_id == 1)
                             <li class="{{ Request::is('admin/manage-category') ? 'active' : '' }}">
                                 <a href="{{ route('category.list') }}">
                                     <span class="pcoded-micon"><i class="ti-layout-grid2"></i><b>D</b></span>
@@ -228,6 +253,7 @@
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                             </li>
+                                @endif
                             {{-- <li class="{{ Request::is('admin/speciality-control') ? 'active' : '' }}">
                                 <a href="{{ route('speciality-control') }}">
                                     <span class="pcoded-micon"><i class="ti-package"></i><b>D</b></span>

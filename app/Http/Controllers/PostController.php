@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Section;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
@@ -21,7 +22,12 @@ class PostController extends Controller
     public function index()
     {
         $page_title = "All Post";
-        $testimonial = Post::orderBy('created_at', 'desc')->get();
+        $testimonial = Post::orderBy('created_at', 'desc');
+        if (Auth::guard('admin')->user()->role_id == 2) {
+            $testimonial = $testimonial->where('user_id', Auth::guard('admin')->user()->id);
+
+        }
+        $testimonial = $testimonial->get();
         $basic = Section::first();
         return view('post.index', compact(['page_title', 'testimonial', 'basic']));
     }
@@ -53,7 +59,7 @@ class PostController extends Controller
         $data['slug'] = Str::slug($request->title);
         $data['tags'] = $request->tags;
         $data['description'] = $request->description;
-        $data['fetured'] =  $request->fetured == 'on' ? '1' : '0';
+        $data['fetured'] = $request->fetured == 'on' ? '1' : '0';
 
         if ($request->hasFile('image')) {
             File::delete(('images/post') . '/' . $r->image);
@@ -118,6 +124,7 @@ class PostController extends Controller
         $data['basic'] = Section::first();
         return view('post.create', $data);
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -134,7 +141,7 @@ class PostController extends Controller
         $data['slug'] = Str::slug($request->title);
         $data['tags'] = $request->tags;
         $data['description'] = $request->description;
-        $data['fetured'] =  $request->fetured == 'on' ? '1' : '0';
+        $data['fetured'] = $request->fetured == 'on' ? '1' : '0';
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = Str::random(20);

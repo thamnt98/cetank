@@ -64,6 +64,6 @@ class LoginController extends Controller
     {
         $this->guard('admin')->logout();
         session()->flash('message', 'Just Logged Out!');
-        return redirect('/admin');
+        return redirect('/admin/login');
     }
 }

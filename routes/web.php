@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@getIndex')->name('home');
 Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login.post');
+Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+
 Route::get('admin-dashboard', 'DashboardController@getDashboard')->name('dashboard');
 Route::get('/{slug}', 'HomeController@getList')->name('post.list');
 Route::get('tags/{tag}', 'HomeController@getPostByTag')->name('tag.list')->where('tag', '.*');
@@ -32,6 +34,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('create', 'PostController@create')->name('post.create');
         Route::post('store', 'PostController@store')->name('post.store');
     });
+        Route::get('all', 'StaffController@index')->name('staff.all');
+        Route::get('edit/{id}', 'StaffController@edit')->name('staff.edit');
+        Route::post('update', 'StaffController@update')->name('staff.update');
+        Route::post('delete', 'StaffController@destroy')->name('staff.delete');
+        Route::post('publish', 'StaffController@publish')->name('staff.publish');
+        Route::get('create', 'StaffController@create')->name('staff.create');
+        Route::post('store', 'StaffController@store')->name('staff.store');
     Route::get('manage-category','Admin\CategoryController@manageCategory')->name('category.list');
     Route::post('manage-category', 'Admin\CategoryController@storeCategory')->name('category.store');
     Route::get('manage-category/{product_id?}','Admin\CategoryController@editCategory')->name('category.edit');
