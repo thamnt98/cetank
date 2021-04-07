@@ -1,4 +1,4 @@
-@extends('layouts.frontEnd')
+@extends('layouts.frontEnd', ['title' => 'Cetank - Tin tức | Tín hiệu | Phân Tích về chứng khoán, forex, bitcoin và hàng hóa'])
 @section('css')
 @endsection
 @section('content')

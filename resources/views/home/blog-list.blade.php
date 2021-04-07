@@ -1,4 +1,4 @@
-@extends('layouts.frontEnd')
+@extends('layouts.frontEnd', ['title' => $title])
 @section('content')
 <div class="expert-section expert-blog-section">
     <div class="container">

@@ -24,7 +24,7 @@ class HomeController extends Controller
     {
         $data['page_title'] = "Home Page";
         $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
-        foreach($data['category'] as $key =>  $c){
+        foreach ($data['category'] as $key => $c) {
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
         $data['testimonial'] = Testimonial::all();
@@ -46,18 +46,18 @@ class HomeController extends Controller
         $request = Http::get('https://fxsignals.fxleaders.de/api/FXL/5');
         $data['trades'] = $request->json();
         $data['stock_blog'] = Post::where('category_id', 4)->take(5)->orderBy('created_at', 'desc')->get();
-        foreach($data['stock_blog'] as $key => $blog){
+        foreach ($data['stock_blog'] as $key => $blog) {
             $data['stock_blog'][$key]['tags'] = explode(',', $blog->tags);
         }
         $data['stock_blog_slug'] = Category::where('id', 4)->first()->slug;
-        $data['other_blog']  =  Post::whereIn('category_id', [5,6,7])->take(5)->orderBy('created_at', 'desc')->get();
-        foreach($data['other_blog'] as $key => $blog){
+        $data['other_blog'] = Post::whereIn('category_id', [5, 6, 7])->take(5)->orderBy('created_at', 'desc')->get();
+        foreach ($data['other_blog'] as $key => $blog) {
             $data['other_blog'][$key]['tags'] = explode(',', $blog->tags);
         }
-        $data['other_blog_slug']  = Category::whereIn('id', [5,6,7])->pluck('slug')->toArray();
+        $data['other_blog_slug'] = Category::whereIn('id', [5, 6, 7])->pluck('slug')->toArray();
         $data['other_blog_slug'] = implode("+", $data['other_blog_slug']);
         $data['right_blog'] = Post::where('category_id', 8)->take(9)->orderBy('created_at', 'desc')->get();
-        if(count($data['right_blog'])){
+        if (count($data['right_blog'])) {
             $data['top_right_blog'] = $data['right_blog'][0];
             unset($data['right_blog'][0]);
         }
@@ -88,69 +88,101 @@ class HomeController extends Controller
         $data['basic'] = BasicSetting::first();
         // $data['blog']->views = $data['blog']->views +1;
         $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
-        foreach($data['category'] as $key =>  $c){
+        foreach ($data['category'] as $key => $c) {
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
         $data['social'] = Social::all();
-        $data['popular'] = Post::orderBy('views','desc')->take(10)->get();
+        $data['popular'] = Post::orderBy('views', 'desc')->take(10)->get();
         $data['menus'] = Category::all();
         $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
-        $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
+        $data['footer_blog'] = Post::orderBy('views', 'desc')->take(7)->get();
         $data['meta'] = 2;
-        return view('home.blog-details',$data);
+        return view('home.blog-details', $data);
     }
 
-    public function getPostByTag($tag){
+    public function getPostByTag($tag)
+    {
         $data['page_title'] = 'Blog Details';
-        $data['slug'] = str_replace('-', ' ',  $tag);
-        $data['blog'] = Post::where('tags', 'like', '%'. $tag . '%')->orderBy('created_at', 'desc')->get();
-        foreach($data['blog'] as $key => $blog){
+        $data['slug'] = str_replace('-', ' ', $tag);
+        $data['blog'] = Post::where('tags', 'like', '%' . $tag . '%')->orderBy('created_at', 'desc')->get();
+        foreach ($data['blog'] as $key => $blog) {
             $data['blog'][$key]['tags'] = explode(',', $blog->tags);
             $description = strip_tags(html_entity_decode($blog->description));
             $pos = strpos($description, '.');
-            $data['blog'][$key]['description'] =  substr($description, 0, $pos+1);
+            $data['blog'][$key]['description'] = substr($description, 0, $pos + 1);
         }
         $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
-        foreach($data['category'] as $key =>  $c){
+        foreach ($data['category'] as $key => $c) {
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
         $data['basic'] = BasicSetting::first();
         $data['social'] = Social::all();
         $data['menus'] = Category::all();
-        $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
+        $data['footer_blog'] = Post::orderBy('views', 'desc')->take(7)->get();
         $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
         $data['basic'] = BasicSetting::first();
         return view('home.blog-list', $data);
     }
+
     public function getList($categorySlugs)
     {
+        switch ($categorySlugs) {
+            case 'phan-tich-nhan-dinh' :
+                {
+                    $data['title'] = 'Cetank - Phân tích, Đánh giá về chứng khoán, forex, bitcoin và hàng hóa';
+                    break;
+                }
+            case 've-cetank':
+            case 'about-us':
+                {
+                    $data['title'] = 'Cetank - Giới thiệu';
+                    break;
+                }
+            case 'dinh-gia-doanh-nghiep':
+                {
+                    $data['title'] = 'Cetank - Định giá doanh nghiệp';
+                    break;
+                }
+            case 'robot-signal':
+                {
+                    $data['title'] = 'Cetank - Robot Signal, EA Forex, Code Amibroker';
+                    break;
+                }
+            case 'tien-dien-tu':
+                {
+                    $data['title'] = 'Cetank - Tin tức Bitcoin, ETH';
+                    break;
+                }
+            default:
+                $data['title'] = 'Cetank - Tin tức về chứng khoán, forex, bitcoin và hàng hóa';
+        }
         $data['slug'] = Category::where('slug', $categorySlugs)->get();
         $data['social'] = Social::all();
         $data['menus'] = Category::all();
-        $data['footer_blog'] = Post::orderBy('views','desc')->take(7)->get();
+        $data['footer_blog'] = Post::orderBy('views', 'desc')->take(7)->get();
         $data['footer_category'] = Category::whereStatus(1)->take(7)->get();
         $data['basic'] = BasicSetting::first();
         $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
-        foreach($data['category'] as $key =>  $c){
+        foreach ($data['category'] as $key => $c) {
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
         $data['blog'] = null;
         $slugs = [];
-        if($data['slug']){
+        if ($data['slug']) {
             $slugs = [$categorySlugs];
         }
-        if(strpos($categorySlugs, '+')){
+        if (strpos($categorySlugs, '+')) {
             $slugs = explode('+', $categorySlugs);
         }
-        if(!empty($slugs)){
+        if (!empty($slugs)) {
             $categories = Category::whereIn('slug', $slugs)->pluck('name', 'id')->toArray();
             $data['slug'] = implode(", ", $categories);
             $data['blog'] = Post::whereIn('category_id', array_keys($categories))->orderBy('created_at', 'desc')->get();
-            foreach($data['blog'] as $key => $blog){
+            foreach ($data['blog'] as $key => $blog) {
                 $data['blog'][$key]['tags'] = explode(',', $blog->tags);
                 $description = strip_tags(html_entity_decode($blog->description));
                 $pos = strpos($description, '.');
-                $data['blog'][$key]['description'] =  substr($description, 0, $pos+1);
+                $data['blog'][$key]['description'] = substr($description, 0, $pos + 1);
             }
         }
         return view('home.blog-list', $data);

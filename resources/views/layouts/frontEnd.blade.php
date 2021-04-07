@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Homepage | HomePage</title>
+    <title>{{ $title ?? 'Cetank - Tin tức | Tín hiệu | Phân Tích về chứng khoán, forex, bitcoin và hàng hóa' }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- @if($meta == 1) --}}
         <meta property="og:title" content="{{ $basic->title }}">
