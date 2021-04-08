@@ -103,6 +103,7 @@ class HomeController extends Controller
     public function getPostByTag($tag)
     {
         $data['page_title'] = 'Blog Details';
+        $data['title'] = 'Cetank - Tin tức về chứng khoán, forex, bitcoin và hàng hóa';
         $data['slug'] = str_replace('-', ' ', $tag);
         $data['blog'] = Post::where('tags', 'like', '%' . $tag . '%')->orderBy('created_at', 'desc')->get();
         foreach ($data['blog'] as $key => $blog) {
