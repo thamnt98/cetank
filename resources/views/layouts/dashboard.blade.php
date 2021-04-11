@@ -245,6 +245,13 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                        <a href="{{ route('f319.all') }}">
+                                            <span class="pcoded-micon"><i class="fa fa-sticky-note-o"></i></span>
+                                            <span class="pcoded-mtext">Manage F219 Post</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                            </li>
                                 @if(\Illuminate\Support\Facades\Auth::guard('admin')->user()->role_id == 1)
                             <li class="{{ Request::is('admin/manage-category') ? 'active' : '' }}">
                                 <a href="{{ route('category.list') }}">

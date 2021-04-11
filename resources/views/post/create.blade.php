@@ -25,6 +25,7 @@
                     </div>
                     <div class="card-block">
                         <form action="{{route('post.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+                        <input type="hidden" value="{{isset($post) ? $post->id : 0}}" name="post_id">
                             {{csrf_field()}}
                             <div class="form-body">
                                 <div class="row">
@@ -33,7 +34,7 @@
                                         <div class="form-group">
                                             <label class="col-md-12"><strong style="text-transform: uppercase;">title </strong></label>
                                             <div class="col-md-12">
-                                                <input name="title" class="form-control input-lg" placeholder=" Title" value="{{ old('title') }}" required/>
+                                                <input name="title" class="form-control input-lg" placeholder=" Title" value="{{ old('title', isset($post) ? $post->title : '') }}" required/>
 {{--                                                @if($errors->has('title'))--}}
 {{--                                                    <span class="text-danger text-md-left">{{ $errors->first('title') }}</span>--}}
 {{--                                                @endif--}}
@@ -78,7 +79,8 @@
                                         <div class="form-group">
                                             <label class="col-md-12"><strong style="text-transform: uppercase;">Description</strong></label>
                                             <div class="col-md-12">
-                                                <textarea id="description" name="description" style="width:100%; height:100%;" class="form-control"  placeholder="Description"></textarea>
+                                                <textarea id="description" name="description" style="width:100%; height:100%;" class="form-control"  placeholder="Description">
+                                                {!! old('description', isset($post) ? $post->comment : '') !!}</textarea>
 {{--                                                <div id="description" cols="50" rows="10" style="width:100%; height:100%;" class="form-control"  placeholder="Description"></div>--}}
 {{--                                                @if($errors->has('description'))--}}
 {{--                                                    <span class="text-danger text-md-left">{{ $errors->first('description') }}</span>--}}

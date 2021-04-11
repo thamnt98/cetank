@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Section;
 use App\Models\Category;
+use App\Models\CrawalPost;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
@@ -25,7 +26,6 @@ class PostController extends Controller
         $testimonial = Post::orderBy('created_at', 'desc');
         if (Auth::guard('admin')->user()->role_id == 2) {
             $testimonial = $testimonial->where('user_id', Auth::guard('admin')->user()->id);
-
         }
         $testimonial = $testimonial->get();
         $basic = Section::first();
@@ -151,11 +151,14 @@ class PostController extends Controller
             Image::make($image)->resize(800, 540)->save($location);
             $data['image'] = $image_full_name;
         }
-
         Post::create($data);
+        if ($request->post_id) {
+            $testimonial = CrawalPost::findOrFail($request->post_id);
+            $testimonial->delete();
+        }
         session()->flash('message', 'Post Created Successfully.');
         Session::flash('type', 'success');
         Session::flash('title', 'Success');
-        return redirect()->back();
+        return redirect()->route('post.all');
     }
 }

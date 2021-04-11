@@ -15,8 +15,10 @@ class CreateCrawalPostsTable extends Migration
     {
         Schema::create('crawal_posts', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
-            $table->string('link', 255);
+            $table->text('title');
+            $table->text('comment')->nullable();
+            $table->string('title_link', 255);
+            $table->string('comment_link', 255)->nullable();
             $table->timestamps();
         });
     }

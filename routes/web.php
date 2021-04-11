@@ -34,6 +34,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('create', 'PostController@create')->name('post.create');
         Route::post('store', 'PostController@store')->name('post.store');
     });
+    Route::group(['prefix' => 'f319'], function () {
+        Route::get('all', 'CrawalPostController@all')->name('f319.all')->middleware('auth:admin');
+        Route::get('edit/{id}', 'CrawalPostController@createPost')->name('f319.edit')->middleware('auth:admin');
+        Route::post('delete', 'CrawalPostController@delete')->name('f319.delete')->middleware('auth:admin');
+
+    });
         Route::get('all', 'StaffController@index')->name('staff.all');
         Route::get('edit/{id}', 'StaffController@edit')->name('staff.edit');
         Route::post('update', 'StaffController@update')->name('staff.update');
