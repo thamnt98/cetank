@@ -248,7 +248,7 @@
                             <li>
                                         <a href="{{ route('f319.all') }}">
                                             <span class="pcoded-micon"><i class="fa fa-sticky-note-o"></i></span>
-                                            <span class="pcoded-mtext">Manage F219 Post</span>
+                                            <span class="pcoded-mtext">Manage F319 Post</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                             </li>

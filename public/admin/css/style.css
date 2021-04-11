@@ -15115,7 +15115,7 @@ div.DTFC_RightWrapper table.dataTable.no-footer {
 }
 
 th,
-td {
+td:not(.crawal_comment){
     white-space: nowrap;
 }
 

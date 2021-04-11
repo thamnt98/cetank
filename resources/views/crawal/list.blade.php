@@ -36,10 +36,11 @@
                                 @foreach($post as $k => $p)
                                     <tr>
                                         <td>{{ $k + 1 }}</td>
-                                        <td style="width: 20%"><b>{!! Str::limit(strip_tags($p->title),40) !!}</b></td>
-                                        <td style="width:20%"><a href="{{ $p->title_link}}" style="color:blue">{!! Str::limit(strip_tags($p->title_link),40) !!}</a></td>
-                                        <td style="width: 20%">{!! Str::limit(strip_tags($p->comment),40) !!}</td>
-                                        <td style="width:20%"><a href="{{$p->comment_link}}" style="color:blue">{!! Str::limit(strip_tags($p->comment_link),40) !!}</a></td>
+                                        <td style="width: 15%"><b>{!! Str::limit(strip_tags($p->title),40) !!}</b></td>
+                                        <td style="width:3%"><a href="{{ $p->title_link}}" style="color:blue">{!! Str::limit(strip_tags($p->title_link),20) !!}</a></td>
+                                        <td style="width:50%; max-width:50%;"  class="crawal_comment">{!!strip_tags($p->comment) !!}
+                                        </td>
+                                        <td style="width:3%"><a href="{{$p->comment_link}}" style="color:blue">{!! Str::limit(strip_tags($p->comment_link),20) !!}</a></td>
                                         <td style="width: 14%">
                                             <a href="{{ route('f319.edit' , $p->id) }}"
                                                class="btn btn-sm btn-primary bold uppercase" title="Edit"><i
