@@ -36,9 +36,9 @@
                                 @foreach($post as $k => $p)
                                 <tr>
                                     <td>{{ $k + 1 }}</td>
-                                    <td style="width: 15%"><b>{!! Str::limit(strip_tags($p->title),40) !!}</b></td>
+                                    <td style="width: 15%; max-width: 15%" class="crawal_comment"><b>{!! strip_tags($p->title) !!}</b></td>
                                     <td style="width:3%"><a href="{{ $p->title_link}}" style="color:blue">{!! Str::limit(strip_tags($p->title_link),20) !!}</a></td>
-                                    <td style="width:50%; max-width:50%;" class="crawal_comment">{!!strip_tags($p->comment) !!}
+                                    <td style="width:60%; max-width:50%;" class="crawal_comment">{!!strip_tags($p->comment) !!}
                                     </td>
                                     <td style="width:3%"><a href="{{$p->comment_link}}" style="color:blue">{!! Str::limit(strip_tags($p->comment_link),20) !!}</a></td>
                                     <td style="width: 14%">
