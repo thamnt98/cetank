@@ -2446,6 +2446,7 @@ div.g-recaptcha {
   color: #ffffff;
   font-size: 28px;
   height: 50px;
+  top: 70px;
   line-height: 45px;
   opacity: 0;
   position: fixed;

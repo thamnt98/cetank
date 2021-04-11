@@ -23,6 +23,7 @@ class HomeController extends Controller
     public function getIndex()
     {
         $data['page_title'] = "Home Page";
+        $data['basic'] = BasicSetting::first();
         $data['category'] = Category::whereStatus(1)->where('id', '!=', 1)->get();
         foreach ($data['category'] as $key => $c) {
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
@@ -42,7 +43,6 @@ class HomeController extends Controller
         $data['footer_category'] = Category::whereStatus(1)->take(5)->get();
         $data['footer_blog'] = Post::orderBy('views', 'desc')->take(5)->get();
         $data['section'] = Section::first();
-        $data['basic'] = Section::first();
         $request = Http::get('https://fxsignals.fxleaders.de/api/FXL/5');
         $data['trades'] = $request->json();
         $data['stock_blog'] = Post::where('category_id', 4)->take(5)->orderBy('created_at', 'desc')->get();
@@ -116,7 +116,6 @@ class HomeController extends Controller
         foreach ($data['category'] as $key => $c) {
             $data['category'][$key]['child'] = Category::where('parent_id', $c->id)->whereStatus(1)->get();
         }
-        $data['basic'] = BasicSetting::first();
         $data['social'] = Social::all();
         $data['menus'] = Category::all();
         $data['footer_blog'] = Post::orderBy('views', 'desc')->take(7)->get();
