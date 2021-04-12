@@ -93,14 +93,12 @@ class CrawalPostController extends Controller
         return view('crawal.list', compact(['page_title', 'post', 'basic']));
     }
 
-    
+
     public function delete(Request $request)
     {
-        $request->validate([
-            'id' => 'required'
-        ]);
-        $testimonial = CrawalPost::findOrFail($request->id);
-        $testimonial->delete();
+        $ids = explode('-', $request->ids);
+        array_pop($ids);
+        $posts = CrawalPost::whereIn('id', $ids)->delete();
         session()->flash('message', 'Post Deleted Successfully.');
         Session::flash('type', 'success');
         Session::flash('title', 'Success');

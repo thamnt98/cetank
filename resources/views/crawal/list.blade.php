@@ -19,11 +19,16 @@
                         </ul>
                     </div>
                 </div>
+                <div class="card-header">
+                <button type="submit" class="btn btn-danger multi-delete" disabled="false"  data-toggle="modal" data-target="#DelModal"
+                        title="Delete"> Delete selected post</button>
+                </div>
                 <div class="card-block">
                     <div class="table-responsive">
                         <table id="table" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th width="5%">SL#</th>
                                     <th width="10%">Title</th>
                                     <th width="25%">Post's Link</th>
@@ -35,6 +40,9 @@
                             <tbody>
                                 @foreach($post as $k => $p)
                                 <tr>
+                                    <td>
+                                        <input type="checkbox" name="id[]" value="{{ $p->id }}" class="checked-post">
+                                    </td>
                                     <td>{{ $k + 1 }}</td>
                                     <td style="width: 15%; max-width: 15%" class="crawal_comment"><b>{!! strip_tags($p->title) !!}</b></td>
                                     <td style="width:3%"><a href="{{ $p->title_link}}" style="color:blue">{!! Str::limit(strip_tags($p->title_link),20) !!}</a></td>
@@ -43,10 +51,6 @@
                                     <td style="width:3%"><a href="{{$p->comment_link}}" style="color:blue">{!! Str::limit(strip_tags($p->comment_link),20) !!}</a></td>
                                     <td style="width: 14%">
                                         <a href="{{ route('f319.edit' , $p->id) }}" class="btn btn-sm btn-primary bold uppercase" title="Edit"><i class="fa fa-edit"></i> </a>
-
-                                        <button type="button" class="btn btn-sm btn-danger bold uppercase delete_button" data-toggle="modal" data-target="#DelModal" data-id="{{ $p->id }}" title="Delete">
-                                            <i class='fa fa-trash'></i>
-                                        </button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -58,7 +62,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="DelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -71,20 +74,19 @@
             </div>
 
             <div class="modal-body">
-                <strong>Are you sure want to Delete ?</strong>
+                <strong>Are you sure want to delete selected rows ?</strong>
             </div>
 
             <div class="modal-footer">
                 <form method="post" class="form-inline" action="{{ route('f319.delete') }}">
+                    <input type="hidden" name="ids" class="delete_ids">
                     {!! csrf_field() !!}
-                    <input type="hidden" name="id" class="abir_id" value="0">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
                         Close
                     </button>&nbsp;&nbsp;
                     <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> DELETE</button>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
@@ -94,8 +96,22 @@
 <script type="text/javascript" src=" https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src=" https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 <script>
+    $('.checked-post').click(function () {
+        let ids = '';
+        if ($('.checked-post:checkbox:checked').length > 0) {
+            $('.multi-delete').prop('disabled', false);
+            $('.checked-post:checked').each(function () {
+                if (jQuery(this).is(":checked")) {
+                    var id = jQuery(this).val();
+                    ids = ids + id + '-'
+                }
+            })
+        } else {
+            $('.multi-delete').prop('disabled', true);
+        }
+        $('.delete_ids').val(ids)
+    })
     $(document).ready(function() {
-
         $(document).on("click", '.delete_button', function(e) {
             var id = $(this).data('id');
             $(".abir_id").val(id);

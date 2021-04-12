@@ -11910,8 +11910,8 @@ body.menu-bottom #collapse-menu {
 }
 
 .btn-danger {
-    background-color: #FF5370;
-    border-color: #FF5370;
+    /*background-color: #FF5370;*/
+    /*border-color: #FF5370;*/
     color: #fff;
     cursor: pointer;
     -webkit-transition: all ease-in 0.3s;
