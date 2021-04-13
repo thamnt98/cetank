@@ -6,11 +6,11 @@
     <title>{{ $title ?? 'Cetank - Tin tức | Tín hiệu | Phân Tích về chứng khoán, forex, bitcoin và hàng hóa' }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- @if($meta == 1) --}}
-        <meta property="og:title" content="{{ $basic->title }}">
-        <meta name="description" content="{{ $basic->description }}">
-        <meta name="keyword" content="{{ $basic->meta_tag }}">
-        <meta name="author" content="{{ $basic->author }}">
-        <meta property="og:description" content="{{ $basic->description }}" />
+        <meta property="og:title" content="Forex Trade Premium Signal.  Cetank.net – Tin tức, phân tích và tín hiệu chứng khoán">
+        <meta name="description" content="Cetank – Tin Tức chứng khoán không chính thức số 1 Việt Nam">
+        <meta name="keyword" content="cetank, bitcoin, trade signal, chứng khoán, cổ phiếu, tiền điện tử, forex, tiền tệ, vàng, tín hiệu, tin tức chứng khoán, phân tích chứng khoán">
+        <meta name="author" content="Cetank">
+        <meta property="og:description" content="Cetank – Tin Tức chứng khoán không chính thức số 1 Việt Nam" />
         <meta property="og:image" content="{{ asset('images/logo.png') }}" />
     {{-- @else
         @yield('meta')

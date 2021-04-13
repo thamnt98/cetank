@@ -1764,7 +1764,7 @@ div.g-recaptcha {
 
 .post-thumbnail img {
   transition: all 0.3s linear 0s;
-  width: 100%;
+  /* width: 100%; */
 }
 .post-content {
   overflow: hidden;

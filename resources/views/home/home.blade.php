@@ -25,7 +25,7 @@
                                 <div class="detail__content_{{ $b->id }} hidden detail-content">
                                     {!! html_entity_decode($b->description, ENT_QUOTES, 'UTF-8') !!}
                                     <div class="post-thumbnail">
-                                        <a href="#"><img style="max-height: 300px; margin-bottom: 30px;"
+                                        <a href="#"><img style="max-height: 300px; margin-bottom: 30px; margin-top: 30px;"
                                                          src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                 <div class="detail__content_{{ $b->id }} hidden detail-content">
                                     {!! html_entity_decode($b->description, ENT_QUOTES, 'UTF-8') !!}
                                     <div class="post-thumbnail">
-                                        <a href="#"><img style="max-height: 300px; margin-bottom: 30px;"
+                                        <a href="#"><img style="max-height: 300px; margin-bottom: 30px; margin-top:30px"
                                                          src="{{ asset('images/post') }}/{{ $b->image }}" alt=""></a>
                                     </div>
                                 </div>
