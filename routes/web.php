@@ -23,7 +23,9 @@ Route::get('/{slug}', 'HomeController@getList')->name('post.list');
 Route::get('tags/{tag}', 'HomeController@getPostByTag')->name('tag.list')->where('tag', '.*');
 Route::get('post/{slug}','HomeController@detailsBlog')->name('post.detail');
 Auth::routes();
-
+Route::get('logout', 'Auth\LoginController@logout');
+Route::get('/auth/redirect/{provider}', 'Auth\SocialController@redirect');
+Route::get('/callback/{provider}', 'Auth\SocialController@callback');
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'post'], function () {
         Route::get('all', 'PostController@index')->name('post.all');

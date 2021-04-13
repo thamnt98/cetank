@@ -15,6 +15,7 @@ use App\Models\Social;
 use App\Models\Partner;
 use App\Models\Menu;
 use App\Models\Section;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use function GuzzleHttp\Psr7\str;
 
