@@ -7041,7 +7041,7 @@ table tbody .border-bottom-info td {
     .header-navbar .navbar-wrapper .navbar-logo {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
-        justify-content: center;
+        /* justify-content: center; */
     }
 }
 
@@ -23774,6 +23774,7 @@ span.value {
     }
     .header-navbar .navbar-wrapper .navbar-logo a img {
         display: block !important;
+        margin-left:40px;
     }
     .header-navbar .navbar-wrapper .navbar-logo .mobile-menu {
         display: block;
@@ -23911,7 +23912,7 @@ span.value {
         font-size: 16px;
     }
     .header-navbar .navbar-wrapper .navbar-logo {
-        display: inherit;
+        /* display: inherit; */
     }
     .header-navbar .navbar-wrapper .navbar-logo a {
         display: inline-block;
