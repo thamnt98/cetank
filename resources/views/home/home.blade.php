@@ -120,8 +120,8 @@
                             </div>
                         </article>
                         <div class="row" style="background-color: white; margin:0px">
-                            @foreach($right_blog as $b)
-                                <div class="col-lg-6 col-md-6 mb-md-3" style="padding-left: 30px">
+                            @foreach($right_blog as $key => $b)
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" style="padding-left: 30px">
                                     <article class="blog-post" style="margin-top:15px">
                                         <div class="post-thumbnail">
                                             <a href="#"><img src="{{ asset('images/post') }}/{{ $b->image }}" alt=""
@@ -140,6 +140,10 @@
                                         </div>
                                     </article>
                                 </div>
+                                @if($key %2 == 0)
+                                    </div>
+                                    <div class="row" style="background-color: white; margin:0px">
+                                @endif
                             @endforeach
                         </div>
                     </div>
