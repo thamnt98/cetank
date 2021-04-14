@@ -2585,3 +2585,13 @@ span {
 article .blog-detail {
     padding: 30px 50px;
 }
+.border-input
+{
+    border-bottom-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-top-left-radius: 18px;
+}
+.bg-grey{
+    background-color: #dddddd;
+}

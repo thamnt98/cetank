@@ -36,26 +36,41 @@
                     </div>
             </article>
             <hr />
-            <form method="POST" action="{{ route('comment.create') }}" style="margin-top: 30px;">
-                @csrf
-                <div class="form-group">
-                    <textarea class="form-control" name=content required></textarea>
-                    @if($errors->has('content'))
-                    @foreach($errors->get('content') as $error)
-                    <span class="text-danger">{{$error}}</span>
-                    @endforeach
-                    @endif
-                    <input type=hidden name=post_id value="{{ $blog->id }}" />
-                </div>
-                <div class="form-group">
-                    <button type=submit class="btn btn-success">Add comment</button>
-                </div>
-            </form>
-            <br>
-              @if($blog->comments)
-                @include('home.comments', ['comments' => $blog->comments, 'post_id' => $blog->id])
-            @endif
+            <div style="padding:20px 50px 20px 50px; background-color: white">
+                @if(Auth::user())
+                    <form method="POST" action="{{ route('comment.create') }}" style="margin-top: 30px;">
+                        @csrf
+                        <div class="form-group">
+                            <textarea class="form-control border-input bg-grey" name=content required></textarea>
+                            @if($errors->has('content'))
+                                @foreach($errors->get('content') as $error)
+                                    <span class="text-danger">{{$error}}</span>
+                                @endforeach
+                            @endif
+                            <input type=hidden name=post_id value="{{ $blog->id }}" />
+                        </div>
+                        <div class="form-group">
+                            <button type=submit class="btn btn-primary">Add comment</button>
+                        </div>
+                    </form>
+                @else
+                    <h4 style="padding-bottom: 0px;"> Comments</h4>
+                @endif
+                    <br>
+                    @if($blog->comments)
+                        @include('home.comments', ['comments' => $blog->comments, 'post_id' => $blog->id])
+                @endif
+            </div>
         </div>
     </div>
 </div>
+@endsection
+@section('javascript')
+    <script>
+        $('.reply').on('click', function(){
+            let id = $(this).attr('data-id');
+            $('.reply-list-' + id).removeClass('hidden');
+            $('.reply-form-' + id).removeClass('hidden')
+        })
+    </script>
 @endsection
