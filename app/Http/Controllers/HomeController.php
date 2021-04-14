@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BasicSetting;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Testimonial;
 use App\Models\Member;
 use App\Models\Speciality;
@@ -15,6 +16,7 @@ use App\Models\Social;
 use App\Models\Partner;
 use App\Models\Menu;
 use App\Models\Section;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use function GuzzleHttp\Psr7\str;
@@ -44,8 +46,8 @@ class HomeController extends Controller
         $data['footer_category'] = Category::whereStatus(1)->take(5)->get();
         $data['footer_blog'] = Post::orderBy('views', 'desc')->take(5)->get();
         $data['section'] = Section::first();
-        $request = Http::get('https://fxsignals.fxleaders.de/api/FXL/5');
-        $data['trades'] = $request->json();
+        // $request = Http::get('https://fxsignals.fxleaders.de/api/FXL/5');
+        // $data['trades'] = $request->json();
         $data['stock_blog'] = Post::where('category_id', 4)->take(5)->orderBy('created_at', 'desc')->get();
         foreach ($data['stock_blog'] as $key => $blog) {
             $data['stock_blog'][$key]['tags'] = explode(',', $blog->tags);
@@ -187,5 +189,20 @@ class HomeController extends Controller
             }
         }
         return view('home.blog-list', $data);
+    }
+
+    public function createComment(Request $request){
+        // $request->validate([
+        //     'content' => 'required'
+        // ]);
+        $input= $request->all();
+        $input['user_id'] = 1;
+        if (isset($input['parent_id'])) {
+            $input['level'] = 2;
+        } else {
+            $input['level'] = 1;
+        }
+        Comment::create($input);
+        return redirect()->back();
     }
 }

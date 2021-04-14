@@ -18,4 +18,8 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\Admin');
     }
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }

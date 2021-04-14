@@ -28,37 +28,33 @@
                         <ul class="post-date list-inline">
                             <li><b><i class="fa fa-tags"></i>Xem thêm các chủ đề: </b></li>
                             @foreach($blog->tags as $key => $tag)
-                                <li class="tag-item">
-                                    <a href="{{ route('tag.list', $tag) }}">{{ $tag }}</a>
-                                </li>
+                            <li class="tag-item">
+                                <a href="{{ route('tag.list', $tag) }}">{{ $tag }}</a>
+                            </li>
                             @endforeach
                         </ul>
                     </div>
             </article>
-
-            <!-- <div class="col-lg-3 col-lg-pull-9 col-md-4 col-md-pull-8 col-sm-12"> -->
-            <!-- <aside class="single-widget">
-                <h4 class="widget-title">Categories</h4>
-                <ul class="post-cat-list">
-                    @foreach($category as $cat)
-                    <li><a href="#">{{ $cat->name }} <span>[{{ \App\Models\Post::whereStatus(1)->whereCategory_id($cat->id)->count() }}]</span></a></li>
+            <hr />
+            <form method="POST" action="{{ route('comment.create') }}" style="margin-top: 30px;">
+                @csrf
+                <div class="form-group">
+                    <textarea class="form-control" name=content required></textarea>
+                    @if($errors->has('content'))
+                    @foreach($errors->get('content') as $error)
+                    <span class="text-danger">{{$error}}</span>
                     @endforeach
-                </ul>
-            </aside> -->
-            <!-- <aside class="single-widget">
-                <h4 class="widget-title">Popular Post</h4>
-                <div class="recent-post-widget">
-                    @foreach($popular as $p)
-                    <div class="single-post-widget clearfix">
-                        <img src="{{ asset('assets/images/post') }}/{{ $p->image }}" alt="" style="width: 80px;">
-                        <div class="post-widget-content">
-                            <h4><a href="#">{{ substr($p->title,0,15) }}..</a></h4>
-                            <p>{{ \Carbon\Carbon::parse($p->created_at)->format('dS M, y h:i A') }}</p>
-                        </div>
-                    </div>
-                    @endforeach
+                    @endif
+                    <input type=hidden name=post_id value="{{ $blog->id }}" />
                 </div>
-            </aside> -->
+                <div class="form-group">
+                    <button type=submit class="btn btn-success">Add comment</button>
+                </div>
+            </form>
+            <br>
+              @if($blog->comments)
+                @include('home.comments', ['comments' => $blog->comments, 'post_id' => $blog->id])
+            @endif
         </div>
     </div>
 </div>

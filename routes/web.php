@@ -22,6 +22,7 @@ Route::get('admin-dashboard', 'DashboardController@getDashboard')->name('dashboa
 Route::get('/{slug}', 'HomeController@getList')->name('post.list');
 Route::get('tags/{tag}', 'HomeController@getPostByTag')->name('tag.list')->where('tag', '.*');
 Route::get('post/{slug}','HomeController@detailsBlog')->name('post.detail');
+Route::post('user/comments', 'HomeController@createComment')->name('comment.create');
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/auth/redirect/{provider}', 'Auth\SocialController@redirect');
