@@ -65,7 +65,7 @@
                                 <li style="border-left: none"><a  target="_blank" href="https://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
                             @if(Auth::check())
                                     <li><a href=""><i class="fa fa-user user-icon" style="margin-right: 5px;!important;"></i>Hi. {{ Auth::user()->name }}</a></li>
-                                    <li><a href="{{ url('logout') }}"><i class="fa fa-sign-out"></i>Logout</a></li>
+                                    <li><a href="{{ route('user.logout')}}"><i class="fa fa-sign-out"></i>Logout</a></li>
                             @else
                                     <li><a href="{{ url('/auth/redirect/facebook') }}"><i class="fa fa-sign-in user-icon"></i>Login</a></li>
                                     <li style="border-right: none"><a href="#"><i class="fa fa-user-plus user-icon"></i>Sign Up</a></li>

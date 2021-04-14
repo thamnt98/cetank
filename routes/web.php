@@ -24,7 +24,7 @@ Route::get('tags/{tag}', 'HomeController@getPostByTag')->name('tag.list')->where
 Route::get('post/{slug}','HomeController@detailsBlog')->name('post.detail');
 Route::post('user/comments', 'HomeController@createComment')->name('comment.create');
 Auth::routes();
-Route::get('logout', 'Auth\LoginController@logout');
+Route::get('user/logout', 'Auth\LoginController@logout')->name('user.logout');
 Route::get('/auth/redirect/{provider}', 'Auth\SocialController@redirect');
 Route::get('/callback/{provider}', 'Auth\SocialController@callback');
 Route::group(['prefix' => 'admin'], function () {
