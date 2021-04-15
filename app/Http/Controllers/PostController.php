@@ -30,7 +30,8 @@ class PostController extends Controller
         $testimonial = $testimonial->get();
         $basic = Section::first();
         $role_id = Auth::guard('admin')->user()->role_id;
-        return view('post.index', compact(['page_title', 'testimonial', 'basic', 'role_id']));
+        $user_id = Auth::guard('admin')->user()->id;
+        return view('post.index', compact(['page_title', 'testimonial', 'basic', 'role_id', 'user_id']));
     }
 
     public function edit($id)

@@ -78,14 +78,14 @@
                                             <a href="{{ route('post.edit' , $p->id) }}"
                                                class="btn btn-sm btn-primary bold uppercase" title="Edit"><i
                                                         class="fa fa-edit"></i> </a>
-
-                                            <button type="button"
+                                                @if($user_id == $p->user_id || $role_id ==1 )
+                                                <button type="button"
                                                     class="btn btn-sm btn-danger bold uppercase delete_button"
                                                     data-toggle="modal" data-target="#DelModal"
                                                     data-id="{{ $p->id }}" title="Delete">
                                                 <i class='fa fa-trash'></i>
-                                            </button>
-
+                                                </button>
+                                                @endif
                                         </td>
                                     </tr>
                                 @endforeach

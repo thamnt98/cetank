@@ -101,6 +101,7 @@
                              style="padding: 8px 20px;font-size: 18px; width: 100%; margin-top: 10px;">
                             <b>Phân tích - Nhận định</b>
                         </div>
+                        @if($top_right_blog)
                         <article class="blog-post">
                             <div class="post-thumbnail" style="padding: 30px">
                                 <a href="#"><img class="shadow-sm bg-white rounded"
@@ -119,6 +120,7 @@
                                 <p>{{ substr(strip_tags($top_right_blog->description),0,150) }}...</p>
                             </div>
                         </article>
+                        @endif
                         <div class="row" style="background-color: white; margin:0px">
                             @foreach($right_blog as $key => $b)
                                 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" style="padding-left: 30px">
