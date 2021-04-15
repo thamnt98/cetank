@@ -111,6 +111,7 @@ class CrawalPostController extends Controller
         $data['page_title'] = "Create New Post";
         $data['basic'] = Section::first();
         $data['post'] = CrawalPost::findOrFail($id);
+        $data['role_id'] = Auth::guard('admin')->user()->role_id;
         return view('post.create', $data);
     }
 }
