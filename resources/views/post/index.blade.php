@@ -58,8 +58,8 @@
                                             @endif
                                         </td>
                                         <td style="width: 14%">
-
-                                            @if($p->status)
+                                        @if($role_id != 2)
+                                        @if($p->status)
                                                 <button type="button"
                                                         class="btn btn-sm btn-warning bold uppercase publish_button"
                                                         data-toggle="modal" data-target="#StatusModal"
@@ -74,7 +74,7 @@
                                                     <i class='fa fa-check'></i>
                                                 </button>
                                             @endif
-
+                                        @endif
                                             <a href="{{ route('post.edit' , $p->id) }}"
                                                class="btn btn-sm btn-primary bold uppercase" title="Edit"><i
                                                         class="fa fa-edit"></i> </a>

@@ -101,14 +101,14 @@
                                             {{-- @endif--}}
                                         </div>
                                     </div>
-
+                                    @if($role_id != 2)
                                     <div class="form-group">
                                         <label class="col-md-12"><strong style="text-transform: uppercase;"> Featured Status</strong> </label>
                                         <div class="col-md-12">
                                             <input data-toggle="toggle" data-onstyle="success" data-size="large" data-offstyle="danger" data-on="On" data-off="Off" data-width="100%" type="checkbox" name="fetured">
                                         </div>
                                     </div>
-
+                                    @endif
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <button type="submit" onclick="nicEditors.findEditor('area1').saveContent();" class="btn btn-primary btn-block bold btn-lg uppercase"><i class="fa fa-send"></i> Create Post</button>

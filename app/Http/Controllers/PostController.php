@@ -29,7 +29,8 @@ class PostController extends Controller
         }
         $testimonial = $testimonial->get();
         $basic = Section::first();
-        return view('post.index', compact(['page_title', 'testimonial', 'basic']));
+        $role_id = Auth::guard('admin')->user()->role_id;
+        return view('post.index', compact(['page_title', 'testimonial', 'basic', 'role_id']));
     }
 
     public function edit($id)
@@ -38,7 +39,8 @@ class PostController extends Controller
         $page_title = "Edit Post";
         $testimonial = Post::findOrFail($id);
         $basic = Section::first();
-        return view('post.edit', compact(['category', 'page_title', 'testimonial', 'basic']));
+        $role_id = Auth::guard('admin')->user()->role_id;
+        return view('post.edit', compact(['category', 'page_title', 'testimonial', 'basic', 'role_id']));
     }
 
 
@@ -52,14 +54,13 @@ class PostController extends Controller
             'tags' => 'required',
             'description' => 'required',
         ]);
-
         $data['user_id'] = $request->userId;
         $data['category_id'] = $request->category;
         $data['title'] = $request->title;
         $data['slug'] = Str::slug($request->title);
         $data['tags'] = $request->tags;
         $data['description'] = $request->description;
-        $data['fetured'] = $request->fetured == 'on' ? '1' : '0';
+        $data['status'] = $request->fetured == 'on' ? '1' : '0';
 
         if ($request->hasFile('image')) {
             File::delete(('images/post') . '/' . $r->image);
@@ -122,6 +123,7 @@ class PostController extends Controller
         $data['category'] = Category::whereStatus(1)->get();
         $data['page_title'] = "Create New Post";
         $data['basic'] = Section::first();
+        $data['role_id'] = Auth::guard('admin')->user()->role_id;
         return view('post.create', $data);
     }
 
@@ -141,7 +143,7 @@ class PostController extends Controller
         $data['slug'] = Str::slug($request->title);
         $data['tags'] = $request->tags;
         $data['description'] = $request->description;
-        $data['fetured'] = $request->fetured == 'on' ? '1' : '0';
+        $data['status'] = $request->fetured == 'on' ? '1' : '0';
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = Str::random(20);

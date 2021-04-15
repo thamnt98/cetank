@@ -69,7 +69,13 @@
                                         <div class="form-group">
                                             <label class="col-md-12"><strong style="text-transform: uppercase;">Role</strong></label>
                                             <select name="role_id" class="form-control">
-                                                <option value="2">Author</option>
+                                            @foreach(config('role') as $key => $role)
+                                            @if(old('role_id') == $key)
+                                            <option value="{{ $key }}" selected>{{ $role}}</option>
+                                            @else
+                                            <option value="{{ $key }}">{{ $role}}</option>
+                                            @endif
+                                            @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">

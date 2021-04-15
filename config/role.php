@@ -1,5 +1,5 @@
 <?php
 return [
-    1 => 'Super admin',
-    2 => 'author'
+    2 => 'author',
+    3 => 'moderator'
 ];
