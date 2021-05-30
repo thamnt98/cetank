@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'sendmail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +84,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'gemifxvn@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'robot@cetank.net'),
         'name' => env('MAIL_FROM_NAME', 'Cetank'),
     ],
 
