@@ -1,4 +1,4 @@
-body {
+/* body { */
     background-color: #f3f3f3;
     font-size: 0.875em;
     overflow-x: hidden;
@@ -21,7 +21,6 @@ ul {
 
 a {
     font-size: 13px;
-    color: #222;
 }
 
 @media only screen and (min-width: 1400px) {

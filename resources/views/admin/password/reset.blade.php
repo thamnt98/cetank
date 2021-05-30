@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Log In</title>
+    <title>Forgot Password</title>
 
 
     <!--[if lt IE 10]>
@@ -21,12 +21,6 @@
 </head>
 <body class="fix-menu">
 
-{{-- <div class="theme-loader">
-    <div class="loader-track">
-        <div class="loader-bar"></div>
-    </div>
-</div> --}}
-
 <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
 
     <div class="container">
@@ -34,7 +28,7 @@
             <div class="col-sm-12">
 
                 <div class="login-card card-block auth-body mr-auto ml-auto">
-                    <form class="md-float-material" action="{{ route('admin.login.post') }}" method="post">
+                    <form class="md-float-material" action="{{ route('admin.password.update') }}" method="post">
                         {!! csrf_field() !!}
                         <div class="text-center">
                             <img src="{{ asset('images/logo.png') }}" alt="logo.png">
@@ -42,14 +36,14 @@
                         <div class="auth-box">
                             <div class="row m-b-20">
                                 <div class="col-md-12">
-                                    <h3 class="text-center txt-primary">Admin Log In</h3>
+                                    <h3 class="text-center txt-primary">Forgot Password</h3>
                                 </div>
                             </div>
                             <hr />
-                            @if (session()->has('message'))
-                                <div class="alert alert-success alert-dismissable background-success">
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-warning alert-dismissable background-danger">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    {{ session()->get('message') }}
+                                    {{ $message }}
                                 </div>
                             @endif
                             @if($errors->any())
@@ -61,32 +55,27 @@
                                     </div>
                                 @endforeach
                             @endif
+                            <input type="hidden" name="email" value="{{ $email }}">
+                            <input type="hidden" name="token" value="{{ $token }}">
                             <div class="input-group m-t-25">
-                                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                                <input id="password" type="password" class="form-control" name="password" required autocomplete="password" placeholder="New Password">
                                 <span class="md-line"></span>
                             </div>
-                            <div class="input-group">
-                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            <div class="input-group m-t-25">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="password_confirmation" placeholder="Confirm Password">
                                 <span class="md-line"></span>
                             </div>
                             <div class="row m-t-25 text-left">
                                 <div class="col-12">
-                                    <div class="checkbox-fade fade-in-primary d-">
-                                        <label>
-                                            <input type="checkbox" id="remember-me" {{ old('remember') ? 'checked' : '' }}>
-                                            <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                            <span class="text-inverse">Remember me</span>
-                                        </label>
-                                    </div>
                                     <div class="forgot-phone text-right f-right">
-                                        <a href="{{ route('admin.password.email') }}" class="text-right"> Forgot Password?</a>
+                                        <a href="{{ route('admin.login') }}" class="text-right">Login here</a>
                                     </div>
                                 </div>
                             </div>
                             <hr>
                             <div class="row m-t-25">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Log In Now..!</button>
+                                    <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Reset password</button>
                                 </div>
                             </div>
                         </div>
@@ -101,6 +90,7 @@
     </div>
 
 </section>
+
 
 <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
 <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>

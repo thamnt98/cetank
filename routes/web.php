@@ -17,6 +17,10 @@ Route::get('/', 'HomeController@getIndex')->name('home');
 Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login.post');
 Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+Route::get('admin/password/verify', 'Admin\ForgotPasswordController@email')->name('admin.password.email');
+Route::post('admin/password/verify', 'Admin\ForgotPasswordController@verify')->name('admin.password.verify');
+Route::get('admin/password/reset', 'Admin\ForgotPasswordController@reset')->name('admin.password.reset');
+Route::post('admin/password/update', 'Admin\ForgotPasswordController@update')->name('admin.password.update');
 
 Route::get('admin-dashboard', 'DashboardController@getDashboard')->name('dashboard');
 Route::get('/{slug}', 'HomeController@getList')->name('post.list');
