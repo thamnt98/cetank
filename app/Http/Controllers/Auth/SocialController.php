@@ -38,6 +38,6 @@ class SocialController extends Controller
             'password' => $user->password
         ];
         Auth::login($user);
-        return redirect()->back();
+        return redirect(url()->previous());
     }
 }
