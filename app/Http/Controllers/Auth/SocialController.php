@@ -20,7 +20,6 @@ class SocialController extends Controller
         $getInfo = Socialite::driver($provider)->stateless()->user();
         $user = User::where('provider_id', $getInfo->id)->first();
         if (is_null($user)) {
-
             $image = $getInfo->avatar . "&access_token={$getInfo->token}";
             $fileContents = file_get_contents($image);
             $img = env('APP_URL') . 'images/' . $getInfo->id . ".jpg";
@@ -34,7 +33,11 @@ class SocialController extends Controller
                 'password' => Hash::make(Str::random(8))
             ]);
         }
-        Auth::attempt($user);
+        $data = [
+            'email' => $user->email,
+            'password' => $user->password
+        ];
+        Auth::attempt($data);
         return redirect()->route('home');
     }
 }
