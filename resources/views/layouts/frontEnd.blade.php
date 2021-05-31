@@ -10,6 +10,7 @@
         <meta name="description" content="Cetank – Tin Tức chứng khoán không chính thức số 1 Việt Nam">
         <meta name="keyword" content="cetank, bitcoin, trade signal, chứng khoán, cổ phiếu, tiền điện tử, forex, tiền tệ, vàng, tín hiệu, tin tức chứng khoán, phân tích chứng khoán">
         <meta name="author" content="Cetank">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta property="og:description" content="Cetank – Tin Tức chứng khoán không chính thức số 1 Việt Nam" />
         <meta property="og:image" content="{{ asset('images/logo.png') }}" />
     {{-- @else
