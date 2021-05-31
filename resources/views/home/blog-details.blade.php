@@ -37,7 +37,6 @@
             </article>
             <hr />
             <div style="padding:20px 50px 20px 50px; background-color: white">
-                @if(Auth::user())
                     <form method="POST" action="{{ route('comment.create') }}" style="margin-top: 30px;">
                         @csrf
                         <div class="form-group">
@@ -53,13 +52,10 @@
                             <button type=submit class="btn btn-primary">Add comment</button>
                         </div>
                     </form>
-                <!-- @else
-                    <h4 style="padding-bottom: 0px;"> Comments</h4>
-                @endif -->
                     <br>
                     @if($blog->comments)
                         @include('home.comments', ['comments' => $blog->comments, 'post_id' => $blog->id])
-                @endif
+                    @endif
             </div>
         </div>
     </div>
