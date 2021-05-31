@@ -8,11 +8,13 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use  Illuminate\Support\Facades\Session;
 
 class SocialController extends Controller
 {
     public function redirect($provider)
     {
+        Session::put('url.intended',url()->previous());
         return Socialite::driver($provider)->redirect();
     }
     public function callback($provider)
@@ -38,6 +40,6 @@ class SocialController extends Controller
             'password' => $user->password
         ];
         Auth::login($user);
-        return redirect(url()->previous());
+        return redirect(Session::get('url.intended'));
     }
 }
