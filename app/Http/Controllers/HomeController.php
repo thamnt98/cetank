@@ -199,7 +199,8 @@ class HomeController extends Controller
         //     'content' => 'required'
         // ]);
         $input= $request->all();
-        $input['user_id'] = 1;
+
+        $input['user_id'] = Auth::user()->id;
         if (isset($input['parent_id'])) {
             $input['level'] = 2;
         } else {
