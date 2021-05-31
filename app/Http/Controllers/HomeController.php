@@ -192,6 +192,9 @@ class HomeController extends Controller
     }
 
     public function createComment(Request $request){
+        if(!Auth::user()){
+            redirect('/auth/redirect/facebook');
+        }
         // $request->validate([
         //     'content' => 'required'
         // ]);

@@ -53,9 +53,9 @@
                             <button type=submit class="btn btn-primary">Add comment</button>
                         </div>
                     </form>
-                @else
+                <!-- @else
                     <h4 style="padding-bottom: 0px;"> Comments</h4>
-                @endif
+                @endif -->
                     <br>
                     @if($blog->comments)
                         @include('home.comments', ['comments' => $blog->comments, 'post_id' => $blog->id])

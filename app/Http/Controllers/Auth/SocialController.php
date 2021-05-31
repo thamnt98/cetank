@@ -37,7 +37,7 @@ class SocialController extends Controller
             'email' => $user->email,
             'password' => $user->password
         ];
-        Auth::attempt($data);
+        Auth::login($user);
         return redirect()->route('home');
     }
 }
