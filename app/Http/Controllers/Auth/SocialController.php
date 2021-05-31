@@ -34,7 +34,7 @@ class SocialController extends Controller
                 'password' => Hash::make(Str::random(8))
             ]);
         }
-        Auth::login($user);
+        Auth::attempt($user);
         return redirect()->route('home');
     }
 }
