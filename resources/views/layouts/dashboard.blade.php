@@ -260,6 +260,13 @@
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                             </li>
+                            <li class="{{ Request::is('admin/email-marketing') ? 'active' : '' }}">
+                                <a href="{{ route('email.marketing') }}">
+                                    <span class="pcoded-micon"><i class="ti-layout-grid2"></i><b>D</b></span>
+                                    <span class="pcoded-mtext">Email Marketing</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
                                 @endif
                             {{-- <li class="{{ Request::is('admin/speciality-control') ? 'active' : '' }}">
                                 <a href="{{ route('speciality-control') }}">

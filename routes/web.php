@@ -59,4 +59,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('manage-category/{product_id?}','Admin\CategoryController@editCategory')->name('category.edit');
     Route::put('manage-category/{product_id?}','Admin\CategoryController@updateCategory')->name('category.update');
     Route::delete('/manage-category/{product_id?}','Admin\CategoryController@deleteItem')->name('category.delete');
+    Route::get('email-marketing','Admin\EmailMarketingController@index')->name('email.marketing');
+    Route::post('email-marketing','Admin\EmailMarketingController@send')->name('email.marketing.send');
 });
