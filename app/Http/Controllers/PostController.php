@@ -29,9 +29,9 @@ class PostController extends Controller
             $testimonial = $testimonial->where('user_id', Auth::guard('admin')->user()->id);
         }
         $testimonial = $testimonial->get()->map(function ($post) {
-            // dd($post);
             if ($post->approved_by) {
-                $post->approved_person  = Admin::where('id', $post->approved_by)->first()->name;
+                $user =  Admin::where('id', $post->approved_by)->first();
+                $post->approved_person  = $user ? $user->name : null;
             } else {
                 $post->approved_person = null;
             }
