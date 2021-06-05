@@ -28,6 +28,7 @@
                                     <th width="10%">Category</th>
                                     <th width="25%">Title</th>
                                     <th width="15%"> Image</th>
+                                    <th width="15%"> Approved by</th>
                                     <th width="25%">Details</th>
                                     <th width="10%">Status</th>
                                     <th width="10%">Action</th>
@@ -49,6 +50,7 @@
                                                      src="{{ asset('images/post') }}/{{ $p->image }}">
                                             @endif
                                         </td>
+                                        <td>{{ $p->approved_person }}</td>
                                         <td style="width: 20%">{!! Str::limit(strip_tags($p->description),40) !!}</td>
                                         <td>
                                             @if($p->status == 1)

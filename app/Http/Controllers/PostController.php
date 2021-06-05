@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
+use App\Models\Admin;
 
 class PostController extends Controller
 {
@@ -27,7 +28,15 @@ class PostController extends Controller
         if (Auth::guard('admin')->user()->role_id == 2) {
             $testimonial = $testimonial->where('user_id', Auth::guard('admin')->user()->id);
         }
-        $testimonial = $testimonial->get();
+        $testimonial = $testimonial->get()->map(function ($post) {
+            // dd($post);
+            if ($post->approved_by) {
+                $post->approved_person  = Admin::where('id', $post->approved_by)->first()->name;
+            } else {
+                $post->approved_person = null;
+            }
+            return $post;
+        });
         $basic = Section::first();
         $role_id = Auth::guard('admin')->user()->role_id;
         $user_id = Auth::guard('admin')->user()->id;
@@ -62,6 +71,9 @@ class PostController extends Controller
         $data['tags'] = $request->tags;
         $data['description'] = $request->description;
         $data['status'] = $request->fetured == 'on' ? '1' : '0';
+        if ($data['status'] == 1) {
+            $data['approved_by'] = Auth::guard('admin')->user()->id;
+        }
 
         if ($request->hasFile('image')) {
             File::delete(('images/post') . '/' . $r->image);
@@ -103,15 +115,15 @@ class PostController extends Controller
         $data = Post::findOrFail($request->id);
         if ($data->status == 1) {
             $data->status = 0;
+            $data->approved_by = null;
             $data->save();
-
             session()->flash('message', 'Post Unpublish Successfully.');
             Session::flash('type', 'success');
             Session::flash('title', 'Success');
         } else {
             $data->status = 1;
+            $data->approved_by = Auth::guard('admin')->user()->id;
             $data->save();
-
             session()->flash('message', 'Post Publish Successfully.');
             Session::flash('type', 'success');
             Session::flash('title', 'Success');
@@ -145,6 +157,9 @@ class PostController extends Controller
         $data['tags'] = $request->tags;
         $data['description'] = $request->description;
         $data['status'] = $request->fetured == 'on' ? '1' : '0';
+        if ($data['status'] == 1) {
+            $data['approved_by'] = $request->userId;
+        }
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = Str::random(20);

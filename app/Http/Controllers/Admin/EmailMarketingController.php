@@ -21,7 +21,7 @@ class EmailMarketingController extends Controller
     {
         $data['basic'] = BasicSetting::first();
         $data['page_title'] = "Email Marketing";
-        $path = public_path('../app/Mail/templates.json');
+        $path = '/home/keynesac/cetank.net/app/Mail/templates.json';
         $templates = file_get_contents($path);
         $data['templates'] = [];
         if ($templates) {
